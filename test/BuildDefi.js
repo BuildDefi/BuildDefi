@@ -46,18 +46,22 @@ contract("BuildDefi", accounts => {
 
     it('getLiquidityFee should return 0', async () => {
       const instance = await BuildDefi.deployed();
-      assert.equal(await toNumber(instance.getLiquidityFee()), 0);
+      assert.equal(await toNumber(instance.getPurchaseLiquidityFee()), 0);
+      assert.equal(await toNumber(instance.getSaleLiquidityFee()), 0);
     });
 
     it('setLiquidityFee should revert when caller is not the owner', async () => {
       const instance = await BuildDefi.deployed();
-      await expectError(instance.setLiquidityFee(3, { from: accounts[1] }));
+      await expectError(instance.setPurchaseLiquidityFee(3, { from: accounts[1] }));
+      await expectError(instance.setSaleLiquidityFee(4, { from: accounts[1] }));
     });
 
     it('setLiquidityFee should work properly', async () => {
       const instance = await BuildDefi.deployed();
-      await instance.setLiquidityFee(3);
-      assert.equal(await toNumber(instance.getLiquidityFee()), 3);
+      await instance.setPurchaseLiquidityFee(3);
+      await instance.setSaleLiquidityFee(4);
+      assert.equal(await toNumber(instance.getPurchaseLiquidityFee()), 3);
+      assert.equal(await toNumber(instance.getSaleLiquidityFee()), 4);
     });
   });
 });

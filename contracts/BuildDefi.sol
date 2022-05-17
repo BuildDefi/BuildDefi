@@ -7,14 +7,15 @@ import './Ownable.sol';
 contract BuildDefi is ERC20Burnable, Ownable {
 
   address[] private _liquidityAddresses;
-  uint256 private _liquidityFee;
+  uint256 private _purchaseLiquidityFee;
+  uint256 private _saleLiquidityFee;
 
   constructor() ERC20("BuildDefi", "BDF") {
     _mint(msg.sender, 10000000000 * 10 ** decimals());
   }
 
   function decimals() public view virtual override returns (uint8) {
-    return 9;
+    return 18;
   }
 
   function getLiquidityAddresses() public view returns (address[] memory) {
@@ -29,11 +30,19 @@ contract BuildDefi is ERC20Burnable, Ownable {
     _liquidityAddresses = addresses;
   }
 
-  function getLiquidityFee() public view returns (uint256) {
-    return _liquidityFee;
+  function getPurchaseLiquidityFee() public view returns (uint256) {
+    return _purchaseLiquidityFee;
   }
 
-  function setLiquidityFee(uint256 newFee) external onlyOwner() {
-    _liquidityFee = newFee;
+  function setPurchaseLiquidityFee(uint256 newFee) external onlyOwner() {
+    _purchaseLiquidityFee = newFee;
+  }
+
+  function getSaleLiquidityFee() public view returns (uint256) {
+    return _saleLiquidityFee;
+  }
+
+  function setSaleLiquidityFee(uint256 newFee) external onlyOwner() {
+    _saleLiquidityFee = newFee;
   }
 }
