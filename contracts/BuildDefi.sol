@@ -7,6 +7,7 @@ import './Ownable.sol';
 contract BuildDefi is ERC20Burnable, Ownable {
 
   address[] private _liquidityAddresses;
+  uint256 private _liquidityFee;
 
   constructor() ERC20("BuildDefi", "BDF") {
     _mint(msg.sender, 10000000000 * 10 ** decimals());
@@ -20,7 +21,19 @@ contract BuildDefi is ERC20Burnable, Ownable {
     return _liquidityAddresses;
   }
 
-  // function setLiquidityAddress(address[] calldata addresses) external onlyOwner() {
-  //   _liquidityAddresses = addresses;
-  // }
+  function setLiquidityAddresses(address[] calldata addresses) external onlyOwner() {
+    for (uint i = 0; i < addresses.length; ++i) {
+      require(addresses[i] != address(0), "BuildDefi: liquidity addresses contains a zero address");
+    }
+
+    _liquidityAddresses = addresses;
+  }
+
+  function getLiquidityFee() public view returns (uint256) {
+    return _liquidityFee;
+  }
+
+  function setLiquidityFee(uint256 newFee) external onlyOwner() {
+    _liquidityFee = newFee;
+  }
 }
