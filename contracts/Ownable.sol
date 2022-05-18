@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BuildDefi
 pragma solidity ^0.8.2;
 
-import './ERC20.sol';
+import './Context.sol';
 
 abstract contract Ownable is Context {
   address private _owner;

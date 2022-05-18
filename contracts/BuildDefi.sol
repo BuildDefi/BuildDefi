@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: BuildDefi
 pragma solidity ^0.8.2;
 
-import './ERC20.sol';
 import './Ownable.sol';
-import './Libraries.sol';
+import './ERC20Burnable.sol';
+import './libraries/SafeMath.sol';
+import './libraries/Address.sol';
+import './interfaces/UniswapV2.sol';
 
 contract BuildDefi is ERC20Burnable, Ownable {
 
@@ -14,8 +16,20 @@ contract BuildDefi is ERC20Burnable, Ownable {
   uint256 private _purchaseLiquidityFee;
   uint256 private _saleLiquidityFee;
 
+  IUniswapV2Router02 public immutable uniswapV2Router;
+  address public immutable uniswapV2Pair;
+
   constructor() ERC20("BuildDefi", "BDF") {
     _mint(msg.sender, 10000000000 * 10 ** decimals());
+    IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x10ED43C718714eb63d5aA57B78B54704E256024E);
+    // 0xD99D1c33F9fC3444f8101754aBC46c52416550D1 testnet
+    // 0x10ED43C718714eb63d5aA57B78B54704E256024E bsc pancake router v2
+    // Create a uniswap pair for this new token
+    uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
+        .createPair(address(this), _uniswapV2Router.WETH());
+
+    // set the rest of the contract variables
+    uniswapV2Router = _uniswapV2Router;
   }
 
   function decimals() public view virtual override returns (uint8) {
