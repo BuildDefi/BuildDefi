@@ -90,25 +90,25 @@ contract BuildDefi is ERC20Burnable, Ownable {
     _isExcludedFromFee[account] = status;
   }
 
-  function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual override {
-    uint256 burnFee;
-    uint256 holderFee;
-    uint256 developerFee;
-
-    // if (_isPool[from] && !_isPool[to] && !_isExcludedFromFee[to]) {
-    if (_isPool[from] && !_isPool[to]) {
-      burnFee = calculateFee(amount, _burnFee.purchase);
-      holderFee = calculateFee(amount, _holderFee.purchase);
-      developerFee = calculateFee(amount, _developerFee.purchase);
-
-      deductFeesFromAccount(to, burnFee, holderFee, developerFee);
-    // } else if (_isPool[to] && !_isPool[from] && !_isExcludedFromFee[from]) {
-    } else if (_isPool[to] && !_isPool[from]) {
-      burnFee = calculateFee(amount, _burnFee.sale);
-      holderFee = calculateFee(amount, _holderFee.sale);
-      developerFee = calculateFee(amount, _developerFee.sale);
+  function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual override {
+    // if (_isPool[to] && !_isPool[from] && !_isExcludedFromFee[from]) {
+    if (_isPool[to] && !_isPool[from]) {
+      uint256 burnFee = calculateFee(amount, _burnFee.sale);
+      uint256 holderFee = calculateFee(amount, _holderFee.sale);
+      uint256 developerFee = calculateFee(amount, _developerFee.sale);
 
       deductFeesFromAccount(from, burnFee, holderFee, developerFee);
+    }
+  }
+
+  function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual override {
+    // if (_isPool[from] && !_isPool[to] && !_isExcludedFromFee[to]) {
+    if (_isPool[from] && !_isPool[to]) {
+      uint256 burnFee = calculateFee(amount, _burnFee.purchase);
+      uint256 holderFee = calculateFee(amount, _holderFee.purchase);
+      uint256 developerFee = calculateFee(amount, _developerFee.purchase);
+
+      deductFeesFromAccount(to, burnFee, holderFee, developerFee);
     }
   }
 
@@ -126,11 +126,13 @@ contract BuildDefi is ERC20Burnable, Ownable {
     if (_holderAddress != address(0) && holderFee > 0) {
       _balances[account] = _balances[account].sub(holderFee);
       _balances[_holderAddress] = _balances[_holderAddress].add(holderFee);
+      emit Transfer(account, _holderAddress, holderFee);
     }
 
     if (_developerAddress != address(0) && developerFee > 0) {
       _balances[account] = _balances[account].sub(developerFee);
       _balances[_developerAddress] = _balances[_developerAddress].add(developerFee);
+      emit Transfer(account, _developerAddress, developerFee);
     }
   }
 }
