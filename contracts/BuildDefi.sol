@@ -12,55 +12,51 @@ contract BuildDefi is ERC20Burnable, Ownable {
   using SafeMath for uint256;
   using Address for address;
 
-  address[] private _liquidityAddresses;
-  uint256 private _purchaseLiquidityFee;
-  uint256 private _saleLiquidityFee;
+  struct Fee {
+    uint256 purchase;
+    uint256 sale;
+  }
+
+  Fee private _liquidityFee;
+
+  mapping (address => bool) private _isPool;
 
   IUniswapV2Router02 public immutable uniswapV2Router;
   address public immutable uniswapV2Pair;
 
-  constructor() ERC20("BuildDefi", "BDF") {
-    _mint(msg.sender, 10000000000 * 10 ** decimals());
-    IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x10ED43C718714eb63d5aA57B78B54704E256024E);
-    // 0xD99D1c33F9fC3444f8101754aBC46c52416550D1 testnet
-    // 0x10ED43C718714eb63d5aA57B78B54704E256024E bsc pancake router v2
-    // Create a uniswap pair for this new token
+  constructor(address router) ERC20("BuildDefi", "BDF") {
+    // 0x10ED43C718714eb63d5aA57B78B54704E256024E Pancake Router v2
+    // 0xD99D1c33F9fC3444f8101754aBC46c52416550D1 Pancake Router v2 Testnet
+    IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(router);
+    // Create a uniswap pair (BDF/BNB) for this new token
     uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
         .createPair(address(this), _uniswapV2Router.WETH());
 
-    // set the rest of the contract variables
     uniswapV2Router = _uniswapV2Router;
+
+    _isPool[uniswapV2Pair] = true;
+
+    _mint(msg.sender, 10000000000 * 10 ** decimals());
   }
 
   function decimals() public view virtual override returns (uint8) {
     return 18;
   }
 
-  function getLiquidityAddresses() public view returns (address[] memory) {
-    return _liquidityAddresses;
+  function getLiquidityFee() public view returns (uint256 purchaseFee, uint256 saleFee) {
+    return (_liquidityFee.purchase, _liquidityFee.sale);
   }
 
-  function setLiquidityAddresses(address[] calldata addresses) external onlyOwner() {
-    for (uint i = 0; i < addresses.length; ++i) {
-      require(addresses[i] != address(0), "BuildDefi: liquidity addresses contains a zero address");
-    }
-
-    _liquidityAddresses = addresses;
+  function setLiquidityFee(uint256 purchaseFee, uint256 saleFee) external onlyOwner() {
+    _liquidityFee.purchase = purchaseFee;
+    _liquidityFee.sale = saleFee;
   }
 
-  function getPurchaseLiquidityFee() public view returns (uint256) {
-    return _purchaseLiquidityFee;
+  function isExcludedFromFee(address account) public view returns(bool) {
+    return _isPool[account];
   }
 
-  function setPurchaseLiquidityFee(uint256 newFee) external onlyOwner() {
-    _purchaseLiquidityFee = newFee;
-  }
-
-  function getSaleLiquidityFee() public view returns (uint256) {
-    return _saleLiquidityFee;
-  }
-
-  function setSaleLiquidityFee(uint256 newFee) external onlyOwner() {
-    _saleLiquidityFee = newFee;
+  function changeIsExcludedFromFee(address account, bool status) external onlyOwner() {
+    _isPool[account] = status;
   }
 }
