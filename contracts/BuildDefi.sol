@@ -19,16 +19,26 @@ contract BuildDefi is ERC20Burnable, Ownable {
   Fee private _burnFee;
   Fee private _holderFee;
   Fee private _developerFee;
+  uint256 private _feeDenominator;
 
   address _holderAddress;
   address _developerAddress;
 
-  mapping (address => bool) private _isPool;
+  mapping (address => bool) private _isPair;
   mapping (address => bool) private _isExcludedFromFee;
 
   constructor() ERC20("BuildDefi", "BDF") {
     _mint(msg.sender, 10000000000 * 10 ** decimals());
     _isExcludedFromFee[owner()] = true;
+    _feeDenominator = 100;
+  }
+
+  function getFeeDenominator() public view returns (uint256 feeDenominator) {
+    return _feeDenominator;
+  }
+
+  function setFeeDenominator(uint256 feeDenominator) external onlyOwner() {
+    _feeDenominator = feeDenominator;
   }
 
   function getBurnFee() public view returns (uint256 purchase, uint256 sale) {
@@ -74,12 +84,12 @@ contract BuildDefi is ERC20Burnable, Ownable {
     _developerAddress = developerAddress;
   }
 
-  function isPool(address account) public view returns (bool) {
-    return _isPool[account];
+  function isPair(address account) public view returns (bool) {
+    return _isPair[account];
   }
 
-  function setIsPool(address account, bool status) external onlyOwner() {
-    _isPool[account] = status;
+  function setIsPair(address account, bool status) external onlyOwner() {
+    _isPair[account] = status;
   }
 
   function isExcludedFromFee(address account) public view returns (bool) {
@@ -90,30 +100,26 @@ contract BuildDefi is ERC20Burnable, Ownable {
     _isExcludedFromFee[account] = status;
   }
 
-  function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual override {
-    // if (_isPool[to] && !_isPool[from] && !_isExcludedFromFee[from]) {
-    if (_isPool[to] && !_isPool[from]) {
-      uint256 burnFee = calculateFee(amount, _burnFee.sale);
-      uint256 holderFee = calculateFee(amount, _holderFee.sale);
-      uint256 developerFee = calculateFee(amount, _developerFee.sale);
-
-      deductFeesFromAccount(from, burnFee, holderFee, developerFee);
-    }
-  }
-
   function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual override {
-    // if (_isPool[from] && !_isPool[to] && !_isExcludedFromFee[to]) {
-    if (_isPool[from] && !_isPool[to]) {
-      uint256 burnFee = calculateFee(amount, _burnFee.purchase);
-      uint256 holderFee = calculateFee(amount, _holderFee.purchase);
-      uint256 developerFee = calculateFee(amount, _developerFee.purchase);
+    if (!_isExcludedFromFee[from] && !_isExcludedFromFee[to]) {
+      if (_isPair[from] && !_isPair[to]) {
+        uint256 burnFee = calculateFee(amount, _burnFee.purchase);
+        uint256 holderFee = calculateFee(amount, _holderFee.purchase);
+        uint256 developerFee = calculateFee(amount, _developerFee.purchase);
 
-      deductFeesFromAccount(to, burnFee, holderFee, developerFee);
+        deductFeesFromAccount(to, burnFee, holderFee, developerFee);
+      } else if (_isPair[to] && !_isPair[from]) {
+        uint256 burnFee = calculateFee(amount, _burnFee.sale);
+        uint256 holderFee = calculateFee(amount, _holderFee.sale);
+        uint256 developerFee = calculateFee(amount, _developerFee.sale);
+
+        deductFeesFromAccount(to, burnFee, holderFee, developerFee);
+      }
     }
   }
 
-  function calculateFee(uint256 amount, uint256 fee) private pure returns (uint256) {
-    return amount.mul(fee).div(100);
+  function calculateFee(uint256 amount, uint256 fee) private view returns (uint256) {
+    return amount.mul(fee).div(_feeDenominator);
   }
 
   function deductFeesFromAccount(address account, uint256 burnFee, uint256 holderFee, uint256 developerFee) private {
