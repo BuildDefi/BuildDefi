@@ -22,21 +22,19 @@ const numberToString = number => {
 
 contract("BuildDefi", accounts => {
   const owner = accounts[0];
-  const pool = accounts[1];
+  const pair = accounts[1];
   const developer = accounts[2];
   const holder = accounts[3];
-  const bob = accounts[4];
-  const decimals = 10 ** 18;
 
-  it('isPool should work', async () => {
+  it('isPair should work', async () => {
     const instance = await BuildDefi.deployed();
-    assert.equal(await instance.isPool(pool), false);
+    assert.equal(await instance.isPair(pair), false);
   });
 
-  it('setIsPool should work', async () => {
+  it('setIsPair should work', async () => {
     const instance = await BuildDefi.deployed();
-    await instance.setIsPool(pool, true);
-    assert.equal(await instance.isPool(pool), true);
+    await instance.setIsPair(pair, true);
+    assert.equal(await instance.isPair(pair), true);
   });
 
   it('isExcludedFromFee should work', async () => {
@@ -51,14 +49,10 @@ contract("BuildDefi", accounts => {
     assert.equal(await instance.isExcludedFromFee(developer), true);
   });
 
-  it('transfer should work', async () => {
+  it('getFeeDenominator should return (100)', async () => {
     const instance = await BuildDefi.deployed();
-    const amount = numberToString(10000 * decimals);
-    await instance.transfer(pool, numberToString(amount));
-    assert.equal(await promiseToString(instance.balanceOf(pool)), amount);
-    // assert.equal(await promiseToString(instance.balanceOf(owner)), totalSupply - amount);
-    // console.log(`balance of owner ${await promiseToString(instance.balanceOf(owner))}`);
-  })
+    assert.equal(await promiseToString(instance.getFeeDenominator()), numberToString(100));
+  });
 
   it('getBurnFee should return (0, 0)', async () => {
     const instance = await BuildDefi.deployed();
@@ -79,6 +73,13 @@ contract("BuildDefi", accounts => {
     const res = await instance.getDeveloperFee();
     assert.equal(res.purchase.toString(), 0);
     assert.equal(res.sale.toString(), 0);
+  });
+
+  it('setFeeDenominator should work', async () => {
+    const instance = await BuildDefi.deployed();
+    await instance.setFeeDenominator(1000);
+    assert.equal(await promiseToString(instance.getFeeDenominator()), numberToString(1000));
+    await instance.setFeeDenominator(100);
   });
 
   it('setBurnFee should work', async () => {
