@@ -33,6 +33,10 @@ contract BuildDefi is ERC20Burnable, Ownable {
     _feeDenominator = 100;
   }
 
+  function decimals() public view virtual override returns (uint8) {
+    return 9;
+  }
+
   function getFeeDenominator() public view returns (uint256 feeDenominator) {
     return _feeDenominator;
   }
@@ -100,22 +104,62 @@ contract BuildDefi is ERC20Burnable, Ownable {
     _isExcludedFromFee[account] = status;
   }
 
-  function _afterTokenTransfer(address from, address to, uint256 amount) internal virtual override {
-    if (!_isExcludedFromFee[from] && !_isExcludedFromFee[to]) {
-      if (_isPair[from] && !_isPair[to]) {
-        uint256 burnFee = calculateFee(amount, _burnFee.purchase);
-        uint256 holderFee = calculateFee(amount, _holderFee.purchase);
-        uint256 developerFee = calculateFee(amount, _developerFee.purchase);
+  function _transfer(
+    address sender,
+    address recipient,
+    uint256 amount
+  ) internal virtual override {
+    require(sender != address(0), "ERC20: transfer from the zero address");
+    require(recipient != address(0), "ERC20: transfer to the zero address");
 
-        deductFeesFromAccount(to, burnFee, holderFee, developerFee);
-      } else if (_isPair[to] && !_isPair[from]) {
-        uint256 burnFee = calculateFee(amount, _burnFee.sale);
-        uint256 holderFee = calculateFee(amount, _holderFee.sale);
-        uint256 developerFee = calculateFee(amount, _developerFee.sale);
+    uint256 senderBalance = _balances[sender];
+    require(senderBalance >= amount, "ERC20: transfer amount exceeds balance");
+    unchecked {
+      _balances[sender] = senderBalance.sub(amount);
+    }
 
-        deductFeesFromAccount(to, burnFee, holderFee, developerFee);
+    uint256 transferAmount = amount;
+
+    if (!_isExcludedFromFee[sender] && !_isExcludedFromFee[recipient]) {
+      uint256 burnFee;
+      uint256 holderFee;
+      uint256 developerFee;
+
+      if (_isPair[sender] && !_isPair[recipient]) {
+        burnFee = calculateFee(amount, _burnFee.purchase);
+        holderFee = calculateFee(amount, _holderFee.purchase);
+        developerFee = calculateFee(amount, _developerFee.purchase);
+      } else if (_isPair[recipient] && !_isPair[sender]) {
+        burnFee = calculateFee(amount, _burnFee.sale);
+        holderFee = calculateFee(amount, _holderFee.sale);
+        developerFee = calculateFee(amount, _developerFee.sale);
+      }
+
+      if (burnFee > 0) {
+        transferAmount = transferAmount.sub(burnFee);
+        _totalSupply -= burnFee;
+
+        emit Transfer(sender, address(0), burnFee);
+      }
+
+      if (_holderAddress != address(0) && holderFee > 0) {
+        transferAmount = transferAmount.sub(holderFee);
+        _balances[_holderAddress] = _balances[_holderAddress].add(holderFee);
+
+        emit Transfer(sender, _holderAddress, holderFee);
+      }
+
+      if (_developerAddress != address(0) && developerFee > 0) {
+        transferAmount = transferAmount.sub(developerFee);
+        _balances[_developerAddress] = _balances[_developerAddress].add(developerFee);
+
+        emit Transfer(sender, _developerAddress, developerFee);
       }
     }
+
+    _balances[recipient] = _balances[recipient].add(transferAmount);
+
+    emit Transfer(sender, recipient, transferAmount);
   }
 
   function calculateFee(uint256 amount, uint256 fee) private view returns (uint256) {
