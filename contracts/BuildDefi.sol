@@ -19,10 +19,13 @@ contract BuildDefi is ERC20Burnable, Ownable {
   Fee private _burnFee;
   Fee private _holderFee;
   Fee private _developerFee;
+  Fee private _liquidityFee;
+
   uint256 private _feeDenominator;
 
   address _holderAddress;
   address _developerAddress;
+  address _liquidityAddress;
 
   mapping (address => bool) private _isPair;
   mapping (address => bool) private _isExcludedFromFee;
@@ -72,6 +75,15 @@ contract BuildDefi is ERC20Burnable, Ownable {
     _developerFee.sale = sale;
   }
 
+  function getLiquidityFee() public view returns (uint256 purchase, uint256 sale) {
+    return (_liquidityFee.purchase, _liquidityFee.sale);
+  }
+
+  function setLiquidityFee(uint256 purchase, uint256 sale) external onlyOwner() {
+    _liquidityFee.purchase = purchase;
+    _liquidityFee.sale = sale;
+  }
+
   function getHolderAddress() public view returns (address holderAddress) {
     return _holderAddress;
   }
@@ -86,6 +98,14 @@ contract BuildDefi is ERC20Burnable, Ownable {
 
   function setDeveloperAddress(address developerAddress) external onlyOwner() {
     _developerAddress = developerAddress;
+  }
+
+  function getLiquidityAddress() public view returns (address liquidityAddress) {
+    return _liquidityAddress;
+  }
+
+  function setLiquidityAddress(address liquidityAddress) external onlyOwner() {
+    _liquidityAddress = liquidityAddress;
   }
 
   function isPair(address account) public view returns (bool) {
@@ -124,15 +144,18 @@ contract BuildDefi is ERC20Burnable, Ownable {
       uint256 burnFee;
       uint256 holderFee;
       uint256 developerFee;
+      uint256 liquidityFee;
 
       if (_isPair[sender] && !_isPair[recipient]) {
         burnFee = calculateFee(amount, _burnFee.purchase);
         holderFee = calculateFee(amount, _holderFee.purchase);
         developerFee = calculateFee(amount, _developerFee.purchase);
+        liquidityFee = calculateFee(amount, _liquidityFee.purchase);
       } else if (_isPair[recipient] && !_isPair[sender]) {
         burnFee = calculateFee(amount, _burnFee.sale);
         holderFee = calculateFee(amount, _holderFee.sale);
         developerFee = calculateFee(amount, _developerFee.sale);
+        liquidityFee = calculateFee(amount, _liquidityFee.sale);
       }
 
       if (burnFee > 0) {
@@ -155,6 +178,13 @@ contract BuildDefi is ERC20Burnable, Ownable {
 
         emit Transfer(sender, _developerAddress, developerFee);
       }
+
+      if (_liquidityAddress != address(0) && liquidityFee > 0) {
+        transferAmount = transferAmount.sub(liquidityFee);
+        _balances[_liquidityAddress] = _balances[_liquidityAddress].add(liquidityFee);
+
+        emit Transfer(sender, _liquidityAddress, liquidityFee);
+      }
     }
 
     _balances[recipient] = _balances[recipient].add(transferAmount);
@@ -164,25 +194,5 @@ contract BuildDefi is ERC20Burnable, Ownable {
 
   function calculateFee(uint256 amount, uint256 fee) private view returns (uint256) {
     return amount.mul(fee).div(_feeDenominator);
-  }
-
-  function deductFeesFromAccount(address account, uint256 burnFee, uint256 holderFee, uint256 developerFee) private {
-    if (burnFee > 0) {
-      _balances[account] = _balances[account].sub(burnFee);
-      _totalSupply -= burnFee;
-      emit Transfer(account, address(0), burnFee);
-    }
-
-    if (_holderAddress != address(0) && holderFee > 0) {
-      _balances[account] = _balances[account].sub(holderFee);
-      _balances[_holderAddress] = _balances[_holderAddress].add(holderFee);
-      emit Transfer(account, _holderAddress, holderFee);
-    }
-
-    if (_developerAddress != address(0) && developerFee > 0) {
-      _balances[account] = _balances[account].sub(developerFee);
-      _balances[_developerAddress] = _balances[_developerAddress].add(developerFee);
-      emit Transfer(account, _developerAddress, developerFee);
-    }
   }
 }

@@ -25,6 +25,7 @@ contract("BuildDefi", accounts => {
   const pair = accounts[1];
   const developer = accounts[2];
   const holder = accounts[3];
+  const liquidity = accounts[4];
 
   it('isPair should work', async () => {
     const instance = await BuildDefi.deployed();
@@ -75,6 +76,13 @@ contract("BuildDefi", accounts => {
     assert.equal(res.sale.toString(), 0);
   });
 
+  it('getLiquidityFee should return (0, 0)', async () => {
+    const instance = await BuildDefi.deployed();
+    const res = await instance.getLiquidityFee();
+    assert.equal(res.purchase.toString(), 0);
+    assert.equal(res.sale.toString(), 0);
+  });
+
   it('setFeeDenominator should work', async () => {
     const instance = await BuildDefi.deployed();
     await instance.setFeeDenominator(1000);
@@ -106,6 +114,14 @@ contract("BuildDefi", accounts => {
     assert.equal(res.sale.toNumber(), 3);
   });
 
+  it('setLiquidityFee should work', async () => {
+    const instance = await BuildDefi.deployed();
+    await instance.setLiquidityFee(5, 3);
+    const res = await instance.getLiquidityFee();
+    assert.equal(res.purchase.toNumber(), 5);
+    assert.equal(res.sale.toNumber(), 3);
+  });
+
   it('getHolderAddress should work', async () => {
     const instance = await BuildDefi.deployed();
     assert.equal(await instance.getHolderAddress(), ZERO_ADDRESS);
@@ -126,5 +142,16 @@ contract("BuildDefi", accounts => {
     const instance = await BuildDefi.deployed();
     await instance.setDeveloperAddress(developer);
     assert.equal(await instance.getDeveloperAddress(), developer);
+  });
+
+  it('getLiquidityAddress should work', async () => {
+    const instance = await BuildDefi.deployed();
+    assert.equal(await instance.getLiquidityAddress(), ZERO_ADDRESS);
+  });
+
+  it('setLiquidityAddress should work', async () => {
+    const instance = await BuildDefi.deployed();
+    await instance.setLiquidityAddress(liquidity);
+    assert.equal(await instance.getLiquidityAddress(), liquidity);
   });
 });
