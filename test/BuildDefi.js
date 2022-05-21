@@ -11,6 +11,23 @@ const expectError = async promise => {
   }
 };
 
+const expectEvents = async (promise, events) => {
+  const receipt = await promise;
+  assert.equal(receipt.logs.length, events.length, 'events not emitted as expected');
+
+  events.forEach((event, index) => {
+    assert.equal(receipt.logs[index].event, event.name, `event name ${event.name} doesn't match`);
+
+    Object.keys(event.args).forEach(key => {
+      assert.equal(
+        numberToString(receipt.logs[index].args[key]),
+        numberToString(event.args[key]),
+        `events[${index}].args.${key} values doesn't match`
+      );
+    });
+  });
+};
+
 const promiseToString = async promise => {
   const result = await promise;
   return result.toString();
@@ -153,5 +170,36 @@ contract("BuildDefi", accounts => {
     const instance = await BuildDefi.deployed();
     await instance.setLiquidityAddress(liquidity);
     assert.equal(await instance.getLiquidityAddress(), liquidity);
+  });
+
+  it('distribute should revert properly', async () => {
+    const instance = await BuildDefi.deployed();
+    // empty holder length
+    await expectError(instance.distribute([], [], 0));
+    // different holder and quota length
+    await expectError(instance.distribute([accounts[2]], [], 0));
+    // amount 0
+    await expectError(instance.distribute([accounts[2]], [1], 0));
+    // amount higher than balance
+    await expectError(instance.distribute([accounts[2]], [1], 1, { from: accounts[2]}));
+    // holder with a zero address
+    await expectError(instance.distribute([accounts[2], ZERO_ADDRESS], [1, 2], 10));
+  });
+
+  it('distribute should work', async () => {
+    const instance = await BuildDefi.deployed();
+    const holders = [accounts[2], accounts[3], accounts[4], accounts[5]];
+
+    await expectEvents(instance.distribute(holders, [1, 2, 2, 5], 1000), [
+      { name: 'Transfer', args: { from: accounts[0], to: accounts[2], value: 100 } },
+      { name: 'Transfer', args: { from: accounts[0], to: accounts[3], value: 200 } },
+      { name: 'Transfer', args: { from: accounts[0], to: accounts[4], value: 200 } },
+      { name: 'Transfer', args: { from: accounts[0], to: accounts[5], value: 500 } },
+    ]);
+
+    assert.equal(await promiseToString(instance.balanceOf(accounts[2])), numberToString(100));
+    assert.equal(await promiseToString(instance.balanceOf(accounts[3])), numberToString(200));
+    assert.equal(await promiseToString(instance.balanceOf(accounts[4])), numberToString(200));
+    assert.equal(await promiseToString(instance.balanceOf(accounts[5])), numberToString(500));
   });
 });

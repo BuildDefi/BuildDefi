@@ -129,11 +129,11 @@ contract BuildDefi is ERC20Burnable, Ownable {
     address recipient,
     uint256 amount
   ) internal virtual override {
-    require(sender != address(0), "ERC20: transfer from the zero address");
-    require(recipient != address(0), "ERC20: transfer to the zero address");
+    require(sender != address(0), "BuildDefi: transfer from the zero address");
+    require(recipient != address(0), "BuildDefi: transfer to the zero address");
 
     uint256 senderBalance = _balances[sender];
-    require(senderBalance >= amount, "ERC20: transfer amount exceeds balance");
+    require(senderBalance >= amount, "BuildDefi: transfer amount exceeds balance");
     unchecked {
       _balances[sender] = senderBalance.sub(amount);
     }
@@ -194,5 +194,39 @@ contract BuildDefi is ERC20Burnable, Ownable {
 
   function calculateFee(uint256 amount, uint256 fee) private view returns (uint256) {
     return amount.mul(fee).div(_feeDenominator);
+  }
+
+  function distribute(address[] calldata holders, uint256[] calldata quotas, uint256 amount) external {
+    require(
+      holders.length > 0 && holders.length == quotas.length,
+      "BuildDefi: holders and quotas cannot be empty and must have the same length."
+    );
+    require(
+      amount > 0 && _balances[_msgSender()] >= amount,
+      "BuildDefi: amount cannot be zeros or higher than your balance."
+    );
+
+    bool containsZeroAddress;
+    uint256 totalQuota = 0;
+
+    for (uint256 i = 0; i < holders.length; ++i) {
+      if (holders[i] == address(0)) {
+        containsZeroAddress = true;
+      }
+
+      totalQuota = totalQuota.add(quotas[i]);
+    }
+
+    require(!containsZeroAddress, "BuildDefi: cannot distribute to the zero address");
+
+    uint256 amountPerQuota = amount.div(totalQuota);
+
+    for (uint256 i = 0; i < holders.length; ++i) {
+      uint256 transferAmount = amountPerQuota.mul(quotas[i]);
+      _balances[_msgSender()] = _balances[_msgSender()].sub(transferAmount);
+      _balances[holders[i]] = _balances[holders[i]].add(transferAmount);
+
+      emit Transfer(_msgSender(), holders[i], transferAmount);
+    }
   }
 }
