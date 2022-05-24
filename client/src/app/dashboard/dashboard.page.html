@@ -2,6 +2,16 @@
   <ion-menu side="start" menuId="first" contentId="main">
     <div class="app-header">
       <ion-img src="/assets/icons/logo.png"></ion-img>
+
+      <div *ngIf="signerAddress" class="address">
+        <ion-icon name="wallet-outline" slot="start"></ion-icon>
+        <p>{{ signerAddress | address }}</p>
+      </div>
+
+      <ion-button *ngIf="!signerAddress" (click)="connectToWallet()" size="small" color="light" fill="outline">
+        <ion-icon name="wallet-outline" slot="start"></ion-icon>
+        Conectar com carteira
+      </ion-button>
     </div>
     <ion-content>
       <div class="app-content">

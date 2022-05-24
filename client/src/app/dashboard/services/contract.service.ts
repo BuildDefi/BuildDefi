@@ -1,5 +1,8 @@
 import { Injectable } from "@angular/core";
-import * as Web3 from 'web3';
+import { BehaviorSubject, from, Observable, of } from "rxjs";
+import { map, switchMap, tap } from "rxjs/operators";
+import { Contract, providers } from 'ethers';
+import { environment } from "src/environments/environment";
 
 declare let require: any;
 declare let window: any;
@@ -8,63 +11,46 @@ let tokenAbi = require('./BuildDefi.json');
 
 @Injectable({ providedIn: 'root' })
 export class ContractService {
-  private mAccount: string = null;
-  private mWeb3: any;
 
-  private mToken: any;
-  private mTokenAddress: string = "0xbc84f3bf7dd607a37f9e5848a6333e6c188d926c";
+  private contract: Contract;
 
-  constructor() {
-    if (typeof window.ethereum !== 'undefined') {
-      // Use Mist/MetaMask's provider
-      this.mWeb3 = new Web3(window.ethereum.currentProvider);
-    } else {
-      console.warn(
-        'Please use a dapp browser like mist or MetaMask plugin for chrome'
-      );
-    }
+  private mSignerAddress = new BehaviorSubject<string>(null);
 
-    console.log(this.mWeb3);
-    this.mToken = this.mWeb3.eth.contract(tokenAbi).at(this.mTokenAddress);
+  get signerAddress(): Observable<string> {
+    return this.mSignerAddress.asObservable();
   }
 
-  public async getUserBalance(): Promise<number> {
-    let account = await this.getAccount();
+  constructor() {}
 
-    return new Promise((resolve, reject) => {
-      let _web3 = this.mWeb3;
-      this.mToken.balanceOf.call(account, function (err, result) {
-        if(err != null) {
-          reject(err);
+  connectToWallet(): Observable<any> {
+    const provider = new providers.Web3Provider(window.ethereum, 'any');
+    let signer: providers.JsonRpcSigner;
+
+    return from(provider.send("eth_requestAccounts", [])).pipe(
+      switchMap(() => {
+        signer = provider.getSigner();
+        return from(signer.getChainId());
+      }),
+      switchMap(chainId => {
+        if (environment.chain.id !== chainId) {
+          throw new Error("WrongChainId");
         }
 
-        resolve(_web3.fromWei(result));
-      });
-    }) as Promise<number>;
+        this.contract = new Contract(environment.contract.address, tokenAbi, signer);
+        console.log(this.contract.functions);
+
+        return from(signer.getAddress());
+      }),
+      map(signerAddress => {
+        this.mSignerAddress.next(signerAddress);
+        return window.ethereum;
+      })
+    );
   }
 
-  private async getAccount(): Promise<string> {
-    if (this.mAccount == null) {
-      this.mAccount = await new Promise((resolve, reject) => {
-        this.mWeb3.eth.getAccounts((err, accs) => {
-          if (err != null) {
-            alert('There was an error fetching your accounts.');
-            return;
-          }
-
-          if (accs.length === 0) {
-            alert(
-              'Couldn\'t get any accounts! Make sure your Ethereum client is configured correctly.'
-            );
-            return;
-          }
-          resolve(accs[0]);
-        })
-      }) as string;
-
-      this.mWeb3.eth.defaultAccount = this.mAccount;
-    }
-
-    return Promise.resolve(this.mAccount);
+  clearConnection(): Observable<any> {
+    this.mSignerAddress.next(null);
+    this.contract = null;
+    return of({});
   }
 }

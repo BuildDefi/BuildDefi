@@ -10,6 +10,19 @@ ion-menu {
       width: 200px;
       margin: 1em 0;
     }
+
+    .address {
+      display: flex;
+      align-items: center;
+
+      ion-icon {
+        margin-right: 0.25em;
+      }
+    }
+
+    ion-button {
+      margin-bottom: 1em;
+    }
   }
 
   .app-content {
