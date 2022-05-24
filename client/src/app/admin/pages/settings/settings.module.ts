@@ -4,17 +4,17 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { SharedModule } from "src/app/shared/shared.module";
-import { DashboardPage } from "./dashboard.page";
+import { SettingsPage } from "./settings.page";
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardPage
+    component: SettingsPage
   }
 ];
 
 @NgModule({
-  declarations: [DashboardPage],
+  declarations: [SettingsPage],
   imports: [
     CommonModule,
     IonicModule,
@@ -23,4 +23,4 @@ const routes: Routes = [
     ReactiveFormsModule
   ]
 })
-export class DashboardPageModule { }
+export class SettingsPageModule { }

@@ -1,14 +1,24 @@
-import { Component } from "@angular/core";
-import { ContractService } from "../../services/contract.service";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss']
 })
-export class DashboardPage {
+export class DashboardPage implements OnInit, OnDestroy {
 
-  constructor(
-    private contractService: ContractService
-  ) { }
+  subs: Subscription[] = [];
+
+  constructor() { }
+
+  ngOnInit() { }
+
+  ngOnDestroy() {
+    this.subs.forEach(sub => {
+      if (sub) {
+        sub.unsubscribe();
+      }
+    });
+  }
 }

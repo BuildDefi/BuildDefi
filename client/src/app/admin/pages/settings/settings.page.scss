@@ -1,0 +1,26 @@
+ion-content {
+  --background: var(--ion-color-light);
+
+  ion-card {
+    h2 {
+      color: var(--ion-color-primary);
+    }
+
+    ion-row {
+      padding-bottom: 1em;
+
+      .app-header, .app-subheader {
+        ion-label {
+          p {
+            color: var(--ion-color-dark);
+            font-weight: bold;
+          }
+        }
+      }
+
+      .app-subheader {
+        padding-top: 1em;
+      }
+    }
+  }
+}

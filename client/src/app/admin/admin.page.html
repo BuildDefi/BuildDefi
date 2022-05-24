@@ -15,12 +15,19 @@
     </div>
     <ion-content>
       <div class="app-content">
+        <ion-label class="separator">
+          <h2>Páginas</h2>
+        </ion-label>
+
         <ion-list>
-          <ion-item *ngFor="let page of pages" lines="none" button (click)="navigate(page)" [class.selected]="selectedUrl === page.url" detail="false">
+          <ion-item *ngFor="let page of pages" lines="none" (click)="navigate(page)" [class.selected]="selectedUrl === page.url" button [detail]="selectedUrl !== page.url">
             <ion-icon [name]="page.icon" slot="start"></ion-icon>
-            <ion-label class="ion-text-wrap">{{ page.name }}</ion-label>
+            <ion-label class="ion-text-wrap">
+              <h2>{{ page.name }}</h2>
+            </ion-label>
           </ion-item>
-          <ion-item lines="none" button (click)="website()" detail="false">
+          <div class="separator"></div>
+          <ion-item lines="none" button (click)="website()" detail>
             <ion-icon name="earth" slot="start"></ion-icon>
             <ion-label class="ion-text-wrap">Website</ion-label>
           </ion-item>

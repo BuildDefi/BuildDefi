@@ -1,0 +1,115 @@
+<app-header>Configurações</app-header>
+<ion-content>
+  <app-responsive>
+    <ion-card>
+      <form *ngIf="form" [formGroup]="form">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" class="app-header">
+              <ion-label>
+                <h2>Configurações de Taxas</h2>
+              </ion-label>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">Denominador</ion-label>
+                <ion-input min="0" type="number" formControlName="feeDenominator"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" class="app-subheader">
+              <ion-label>
+                <p>Holder</p>
+              </ion-label>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Taxa de Compra %</ion-label>
+                <ion-input min="0" max="100" type="number" formControlName="burnFeePurchase"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Taxa de Venda %</ion-label>
+                <ion-input min="0" max="100" type="number" formControlName="burnFeeSale"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" class="app-subheader">
+              <ion-label>
+                <p>Desenvolvedor</p>
+              </ion-label>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Taxa de Compra %</ion-label>
+                <ion-input min="0" max="100" type="number" formControlName="developerFeePurchase"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Taxa de Venda %</ion-label>
+                <ion-input min="0" max="100" type="number" formControlName="developerFeeSale"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">Endereço</ion-label>
+                <ion-input type="string" formControlName="developerAddress"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" class="app-subheader">
+              <ion-label>
+                <p>Holder</p>
+              </ion-label>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Taxa de Compra %</ion-label>
+                <ion-input min="0" max="100" type="number" formControlName="holderFeePurchase"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Taxa de Venda %</ion-label>
+                <ion-input min="0" max="100" type="number" formControlName="holderFeeSale"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">Endereço</ion-label>
+                <ion-input type="string" formControlName="holderAddress"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" class="app-subheader">
+              <ion-label>
+                <p>Liquidez</p>
+              </ion-label>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Taxa de Compra %</ion-label>
+                <ion-input min="0" max="100" type="number" formControlName="liquidityFeePurchase"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Taxa de Venda %</ion-label>
+                <ion-input min="0" max="100" type="number" formControlName="liquidityFeeSale"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">Endereço</ion-label>
+                <ion-input type="string" formControlName="liquidityAddress"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-padding-top">
+              <ion-button [disabled]="!form || form.invalid" type="submit" expand="block" (click)="submit()">Salvar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ion-card>
+  </app-responsive>
+</ion-content>

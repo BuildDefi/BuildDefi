@@ -23,6 +23,11 @@ export class AdminPage {
       name: 'Início',
       url: 'dashboard'
     },
+    {
+      icon: 'settings',
+      name: 'Configurações',
+      url: 'settings'
+    },
   ];
 
   selectedUrl = 'dashboard';
@@ -63,7 +68,7 @@ export class AdminPage {
   async navigate(page: Page) {
     this.selectedUrl = page.url;
     await this.menuCtrl.close();
-    this.navCtrl.navigateRoot(['/', 'dashboard', page.url]);
+    this.navCtrl.navigateRoot(['/', 'admin', page.url]);
   }
 
   async website() {

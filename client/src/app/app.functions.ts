@@ -29,6 +29,8 @@ export const appCatchError = (
         message = 'Informe suas credenciais para se autenticar';
       } else if (message === 'WrongChainId') {
         message = 'Você deve estar conectado na rede localhost!';
+      } else if (message.endsWith('caller is not the owner')) {
+        message = 'Você não possui permissão para fazer isso!'
       } else {
         console.error(error);
       }
