@@ -78,7 +78,7 @@ export class AdminPage {
 
   async connectToWallet() {
     const loading = await appShowLoading(this.loadingCtrl);
-    loading.message = 'Conectando com carteira...';
+    loading.message = 'Conectando carteira...';
     this.contractService.connectToWallet().subscribe(provider => {
       loading.dismiss();
 
