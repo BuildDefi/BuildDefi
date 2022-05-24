@@ -1,0 +1,26 @@
+ion-toolbar {
+  --background: linear-gradient(90deg,var(--ion-color-primary), var(--ion-color-primary-tint));
+  --color: var(--ion-color-primary-contrast);
+
+  ion-menu-button {
+    padding-right: 0;
+  }
+
+  ion-title {
+    font-size: 16px;
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+  }
+
+  ion-back-button {
+    color: var(--ion-color-primary);
+  }
+
+  &.with-default-href {
+    ion-title {
+      margin-left: 0;
+    }
+  }
+}

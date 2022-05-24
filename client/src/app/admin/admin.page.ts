@@ -12,20 +12,20 @@ interface Page {
 }
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.page.html',
-  styleUrls: ['./dashboard.page.scss']
+  selector: 'app-admin',
+  templateUrl: './admin.page.html',
+  styleUrls: ['./admin.page.scss']
 })
-export class DashboardPage {
+export class AdminPage {
   pages: Page[] = [
     {
       icon: 'home',
       name: 'Início',
-      url: ''
+      url: 'dashboard'
     },
   ];
 
-  selectedUrl = '';
+  selectedUrl = 'dashboard';
   signerAddress: string;
   subs: Subscription[] = [];
   listening = false;
@@ -73,6 +73,7 @@ export class DashboardPage {
 
   async connectToWallet() {
     const loading = await appShowLoading(this.loadingCtrl);
+    loading.message = 'Conectando com carteira...';
     this.contractService.connectToWallet().subscribe(provider => {
       loading.dismiss();
 

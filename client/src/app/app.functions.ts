@@ -20,13 +20,14 @@ export const appCatchError = (
     if (error) {
       message = error.error && error.error.join ? error.error.join('. ') : error.message;
 
+      header = 'Erro de autorização';
       if (message.startsWith('missing provider')) {
         message = 'Provedor não encontrado, tente instalar Metamask!';
       } else if (message === 'User rejected the request.') {
-        header = 'Erro de autorização';
         message = 'Você precisa autorizar o acesso a carteira.';
+      } else if (message === 'A request is already in progress') {
+        message = 'Informe suas credenciais para se autenticar';
       } else if (message === 'WrongChainId') {
-        header = 'Rede errada';
         message = 'Você deve estar conectado na rede localhost!';
       } else {
         console.error(error);

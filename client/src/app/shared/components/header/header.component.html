@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar [class.with-default-href]="defaultHref">
+    <ion-buttons slot="start">
+      <ion-menu-button *ngIf="!defaultHref"></ion-menu-button>
+      <ion-back-button *ngIf="defaultHref" [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ng-content></ng-content>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>

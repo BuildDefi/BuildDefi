@@ -3,16 +3,20 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { SharedModule } from "../shared/shared.module";
-import { DashboardPage } from "./dashboard.page";
+import { AdminPage } from "./admin.page";
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardPage,
+    component: AdminPage,
     children: [
       {
+        path: 'dashboard',
+        loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule)
+      },
+      {
         path: '**',
-        redirectTo: '',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
       }
     ]
@@ -20,7 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [DashboardPage],
+  declarations: [AdminPage],
   imports: [
     CommonModule,
     IonicModule,
@@ -28,4 +32,4 @@ const routes: Routes = [
     SharedModule
   ]
 })
-export class DashboardPageModule { }
+export class AdminPageModule { }
