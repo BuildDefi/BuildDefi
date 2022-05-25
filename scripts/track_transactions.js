@@ -10,10 +10,11 @@ const bdf = new web3.eth.Contract(JSON.parse(abi), contractAddress);
   //   console.log(res);
   // })
   // console.log(await bdf.methods.totalSupply());
-  const from = 15176743;
-  const results = await bdf.getPastEvents('Transfer',  {
-    fromBlock: 18044606 - 5000,
-    toBlock: 18044606
-  });
-  console.log(results);
+  // const from = 15176743;
+  // const results = await bdf.getPastEvents('Transfer',  {
+  //   fromBlock: 18044606 - 5000,
+  //   toBlock: 18044606
+  // });
+  // console.log(results);
+  bdf.events.Transfer({}).on('data')
 })();
