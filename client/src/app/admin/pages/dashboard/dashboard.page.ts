@@ -34,14 +34,14 @@ export class DashboardPage implements OnInit, OnDestroy {
     this.dexForm = new FormGroup({
       address: new FormControl(null, {
         updateOn: 'change',
-        validators: [Validators.required]
+        validators: [Validators.required, Validators.pattern(/^0x([0-9]|[a-f]|[A-F]){40}$/)]
       })
     });
 
     this.effForm = new FormGroup({
       address: new FormControl(null, {
         updateOn: 'change',
-        validators: [Validators.required]
+        validators: [Validators.required, Validators.pattern(/^0x([0-9]|[a-f]|[A-F]){40}$/)]
       })
     });
   }
