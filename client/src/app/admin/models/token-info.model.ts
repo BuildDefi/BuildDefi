@@ -15,6 +15,7 @@ export interface TokenInfo {
   totalSupply: BigInt;
   decimals: BigInt;
   feeDenominator: BigInt;
+  holdLimit: BigInt;
   developerAddress: string;
   holderAddress: string;
   liquidityAddress: string;

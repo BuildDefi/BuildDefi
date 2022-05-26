@@ -77,7 +77,11 @@ export class SettingsPage implements OnInit, OnDestroy {
             liquidityAddress: new FormControl(info.liquidityAddress, {
               updateOn: 'change',
               validators: [Validators.required, Validators.pattern(/^0x([0-9]|[a-f]|[A-F]){40}$/)]
-            })
+            }),
+            holdLimit: new FormControl(+`${info.holdLimit}` / 10, {
+              updateOn: 'change',
+              validators: [Validators.required]
+            }),
           });
         }
       })
@@ -103,7 +107,8 @@ export class SettingsPage implements OnInit, OnDestroy {
       holderFeePurchase, holderFeeSale,
       liquidityFeePurchase, liquidityFeeSale,
       developerAddress, holderAddress,
-      liquidityAddress, feeDenominator
+      liquidityAddress, feeDenominator,
+      holdLimit
     } = this.form.value;
 
     const changed = {};
@@ -187,6 +192,16 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['liquidityAddress']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setLiquidityAddress(liquidityAddress).subscribe(() => {
+        loading.dismiss();
+      }, error => {
+        loading.dismiss();
+        appCatchError(this.alertCtrl)(error);
+      });
+    }
+
+    if (changed['holdLimit']) {
+      const loading = await appShowLoading(this.loadingCtrl);
+      this.contractService.setHoldLimit(BigInt(holdLimit * 10)).subscribe(() => {
         loading.dismiss();
       }, error => {
         loading.dismiss();

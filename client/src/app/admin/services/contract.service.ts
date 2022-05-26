@@ -76,6 +76,7 @@ export class ContractService {
       'getLiquidityFee:fe', 'totalSupply:bn', 'decimals:bn',
       'getFeeDenominator:bn', 'getDeveloperAddress',
       'getHolderAddress', 'getLiquidityAddress', 'owner',
+      'getHoldLimit:bn'
     ]).pipe(
       map(res => {
         this.mTokenInfo.next({
@@ -93,7 +94,8 @@ export class ContractService {
           developerAddress: res[7],
           holderAddress: res[8],
           liquidityAddress: res[9],
-          owner: res[10]
+          owner: res[10],
+          holdLimit: res[11]
         });
       })
     );
@@ -129,6 +131,10 @@ export class ContractService {
 
   setLiquidityAddress(address: string) {
     return this.transact(this.contract.setLiquidityAddress(address));
+  }
+
+  setHoldLimit(holdLimit: BigInt): Observable<void> {
+    return this.transact(this.contract.setHoldLimit(holdLimit));
   }
 
   private getProperties(props: string[]): Observable<any[]> {

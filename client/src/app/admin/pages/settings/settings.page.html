@@ -102,6 +102,22 @@
                 <ion-input type="string" formControlName="liquidityAddress"></ion-input>
               </ion-item>
             </ion-col>
+            <ion-col size="12" class="app-header ion-margin-top">
+              <ion-label>
+                <h2>Outras Configurações</h2>
+              </ion-label>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="stacked">Anti Baleia %</ion-label>
+                <ion-input step="0.1" min="0.1" max="100" type="number" formControlName="holdLimit"></ion-input>
+              </ion-item>
+              <p>
+                Toda compra em que o comprador acabe ficando em sua carteira
+                com uma quantidade maior que a porcentagem informado nesse
+                campo em relação ao supply será revertido.
+              </p>
+            </ion-col>
           </ion-row>
           <ion-row>
             <ion-col class="ion-padding-top">
