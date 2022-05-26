@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, from, Observable, of } from "rxjs";
-import { map, switchMap, take } from "rxjs/operators";
+import { map, switchMap, take, tap } from "rxjs/operators";
 import { Contract, providers } from 'ethers';
 import { environment } from "src/environments/environment";
 import { TokenInfo } from "../models/token-info.model";
@@ -13,8 +13,7 @@ let tokenAbi = require('./BuildDefi.json');
 @Injectable({ providedIn: 'root' })
 export class ContractService {
 
-  private contract: Contract;
-
+  private mContract = new BehaviorSubject<Contract>(null);
   private mSignerAddress = new BehaviorSubject<string>(null);
   private mTokenInfo = new BehaviorSubject<TokenInfo>(null);
 
@@ -29,6 +28,17 @@ export class ContractService {
   get takeTokenInfo() {
     return this.tokenInfo.pipe(
       take(1)
+    );
+  }
+
+  private get contract() {
+    return this.mContract.asObservable().pipe(
+      take(1),
+      tap(contract => {
+        if (!contract) {
+          throw new Error('UndefinedContract');
+        }
+      })
     );
   }
 
@@ -48,8 +58,7 @@ export class ContractService {
           throw new Error("WrongChainId");
         }
 
-        this.contract = new Contract(environment.contract.address, tokenAbi, signer);
-        console.log(this.contract.functions);
+        this.mContract.next(new Contract(environment.contract.address, tokenAbi, signer))
 
         return from(signer.getAddress());
       }),
@@ -66,7 +75,7 @@ export class ContractService {
 
   clearConnection(): Observable<any> {
     this.mSignerAddress.next(null);
-    this.contract = null;
+    this.mContract.next(null);
     return of({});
   }
 
@@ -102,51 +111,118 @@ export class ContractService {
   }
 
   setFeeDenominator(feeDenominator: BigInt): Observable<void> {
-    return this.transact(this.contract.setFeeDenominator(feeDenominator));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setFeeDenominator(feeDenominator));
+      })
+    );
   }
 
   setBurnFee(purchase: BigInt, sale: BigInt): Observable<void> {
-    return this.transact(this.contract.setBurnFee(purchase, sale));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setBurnFee(purchase, sale));
+      })
+    );
   }
 
   setDeveloperFee(purchase: BigInt, sale: BigInt): Observable<void> {
-    return this.transact(this.contract.setDeveloperFee(purchase, sale));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setDeveloperFee(purchase, sale));
+      })
+    );
   }
 
   setHolderFee(purchase: BigInt, sale: BigInt): Observable<void> {
-    return this.transact(this.contract.setHolderFee(purchase, sale));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setHolderFee(purchase, sale));
+      })
+    );
   }
 
   setLiquidityFee(purchase: BigInt, sale: BigInt): Observable<void> {
-    return this.transact(this.contract.setLiquidityFee(purchase, sale));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setLiquidityFee(purchase, sale));
+      })
+    );
   }
 
   setDeveloperAddress(address: string) {
-    return this.transact(this.contract.setDeveloperAddress(address));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setDeveloperAddress(address));
+      })
+    );
   }
 
   setHolderAddress(address: string) {
-    return this.transact(this.contract.setHolderAddress(address));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setHolderAddress(address));
+      })
+    );
   }
 
   setLiquidityAddress(address: string) {
-    return this.transact(this.contract.setLiquidityAddress(address));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setLiquidityAddress(address));
+      })
+    );
   }
 
   setHoldLimit(holdLimit: BigInt): Observable<void> {
-    return this.transact(this.contract.setHoldLimit(holdLimit));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setHoldLimit(holdLimit));
+      })
+    );
   }
 
   isPair(address: string): Observable<any> {
-    return from(this.contract.isPair(address));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return from(contract.isPair(address));
+      })
+    );
   }
 
   setIsPair(address: string, value: boolean) {
-    return this.transact(this.contract.setIsPair(address, value));
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setIsPair(address, value));
+      })
+    );
+  }
+
+  isExcludedFromFee(address: string): Observable<any> {
+    return this.contract.pipe(
+      switchMap(contract => {
+        return from(contract.isExcludedFromFee(address));
+      })
+    );
+  }
+
+  setIsExcludedFromFee(address: string, value: boolean) {
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setIsExcludedFromFee(address, value));
+      })
+    );
   }
 
   private getProperties(props: string[]): Observable<any[]> {
-    let obs: Observable<any> = of({});
+    let cContract: Contract;
+
+    let obs: Observable<any> = this.contract.pipe(
+      tap(contract => {
+        cContract = contract;
+      })
+    );
+
     let results = [];
 
     props.forEach(prop => {
@@ -154,7 +230,7 @@ export class ContractService {
 
       obs = obs.pipe(
         switchMap(() => {
-          return from(this.contract[tokens[0]]());
+          return from(cContract[tokens[0]]());
         }),
         map((res: any) => {
           switch (tokens[1]) {

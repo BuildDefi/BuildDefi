@@ -1,7 +1,7 @@
 <app-header>Dashboard</app-header>
 <ion-content>
   <app-responsive>
-    <form [formGroup]="form">
+    <form [formGroup]="dexForm">
       <ion-card>
         <ion-card-header>
           <ion-card-title>Endereços Dex</ion-card-title>
@@ -13,17 +13,43 @@
         <ion-card-content>
           <ion-item>
             <ion-label position="stacked">Endereço</ion-label>
-            <ion-input type="string" formControlName="isPairAddress"></ion-input>
+            <ion-input type="string" formControlName="address"></ion-input>
           </ion-item>
           <div class="ion-padding-top">
-            <ion-button expand="block" color="secondary" [disabled]="form.invalid" (click)="verifyIsPair()">Verificar</ion-button>
+            <ion-button expand="block" color="secondary" [disabled]="dexForm.invalid" (click)="verifyIsPair()">Verificar</ion-button>
           </div>
-          <div *ngIf="result" class="is-pair-result">
+           <div *ngIf="dexResult" class="is-pair-result">
             <ion-label>
               <h2>Resultado:</h2>
-              <p>{{ result.address | address }} {{ result.value ? '' : 'não' }} é uma Dex</p>
+              <p>{{ dexResult.address | address }} {{ dexResult.value ? '' : 'não' }} é uma Dex</p>
             </ion-label>
-            <ion-button fill="outline" size="small" (click)="toggleIsPair()">{{ result.value ? 'Desativar' : 'Ativar' }} como Dex</ion-button>
+            <ion-button fill="outline" size="small" (click)="toggleIsPair()">{{ dexResult.value ? 'Desativar' : 'Ativar' }} como Dex</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </form>
+    <form [formGroup]="effForm">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Endereços Isentos</ion-card-title>
+          <ion-card-subtitle>
+            Verifique ou defina se um endereço é isento de taxa ou não
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">Endereço</ion-label>
+            <ion-input type="string" formControlName="address"></ion-input>
+          </ion-item>
+          <div class="ion-padding-top">
+            <ion-button expand="block" color="secondary" [disabled]="effForm.invalid" (click)="verifyIsExcludedFromFee()">Verificar</ion-button>
+          </div>
+           <div *ngIf="effResult" class="is-pair-result">
+            <ion-label>
+              <h2>Resultado:</h2>
+              <p>{{ effResult.address | address }} {{ effResult.value ? '' : 'não' }} é isento</p>
+            </ion-label>
+            <ion-button fill="outline" size="small" (click)="toggleIsExcludedFromFee()">{{ effResult.value ? 'Desativar' : 'Ativar' }} como Isento</ion-button>
           </div>
         </ion-card-content>
       </ion-card>

@@ -31,6 +31,10 @@ export const appCatchError = (
         message = 'Você deve estar conectado na rede localhost!';
       } else if (message.endsWith('caller is not the owner')) {
         message = 'Você não possui permissão para fazer isso!'
+      } else if (message.includes('invalid address')) {
+        message = 'Endereço inválido!'
+      } else if (message === 'UndefinedContract') {
+        message = 'Conecte-se com uma carteira primeiro!'
       } else {
         console.error(error);
       }

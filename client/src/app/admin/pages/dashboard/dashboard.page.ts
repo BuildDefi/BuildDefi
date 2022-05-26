@@ -5,7 +5,7 @@ import { Subscription } from "rxjs";
 import { appCatchError, appShowLoading } from "src/app/app.functions";
 import { ContractService } from "../../services/contract.service";
 
-interface IsPairResult {
+interface Result {
   address: string;
   value?: boolean;
 }
@@ -17,10 +17,12 @@ interface IsPairResult {
 })
 export class DashboardPage implements OnInit, OnDestroy {
 
-  form: FormGroup;
+  dexForm: FormGroup;
+  effForm: FormGroup;
   subs: Subscription[] = [];
   showPairResult = true;
-  result: IsPairResult;
+  dexResult: Result;
+  effResult: Result;
 
   constructor(
     private alertCtrl: AlertController,
@@ -29,8 +31,15 @@ export class DashboardPage implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      isPairAddress: new FormControl(null, {
+    this.dexForm = new FormGroup({
+      address: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required]
+      })
+    });
+
+    this.effForm = new FormGroup({
+      address: new FormControl(null, {
         updateOn: 'change',
         validators: [Validators.required]
       })
@@ -46,15 +55,15 @@ export class DashboardPage implements OnInit, OnDestroy {
   }
 
   async verifyIsPair() {
-    if (this.form.invalid) {
+    if (this.dexForm.invalid) {
       return;
     }
 
-    const { isPairAddress } = this.form.value;
+    const { address } = this.dexForm.value;
     const loading = await appShowLoading(this.loadingCtrl);
-    this.contractService.isPair(isPairAddress).subscribe(value => {
+    this.contractService.isPair(address).subscribe(value => {
       loading.dismiss();
-      this.result = { address: isPairAddress, value };
+      this.dexResult = { address, value };
     }, error => {
       loading.dismiss();
       appCatchError(this.alertCtrl)(error);
@@ -63,9 +72,36 @@ export class DashboardPage implements OnInit, OnDestroy {
 
   async toggleIsPair() {
     const loading = await appShowLoading(this.loadingCtrl);
-    this.contractService.setIsPair(this.result.address, !this.result.value).subscribe(() => {
+    this.contractService.setIsPair(this.dexResult.address, !this.dexResult.value).subscribe(() => {
       loading.dismiss();
-      this.result.value = !this.result.value;
+      this.dexResult.value = !this.dexResult.value;
+    }, error => {
+      loading.dismiss();
+      appCatchError(this.alertCtrl)(error);
+    });
+  }
+
+  async verifyIsExcludedFromFee() {
+    if (this.effForm.invalid) {
+      return;
+    }
+
+    const { address } = this.effForm.value;
+    const loading = await appShowLoading(this.loadingCtrl);
+    this.contractService.isExcludedFromFee(address).subscribe(value => {
+      loading.dismiss();
+      this.effResult = { address, value };
+    }, error => {
+      loading.dismiss();
+      appCatchError(this.alertCtrl)(error);
+    });
+  }
+
+  async toggleIsExcludedFromFee() {
+    const loading = await appShowLoading(this.loadingCtrl);
+    this.contractService.setIsExcludedFromFee(this.effResult.address, !this.effResult.value).subscribe(() => {
+      loading.dismiss();
+      this.effResult.value = !this.effResult.value;
     }, error => {
       loading.dismiss();
       appCatchError(this.alertCtrl)(error);
