@@ -137,6 +137,14 @@ export class ContractService {
     return this.transact(this.contract.setHoldLimit(holdLimit));
   }
 
+  isPair(address: string): Observable<any> {
+    return from(this.contract.isPair(address));
+  }
+
+  setIsPair(address: string, value: boolean) {
+    return this.transact(this.contract.setIsPair(address, value));
+  }
+
   private getProperties(props: string[]): Observable<any[]> {
     let obs: Observable<any> = of({});
     let results = [];
