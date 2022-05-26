@@ -50,7 +50,7 @@ const public_holders_over_100_quote = public_holders_over_100.map(holder => {
 const all_holders_quote = public_holders_over_100_quote.concat(private_holders_over_40_quote);
 
 // const total = 1000;
-const total = 2194426;
+const total = 1964550;
 
 let totalQuote = 0;
 all_holders_quote.forEach(holder => {

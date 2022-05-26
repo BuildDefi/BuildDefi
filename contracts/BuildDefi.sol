@@ -30,6 +30,8 @@ contract BuildDefi is ERC20Burnable, Ownable {
   mapping (address => bool) private _isPair;
   mapping (address => bool) private _isExcludedFromFee;
 
+  uint256 private _holdLimit;
+
   constructor() ERC20("BuildDefi", "BDF") {
     _mint(msg.sender, 10000000000 * 10 ** decimals());
     _isExcludedFromFee[owner()] = true;
@@ -124,6 +126,14 @@ contract BuildDefi is ERC20Burnable, Ownable {
     _isExcludedFromFee[account] = status;
   }
 
+  function getHoldLimit() public view returns (uint256 holdLimit) {
+    return _holdLimit;
+  }
+
+  function setHoldLimit(uint256 holdLimit) external onlyOwner() {
+    _holdLimit = holdLimit;
+  }
+
   function _transfer(
     address sender,
     address recipient,
@@ -147,6 +157,9 @@ contract BuildDefi is ERC20Burnable, Ownable {
       uint256 liquidityFee;
 
       if (_isPair[sender] && !_isPair[recipient]) {
+        uint256 supplyLimit = _totalSupply.mul(_holdLimit).div(1000);
+        require(_balances[recipient].add(transferAmount) < supplyLimit, "BuildDefi: transfer amount exceeds holdLimit");
+
         burnFee = calculateFee(amount, _burnFee.purchase);
         holderFee = calculateFee(amount, _holderFee.purchase);
         developerFee = calculateFee(amount, _developerFee.purchase);

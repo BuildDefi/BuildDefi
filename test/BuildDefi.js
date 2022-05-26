@@ -100,6 +100,11 @@ contract("BuildDefi", accounts => {
     assert.equal(res.sale.toString(), 0);
   });
 
+  it('getHoldLimit should return (0)', async () => {
+    const instance = await BuildDefi.deployed();
+    assert.equal(await promiseToString(instance.getHoldLimit()), numberToString(0));
+  });
+
   it('setFeeDenominator should work', async () => {
     const instance = await BuildDefi.deployed();
     await instance.setFeeDenominator(1000);
@@ -172,6 +177,12 @@ contract("BuildDefi", accounts => {
     assert.equal(await instance.getLiquidityAddress(), liquidity);
   });
 
+  it('setHoldLimit should work', async () => {
+    const instance = await BuildDefi.deployed();
+    await instance.setHoldLimit(10);
+    assert.equal(await promiseToString(instance.getHoldLimit()), numberToString(10));
+  });
+
   it('distribute should revert properly', async () => {
     const instance = await BuildDefi.deployed();
     // empty holder length
@@ -201,5 +212,24 @@ contract("BuildDefi", accounts => {
     assert.equal(await promiseToString(instance.balanceOf(accounts[3])), numberToString(200));
     assert.equal(await promiseToString(instance.balanceOf(accounts[4])), numberToString(200));
     assert.equal(await promiseToString(instance.balanceOf(accounts[5])), numberToString(500));
+  });
+
+  it('transfer from pair should revert when amount of recipient exceeds holdLimit', async () => {
+    const instance = await BuildDefi.deployed();
+    // 10,000,000,000.000000000 supply
+    //    100,000,000.000000000 holderLimit of 10 = 1% of supply
+    //     10,000,000.000000000 holderLimit of  1 = 0.1% of supply
+    await instance.transfer(pair, '1000000000000000000', { from: owner });
+    await instance.setHoldLimit(1);
+    // transfer exceeds 0.1% of supply
+    await expectError(instance.transfer(accounts[5], '10000000000000000', { from: pair }));
+    await instance.setHoldLimit(10);
+    assert.equal(await promiseToString(instance.balanceOf(accounts[5])), '500');
+    await instance.transfer(accounts[5], '90000000000000000', { from: pair });
+    assert.equal(await promiseToString(instance.balanceOf(accounts[5])), '78300000000000500');
+    // transfer exceeds 1% of supply
+    await expectError(instance.transfer(accounts[5], '21699999999999500', { from: pair }));
+    // should not revert when sender is not a pair
+    await instance.transfer(accounts[5], '21699999999999500', { from: owner });
   });
 });
