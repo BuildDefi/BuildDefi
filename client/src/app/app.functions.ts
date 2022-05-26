@@ -35,6 +35,8 @@ export const appCatchError = (
         message = 'Endereço inválido!'
       } else if (message === 'UndefinedContract') {
         message = 'Conecte-se com uma carteira primeiro!'
+      } else if (message === 'User rejected the transaction') {
+        message = 'Operação cancelada pelo usuário!';
       } else {
         console.error(error);
       }
