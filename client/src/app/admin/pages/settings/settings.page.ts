@@ -34,14 +34,6 @@ export class SettingsPage implements OnInit, OnDestroy {
               updateOn: 'change',
               validators: [Validators.required]
             }),
-            burnFeePurchase: new FormControl(info.burnFeePurchase, {
-              updateOn: 'change',
-              validators: [Validators.required]
-            }),
-            burnFeeSale: new FormControl(info.burnFeeSale, {
-              updateOn: 'change',
-              validators: [Validators.required]
-            }),
             developerFeePurchase: new FormControl(info.developerFeePurchase, {
               updateOn: 'change',
               validators: [Validators.required]
@@ -66,6 +58,14 @@ export class SettingsPage implements OnInit, OnDestroy {
               updateOn: 'change',
               validators: [Validators.required]
             }),
+            otherFeePurchase: new FormControl(info.otherFeePurchase, {
+              updateOn: 'change',
+              validators: [Validators.required]
+            }),
+            otherFeeSale: new FormControl(info.otherFeeSale, {
+              updateOn: 'change',
+              validators: [Validators.required]
+            }),
             developerAddress: new FormControl(info.developerAddress, {
               updateOn: 'change',
               validators: [Validators.required, Validators.pattern(/^0x([0-9]|[a-f]|[A-F]){40}$/)]
@@ -75,6 +75,10 @@ export class SettingsPage implements OnInit, OnDestroy {
               validators: [Validators.required, Validators.pattern(/^0x([0-9]|[a-f]|[A-F]){40}$/)]
             }),
             liquidityAddress: new FormControl(info.liquidityAddress, {
+              updateOn: 'change',
+              validators: [Validators.required, Validators.pattern(/^0x([0-9]|[a-f]|[A-F]){40}$/)]
+            }),
+            otherAddress: new FormControl(info.otherAddress, {
               updateOn: 'change',
               validators: [Validators.required, Validators.pattern(/^0x([0-9]|[a-f]|[A-F]){40}$/)]
             }),
@@ -102,13 +106,13 @@ export class SettingsPage implements OnInit, OnDestroy {
     }
 
     const {
-      burnFeePurchase, burnFeeSale,
       developerFeePurchase, developerFeeSale,
       holderFeePurchase, holderFeeSale,
       liquidityFeePurchase, liquidityFeeSale,
+      otherFeePurchase, otherFeeSale,
       developerAddress, holderAddress,
-      liquidityAddress, feeDenominator,
-      holdLimit
+      liquidityAddress, otherAddress,
+      feeDenominator, holdLimit
     } = this.form.value;
 
     const changed = {};
@@ -122,16 +126,6 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['feeDenominator']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setFeeDenominator(feeDenominator).subscribe(() => {
-        loading.dismiss();
-      }, error => {
-        loading.dismiss();
-        appCatchError(this.alertCtrl)(error);
-      });
-    }
-
-    if (changed['burnFeePurchase'] || changed['burnFeeSale']) {
-      const loading = await appShowLoading(this.loadingCtrl);
-      this.contractService.setBurnFee(burnFeePurchase, burnFeeSale).subscribe(() => {
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -169,6 +163,16 @@ export class SettingsPage implements OnInit, OnDestroy {
       });
     }
 
+    if (changed['otherFeePurchase'] || changed['otherFeeSale']) {
+      const loading = await appShowLoading(this.loadingCtrl);
+      this.contractService.setOtherFee(otherFeePurchase, otherFeeSale).subscribe(() => {
+        loading.dismiss();
+      }, error => {
+        loading.dismiss();
+        appCatchError(this.alertCtrl)(error);
+      });
+    }
+
     if (changed['developerAddress']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setDeveloperAddress(developerAddress).subscribe(() => {
@@ -192,6 +196,16 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['liquidityAddress']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setLiquidityAddress(liquidityAddress).subscribe(() => {
+        loading.dismiss();
+      }, error => {
+        loading.dismiss();
+        appCatchError(this.alertCtrl)(error);
+      });
+    }
+
+    if (changed['otherAddress']) {
+      const loading = await appShowLoading(this.loadingCtrl);
+      this.contractService.setOtherAddress(otherAddress).subscribe(() => {
         loading.dismiss();
       }, error => {
         loading.dismiss();

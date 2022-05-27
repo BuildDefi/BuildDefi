@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   contract: {
-    address: '0xa003A6052BbA2C6278D3e68C8E101a4a513d5E28'
+    address: '0x5ba2CB5CdcE4874C5eEeD506E989a44b2D5De100'
   },
   chain: {
     id: 1337,

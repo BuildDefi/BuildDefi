@@ -43,6 +43,7 @@ contract("BuildDefi", accounts => {
   const developer = accounts[2];
   const holder = accounts[3];
   const liquidity = accounts[4];
+  const other = accounts[6];
 
   it('isPair should work', async () => {
     const instance = await BuildDefi.deployed();
@@ -72,13 +73,6 @@ contract("BuildDefi", accounts => {
     assert.equal(await promiseToString(instance.getFeeDenominator()), numberToString(100));
   });
 
-  it('getBurnFee should return (0, 0)', async () => {
-    const instance = await BuildDefi.deployed();
-    const res = await instance.getBurnFee();
-    assert.equal(res.purchase.toNumber(), 0);
-    assert.equal(res.sale.toNumber(), 0);
-  });
-
   it('getHolderFee should return (0, 0)', async () => {
     const instance = await BuildDefi.deployed();
     const res = await instance.getHolderFee();
@@ -100,6 +94,13 @@ contract("BuildDefi", accounts => {
     assert.equal(res.sale.toString(), 0);
   });
 
+  it('getOtherFee should return (0, 0)', async () => {
+    const instance = await BuildDefi.deployed();
+    const res = await instance.getOtherFee();
+    assert.equal(res.purchase.toNumber(), 0);
+    assert.equal(res.sale.toNumber(), 0);
+  });
+
   it('getHoldLimit should return (0)', async () => {
     const instance = await BuildDefi.deployed();
     assert.equal(await promiseToString(instance.getHoldLimit()), numberToString(0));
@@ -110,14 +111,6 @@ contract("BuildDefi", accounts => {
     await instance.setFeeDenominator(1000);
     assert.equal(await promiseToString(instance.getFeeDenominator()), numberToString(1000));
     await instance.setFeeDenominator(100);
-  });
-
-  it('setBurnFee should work', async () => {
-    const instance = await BuildDefi.deployed();
-    await instance.setBurnFee(3, 2);
-    const res = await instance.getBurnFee();
-    assert.equal(res.purchase.toNumber(), 3);
-    assert.equal(res.sale.toNumber(), 2);
   });
 
   it('setHolderFee should work', async () => {
@@ -142,6 +135,14 @@ contract("BuildDefi", accounts => {
     const res = await instance.getLiquidityFee();
     assert.equal(res.purchase.toNumber(), 5);
     assert.equal(res.sale.toNumber(), 3);
+  });
+
+  it('setOtherFee should work', async () => {
+    const instance = await BuildDefi.deployed();
+    await instance.setOtherFee(3, 2);
+    const res = await instance.getOtherFee();
+    assert.equal(res.purchase.toNumber(), 3);
+    assert.equal(res.sale.toNumber(), 2);
   });
 
   it('getHolderAddress should work', async () => {
@@ -175,6 +176,17 @@ contract("BuildDefi", accounts => {
     const instance = await BuildDefi.deployed();
     await instance.setLiquidityAddress(liquidity);
     assert.equal(await instance.getLiquidityAddress(), liquidity);
+  });
+
+  it('getOtherAddress should work', async () => {
+    const instance = await BuildDefi.deployed();
+    assert.equal(await instance.getOtherAddress(), ZERO_ADDRESS);
+  });
+
+  it('setOtherAddress should work', async () => {
+    const instance = await BuildDefi.deployed();
+    await instance.setOtherAddress(other);
+    assert.equal(await instance.getOtherAddress(), other);
   });
 
   it('setHoldLimit should work', async () => {

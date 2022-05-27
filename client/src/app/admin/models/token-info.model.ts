@@ -4,14 +4,14 @@ export interface Fee {
 }
 
 export interface TokenInfo {
-  burnFeePurchase: BigInt;
-  burnFeeSale: BigInt;
   developerFeePurchase: BigInt;
   developerFeeSale: BigInt;
   holderFeePurchase: BigInt;
   holderFeeSale: BigInt;
   liquidityFeePurchase: BigInt;
   liquidityFeeSale: BigInt;
+  otherFeePurchase: BigInt;
+  otherFeeSale: BigInt;
   totalSupply: BigInt;
   decimals: BigInt;
   feeDenominator: BigInt;
@@ -19,5 +19,6 @@ export interface TokenInfo {
   developerAddress: string;
   holderAddress: string;
   liquidityAddress: string;
+  otherAddress: string;
   owner: string;
 }

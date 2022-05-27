@@ -16,16 +16,17 @@ contract BuildDefi is ERC20Burnable, Ownable {
     uint256 sale;
   }
 
-  Fee private _burnFee;
   Fee private _holderFee;
   Fee private _developerFee;
   Fee private _liquidityFee;
+  Fee private _otherFee;
 
   uint256 private _feeDenominator;
 
   address _holderAddress;
   address _developerAddress;
   address _liquidityAddress;
+  address _otherAddress;
 
   mapping (address => bool) private _isPair;
   mapping (address => bool) private _isExcludedFromFee;
@@ -48,15 +49,6 @@ contract BuildDefi is ERC20Burnable, Ownable {
 
   function setFeeDenominator(uint256 feeDenominator) external onlyOwner() {
     _feeDenominator = feeDenominator;
-  }
-
-  function getBurnFee() public view returns (uint256 purchase, uint256 sale) {
-    return (_burnFee.purchase, _burnFee.sale);
-  }
-
-  function setBurnFee(uint256 purchase, uint256 sale) external onlyOwner() {
-    _burnFee.purchase = purchase;
-    _burnFee.sale = sale;
   }
 
   function getHolderFee() public view returns (uint256 purchase, uint256 sale) {
@@ -86,6 +78,15 @@ contract BuildDefi is ERC20Burnable, Ownable {
     _liquidityFee.sale = sale;
   }
 
+  function getOtherFee() public view returns (uint256 purchase, uint256 sale) {
+    return (_otherFee.purchase, _otherFee.sale);
+  }
+
+  function setOtherFee(uint256 purchase, uint256 sale) external onlyOwner() {
+    _otherFee.purchase = purchase;
+    _otherFee.sale = sale;
+  }
+
   function getHolderAddress() public view returns (address holderAddress) {
     return _holderAddress;
   }
@@ -108,6 +109,14 @@ contract BuildDefi is ERC20Burnable, Ownable {
 
   function setLiquidityAddress(address liquidityAddress) external onlyOwner() {
     _liquidityAddress = liquidityAddress;
+  }
+
+  function getOtherAddress() public view returns (address otherAddress) {
+    return _otherAddress;
+  }
+
+  function setOtherAddress(address otherAddress) external onlyOwner() {
+    _otherAddress = otherAddress;
   }
 
   function isPair(address account) public view returns (bool) {
@@ -151,31 +160,24 @@ contract BuildDefi is ERC20Burnable, Ownable {
     uint256 transferAmount = amount;
 
     if (!_isExcludedFromFee[sender] && !_isExcludedFromFee[recipient]) {
-      uint256 burnFee;
       uint256 holderFee;
       uint256 developerFee;
       uint256 liquidityFee;
+      uint256 otherFee;
 
       if (_isPair[sender] && !_isPair[recipient]) {
         uint256 supplyLimit = _totalSupply.mul(_holdLimit).div(1000);
         require(_balances[recipient].add(transferAmount) < supplyLimit, "BuildDefi: transfer amount exceeds holdLimit");
 
-        burnFee = calculateFee(amount, _burnFee.purchase);
         holderFee = calculateFee(amount, _holderFee.purchase);
         developerFee = calculateFee(amount, _developerFee.purchase);
         liquidityFee = calculateFee(amount, _liquidityFee.purchase);
+        otherFee = calculateFee(amount, _otherFee.purchase);
       } else if (_isPair[recipient] && !_isPair[sender]) {
-        burnFee = calculateFee(amount, _burnFee.sale);
         holderFee = calculateFee(amount, _holderFee.sale);
         developerFee = calculateFee(amount, _developerFee.sale);
         liquidityFee = calculateFee(amount, _liquidityFee.sale);
-      }
-
-      if (burnFee > 0) {
-        transferAmount = transferAmount.sub(burnFee);
-        _totalSupply -= burnFee;
-
-        emit Transfer(sender, address(0), burnFee);
+        otherFee = calculateFee(amount, _otherFee.sale);
       }
 
       if (_holderAddress != address(0) && holderFee > 0) {
@@ -197,6 +199,13 @@ contract BuildDefi is ERC20Burnable, Ownable {
         _balances[_liquidityAddress] = _balances[_liquidityAddress].add(liquidityFee);
 
         emit Transfer(sender, _liquidityAddress, liquidityFee);
+      }
+
+      if (_otherAddress != address(0) && otherFee > 0) {
+        transferAmount = transferAmount.sub(otherFee);
+        _balances[_otherAddress] = _balances[_otherAddress].add(otherFee);
+
+        emit Transfer(sender, address(0), otherFee);
       }
     }
 

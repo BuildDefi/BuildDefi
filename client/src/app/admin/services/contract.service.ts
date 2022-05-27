@@ -81,30 +81,31 @@ export class ContractService {
 
   fetchInfo(): Observable<void> {
     return this.getProperties([
-      'getBurnFee:fe', 'getDeveloperFee:fe', 'getHolderFee:fe',
-      'getLiquidityFee:fe', 'totalSupply:bn', 'decimals:bn',
+      'getDeveloperFee:fe', 'getHolderFee:fe',
+      'getLiquidityFee:fe', 'getOtherFee:fe', 'totalSupply:bn', 'decimals:bn',
       'getFeeDenominator:bn', 'getDeveloperAddress',
-      'getHolderAddress', 'getLiquidityAddress', 'owner',
-      'getHoldLimit:bn'
+      'getHolderAddress', 'getLiquidityAddress', 'getOtherAddress',
+      'owner', 'getHoldLimit:bn'
     ]).pipe(
       map(res => {
         this.mTokenInfo.next({
-          burnFeePurchase: res[0].purchase,
-          burnFeeSale: res[0].sale,
-          developerFeePurchase: res[1].purchase,
-          developerFeeSale: res[1].sale,
-          holderFeePurchase: res[2].purchase,
-          holderFeeSale: res[2].sale,
-          liquidityFeePurchase: res[3].purchase,
-          liquidityFeeSale: res[3].sale,
+          developerFeePurchase: res[0].purchase,
+          developerFeeSale: res[0].sale,
+          holderFeePurchase: res[1].purchase,
+          holderFeeSale: res[1].sale,
+          liquidityFeePurchase: res[2].purchase,
+          liquidityFeeSale: res[2].sale,
+          otherFeePurchase: res[3].purchase,
+          otherFeeSale: res[3].sale,
           totalSupply: res[4] / (BigInt(10) ** res[5]),
           decimals: res[5],
           feeDenominator: res[6],
           developerAddress: res[7],
           holderAddress: res[8],
           liquidityAddress: res[9],
-          owner: res[10],
-          holdLimit: res[11]
+          otherAddress: res[10],
+          owner: res[11],
+          holdLimit: res[12]
         });
       })
     );
@@ -114,14 +115,6 @@ export class ContractService {
     return this.contract.pipe(
       switchMap(contract => {
         return this.transact(contract.setFeeDenominator(feeDenominator));
-      })
-    );
-  }
-
-  setBurnFee(purchase: BigInt, sale: BigInt): Observable<void> {
-    return this.contract.pipe(
-      switchMap(contract => {
-        return this.transact(contract.setBurnFee(purchase, sale));
       })
     );
   }
@@ -150,6 +143,14 @@ export class ContractService {
     );
   }
 
+  setOtherFee(purchase: BigInt, sale: BigInt): Observable<void> {
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setOtherFee(purchase, sale));
+      })
+    );
+  }
+
   setDeveloperAddress(address: string) {
     return this.contract.pipe(
       switchMap(contract => {
@@ -170,6 +171,14 @@ export class ContractService {
     return this.contract.pipe(
       switchMap(contract => {
         return this.transact(contract.setLiquidityAddress(address));
+      })
+    );
+  }
+
+  setOtherAddress(address: string) {
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.setOtherAddress(address));
       })
     );
   }
