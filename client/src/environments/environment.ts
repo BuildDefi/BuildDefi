@@ -11,6 +11,13 @@ export const environment = {
     id: 1337,
     name: 'localhost'
   }
+  // contract: {
+  //   address: '0xa379af6372d736Bd8C92CCC45B74ECD2dE90836f'
+  // },
+  // chain: {
+  //   id: 97,
+  //   name: 'Smart Chain Testnet'
+  // }
 };
 
 /*
