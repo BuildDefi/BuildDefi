@@ -223,6 +223,14 @@ export class ContractService {
     );
   }
 
+  burn(value: string) {
+    return this.contract.pipe(
+      switchMap(contract => {
+        return this.transact(contract.burn(value));
+      })
+    );
+  }
+
   private getProperties(props: string[]): Observable<any[]> {
     let cContract: Contract;
 

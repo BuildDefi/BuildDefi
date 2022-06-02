@@ -19,6 +19,7 @@ export class DashboardPage implements OnInit, OnDestroy {
 
   dexForm: FormGroup;
   effForm: FormGroup;
+  burnForm: FormGroup;
   subs: Subscription[] = [];
   showPairResult = true;
   dexResult: Result;
@@ -42,6 +43,13 @@ export class DashboardPage implements OnInit, OnDestroy {
       address: new FormControl(null, {
         updateOn: 'change',
         validators: [Validators.required, Validators.pattern(/^0x([0-9]|[a-f]|[A-F]){40}$/)]
+      })
+    });
+
+    this.burnForm = new FormGroup({
+      value: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required]
       })
     });
   }
@@ -102,6 +110,23 @@ export class DashboardPage implements OnInit, OnDestroy {
     this.contractService.setIsExcludedFromFee(this.effResult.address, !this.effResult.value).subscribe(() => {
       loading.dismiss();
       this.effResult.value = !this.effResult.value;
+    }, error => {
+      loading.dismiss();
+      appCatchError(this.alertCtrl)(error);
+    });
+  }
+
+  async burn() {
+    const loading = await appShowLoading(this.loadingCtrl);
+    this.contractService.burn(this.burnForm.value.value).subscribe(async () => {
+      loading.dismiss();
+      const alert = await this.alertCtrl.create({
+        header: 'Queimar Tokens',
+        message: `Os ${this.burnForm.value.value} tokens foram queimados com sucesso`,
+        buttons: ['Ok']
+      });
+      alert.present();
+      this.burnForm.controls.value.patchValue(null);
     }, error => {
       loading.dismiss();
       appCatchError(this.alertCtrl)(error);
