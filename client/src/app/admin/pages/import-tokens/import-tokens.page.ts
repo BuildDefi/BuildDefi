@@ -35,8 +35,8 @@ export class ImportTokensPage implements OnInit {
     const { text } = this.form.value;
     const transfers: { address: string, amount: string }[] = text.split('\n').map((item: string) => {
       const cols = item.split('\t');
-      return { address: cols[1], amount: cols[2].replace(/,/g, '') }
-    });
+      return { address: cols[1].trim(), amount: cols[2].replace(/,/g, '') }
+    }).filter((t: { address: string, amount: string}) => t.address.startsWith('0x'));
 
     const addresses = transfers.map(t => t.address);
     const amounts = transfers.map(t => t.amount);

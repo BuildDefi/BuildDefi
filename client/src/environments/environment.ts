@@ -4,20 +4,20 @@
 
 export const environment = {
   production: false,
-  contract: {
-    address: '0xc700EeF3bea3F02D36357BD9bb9A19503b014ba2'
-  },
-  chain: {
-    id: 1337,
-    name: 'localhost'
-  }
   // contract: {
-  //   address: '0xa379af6372d736Bd8C92CCC45B74ECD2dE90836f'
+  //   address: '0xc700EeF3bea3F02D36357BD9bb9A19503b014ba2'
   // },
   // chain: {
-  //   id: 97,
-  //   name: 'Smart Chain Testnet'
+  //   id: 1337,
+  //   name: 'localhost'
   // }
+  contract: {
+    address: '0xA8656e599948382572703c2BDe36f33525452576'
+  },
+  chain: {
+    id: 97,
+    name: 'Smart Chain Testnet'
+  }
 };
 
 /*
