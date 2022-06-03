@@ -12,7 +12,7 @@ export const environment = {
   //   name: 'localhost'
   // }
   contract: {
-    address: '0xA8656e599948382572703c2BDe36f33525452576'
+    address: '0x3D182DE72fe17e194bEAA6ceEf21b6Fed3FdA714'
   },
   chain: {
     id: 97,

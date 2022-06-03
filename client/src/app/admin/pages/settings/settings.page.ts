@@ -29,6 +29,7 @@ export class SettingsPage implements OnInit, OnDestroy {
         this.info = info;
 
         if (info) {
+          console.log(info);
           this.form = new FormGroup({
             feeDenominator: new FormControl(info.feeDenominator, {
               updateOn: 'change',
@@ -118,7 +119,10 @@ export class SettingsPage implements OnInit, OnDestroy {
     const changed = {};
 
     Object.keys(this.form.value).forEach(prop => {
-      if (this.info[prop] !== this.form.value[prop]) {
+      if (
+        (prop === 'holdLimit' && this.info[prop] !== BigInt(this.form.value[prop] * 10)) ||
+        (prop !== 'holdLimit' && this.info[prop] !== this.form.value[prop])
+      ) {
         changed[prop] = true;
       }
     });
@@ -126,6 +130,7 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['feeDenominator']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setFeeDenominator(feeDenominator).subscribe(() => {
+        this.info.feeDenominator = feeDenominator;
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -136,6 +141,8 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['developerFeePurchase'] || changed['developerFeeSale']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setDeveloperFee(developerFeePurchase, developerFeeSale).subscribe(() => {
+        this.info.developerFeePurchase = developerFeePurchase;
+        this.info.developerFeeSale = developerFeeSale;
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -146,6 +153,8 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['holderFeePurchase'] || changed['holderFeeSale']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setHolderFee(holderFeePurchase, holderFeeSale).subscribe(() => {
+        this.info.holderFeePurchase = holderFeePurchase;
+        this.info.holderFeeSale = holderFeeSale
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -156,6 +165,8 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['liquidityFeePurchase'] || changed['liquidityFeeSale']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setLiquidityFee(liquidityFeePurchase, liquidityFeeSale).subscribe(() => {
+        this.info.liquidityFeePurchase = liquidityFeePurchase;
+        this.info.liquidityFeeSale = liquidityFeeSale
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -166,6 +177,8 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['otherFeePurchase'] || changed['otherFeeSale']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setOtherFee(otherFeePurchase, otherFeeSale).subscribe(() => {
+        this.info.otherFeePurchase = otherFeePurchase;
+        this.info.otherFeeSale = otherFeeSale
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -176,6 +189,7 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['developerAddress']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setDeveloperAddress(developerAddress).subscribe(() => {
+        this.info.developerAddress = developerAddress;
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -186,6 +200,7 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['holderAddress']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setHolderAddress(holderAddress).subscribe(() => {
+        this.info.holderAddress = holderAddress;
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -196,6 +211,7 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['liquidityAddress']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setLiquidityAddress(liquidityAddress).subscribe(() => {
+        this.info.liquidityAddress = liquidityAddress;
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -206,6 +222,7 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['otherAddress']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setOtherAddress(otherAddress).subscribe(() => {
+        this.info.otherAddress = otherAddress;
         loading.dismiss();
       }, error => {
         loading.dismiss();
@@ -216,6 +233,7 @@ export class SettingsPage implements OnInit, OnDestroy {
     if (changed['holdLimit']) {
       const loading = await appShowLoading(this.loadingCtrl);
       this.contractService.setHoldLimit(BigInt(holdLimit * 10)).subscribe(() => {
+        this.info.holdLimit = BigInt(holdLimit * 10);
         loading.dismiss();
       }, error => {
         loading.dismiss();
