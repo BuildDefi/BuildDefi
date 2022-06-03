@@ -231,6 +231,25 @@ export class ContractService {
     );
   }
 
+  oneToManyTransfer(addresses: string[], amounts: string[]) {
+    let cContract: any;
+    return this.contract.pipe(
+      switchMap(contract => {
+        cContract = contract;
+
+        return this.tokenInfo;
+      }),
+      switchMap(tokenInfo => {
+        const decimals = +tokenInfo.decimals.toString();
+        const amountsToTransfer = amounts.map(a => {
+          return BigInt(Math.floor(+a * (10 ** decimals)));
+        });
+
+        return this.transact(cContract.oneToManyTransfer(addresses, amountsToTransfer));
+      })
+    );
+  }
+
   private getProperties(props: string[]): Observable<any[]> {
     let cContract: Contract;
 

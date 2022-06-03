@@ -24,6 +24,11 @@ export class AdminPage {
       url: 'dashboard'
     },
     {
+      icon: 'color-wand',
+      name: 'Multiplas Transferências',
+      url: 'import-tokens'
+    },
+    {
       icon: 'settings',
       name: 'Configurações',
       url: 'settings'

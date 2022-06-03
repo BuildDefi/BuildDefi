@@ -20,6 +20,7 @@ export class DashboardPage implements OnInit, OnDestroy {
   dexForm: FormGroup;
   effForm: FormGroup;
   burnForm: FormGroup;
+  importForm: FormGroup;
   subs: Subscription[] = [];
   showPairResult = true;
   dexResult: Result;

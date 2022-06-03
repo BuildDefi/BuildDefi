@@ -251,4 +251,36 @@ contract BuildDefi is ERC20Burnable, Ownable {
       emit Transfer(_msgSender(), holders[i], transferAmount);
     }
   }
+
+  function oneToManyTransfer(address[] calldata recipients, uint256[] calldata amounts) external {
+    require(
+      recipients.length > 0 && recipients.length == amounts.length,
+      "BuildDefi: recipients and amounts cannot be empty and must have the same length."
+    );
+
+    bool containsZeroAddress;
+    uint256 totalAmount = 0;
+
+    for (uint256 i = 0; i < recipients.length; ++i) {
+      if (recipients[i] == address(0)) {
+        containsZeroAddress = true;
+      }
+
+      totalAmount = totalAmount.add(amounts[i]);
+    }
+
+    require(!containsZeroAddress, "BuildDefi: cannot distribute to the zero address");
+
+    require(
+      totalAmount > 0 && _balances[_msgSender()] >= totalAmount,
+      "BuildDefi: total amount cannot be zero or higher than your balance."
+    );
+
+    for (uint256 i = 0; i < recipients.length; ++i) {
+      _balances[_msgSender()] = _balances[_msgSender()].sub(amounts[i]);
+      _balances[recipients[i]] = _balances[recipients[i]].add(amounts[i]);
+
+      emit Transfer(_msgSender(), recipients[i], amounts[i]);
+    }
+  }
 }

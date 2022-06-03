@@ -15,6 +15,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule)
       },
       {
+        path: 'import-tokens',
+        loadChildren: () => import('./pages/import-tokens/import-tokens.module').then(m => m.ImportTokensPageModule)
+      },
+      {
         path: 'settings',
         loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule)
       },

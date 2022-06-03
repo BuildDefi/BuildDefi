@@ -1,0 +1,26 @@
+<app-header>Multiplas Transferências</app-header>
+<ion-content>
+  <app-responsive>
+    <form [formGroup]="form">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Importar Tokens</ion-card-title>
+          <ion-card-subtitle>
+            Use o bscan para importar os tokens
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">Valor</ion-label>
+            <ion-textarea type="text" rows="18" placeholder="1	0xa79b8dd0a3bb41acf4b52bdd96eb6ba198c3847b	8,850,000,000	98.3333%
+2	0xc010a44d2e42ab57bce850eec4fac5e4c0deeecd	129,211,536.6764	1.4357%
+..." formControlName="text"></ion-textarea>
+          </ion-item>
+          <div class="ion-padding-top">
+            <ion-button expand="block" color="secondary" [disabled]="form.invalid" (click)="submit()">Importar</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </form>
+  </app-responsive>
+</ion-content>
