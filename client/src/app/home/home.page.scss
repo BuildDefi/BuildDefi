@@ -123,16 +123,72 @@
     }
   }
 
-  .header {
-    max-width: 30em;
+  ion-content {
+    --background: none;
 
-    h2 {
-      font-size: 48px;
-      line-height: 48px;
-    }
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1.5em;
+      color: #fff;
 
-    p {
-      font-size: 24;
+      .info {
+        width: 100%;
+        max-width: 30em;
+
+        .text {
+          h2 {
+            font-size: 48px;
+            line-height: 48px;
+          }
+
+          p {
+            font-size: 24;
+          }
+        }
+
+        .contract {
+          margin-top: 1em;
+
+          h2 {
+            font-size: 18px;
+          }
+
+          .copy {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 4px dashed #ffffff;
+            font-size: 14px;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+
+            .value {
+              font-size: 14px;
+            }
+
+            .icon {
+              cursor: pointer;
+              position: relative;
+              overflow: hidden;
+              padding: 0.5em;
+
+              ion-icon {
+                font-size: 24px;
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: 1080px) {
+        flex-direction: column;
+
+        .info {
+          max-width: 40em;
+        }
+      }
     }
   }
 
