@@ -1,35 +1,35 @@
 @font-face {
-  font-family: 'MontSerrat';
-  src: url("/assets/fonts/Montserrat-Light.ttf");
+  font-family: 'SulSans';
+  src: url("/assets/fonts/SulSans-Bold.woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SulSans';
+  src: url("/assets/fonts/SulSans-Light.woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'MontSerrat';
-  src: url("/assets/fonts/Montserrat-Medium.ttf");
+  font-family: 'SulSans';
+  src: url("/assets/fonts/SulSans-Medium.woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'MontSerrat';
-  src: url("/assets/fonts/Montserrat-Regular.ttf");
+  font-family: 'SulSans';
+  src: url("/assets/fonts/SulSans-Regular.woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'MontSerrat';
-  src: url("/assets/fonts/Montserrat-Bold.ttf");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  --ion-font-family: "MontSerrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
+  --ion-font-family: "SulSans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
 }
