@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { HamburguerModal } from './hamburguer/hamburger.modal';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,13 @@ import { MenuController } from '@ionic/angular';
 export class HomePage {
 
   constructor(
-    private menuCtrl: MenuController
+    private modalCtrl: ModalController
   ) {}
 
+  async openHamburguer() {
+    const modal = await this.modalCtrl.create({
+      component: HamburguerModal
+    });
+    modal.present();
+  }
 }

@@ -1,0 +1,24 @@
+<ion-header>
+  <div class="flags">
+    <div class="flag ion-activatable selected">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-img src="/assets/svgs/flag_br.svg"></ion-img>
+    </div>
+    <div class="flag ion-activatable">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-img src="/assets/svgs/flag_us.svg"></ion-img>
+    </div>
+  </div>
+  <div class="dismiss ion-activatable" (click)="dismiss()">
+    <ion-ripple-effect></ion-ripple-effect>
+    <ion-icon name="close-outline"></ion-icon>
+  </div>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item lines="full" button detail="true">Início</ion-item>
+    <ion-item lines="full" button detail="true">Funcionalidades</ion-item>
+    <ion-item lines="full" button detail="true">Sobre</ion-item>
+    <ion-item lines="full" button detail="true">Whitepaper</ion-item>
+  </ion-list>
+</ion-content>
