@@ -1,4 +1,4 @@
-import { AlertController, LoadingController } from "@ionic/angular";
+import { AlertController, LoadingController, ToastController } from "@ionic/angular";
 
 export const appShowLoading = async (
   loadingCtrl: LoadingController
@@ -51,4 +51,25 @@ export const appCatchError = (
 
     await alert.onDidDismiss();
   }
+}
+
+
+export const appCopyToClipboard = async (
+  toastCtrl: ToastController,
+  text: string,
+  message = 'Texto copiado com sucesso.'
+) => {
+  const el = document.createElement('textarea');
+  el.value = text;
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  const toast = await toastCtrl.create({
+    message, duration: 1000
+  });
+  toast.present();
 }
