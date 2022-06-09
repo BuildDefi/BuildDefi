@@ -1,0 +1,213 @@
+:host {
+  background-color:hsla(79,0%,0%,1);
+  background-image:
+    radial-gradient(at 39% 3%, hsla(155,0%,13%,1) 0px, transparent 50%),
+    radial-gradient(at 37% 89%, hsla(156,0%,7%,1) 0px, transparent 50%),
+    radial-gradient(at 10% 42%, hsla(156,0%,11%,1) 0px, transparent 50%),
+    radial-gradient(at 81% 14%, hsla(0,0%,21%,1) 0px, transparent 50%);
+  color: #ffffff;
+  justify-content: unset;
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5em;
+    user-select: none;
+
+    .logo {
+      ion-img {
+        width: 200px;
+      }
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+
+      .items {
+        width: 100%;
+        padding: 1em;
+        display: flex;
+        align-items: center;
+
+        .item {
+          padding: 0.5em 1em;
+          color: #afafaf;
+          cursor: pointer;
+
+          &:hover {
+            color: #ffffff;
+          }
+        }
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        padding: 1em;
+
+        .action {
+          display: flex;
+          align-items: center;
+          border: 1px solid var(--ion-color-primary);
+          border-radius: 5px;
+          padding: 0.75em 1.5em;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+
+          ion-img {
+            width: 24px;
+            margin-right: 0.5em;
+          }
+        }
+      }
+
+      .flags {
+        display: flex;
+        padding: 1em;
+
+        .flag {
+          cursor: pointer;
+          margin-right: 0.5em;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          ion-img {
+            width: 24px;
+          }
+
+          &.selected {
+            border: 2px solid #ffffff;
+          }
+        }
+      }
+
+      .hamburguer {
+        padding: 1.25em 0.5em;
+        display: none;
+      }
+
+      @media (max-width: 1120px) {
+        .items {
+          display: none;
+        }
+
+        .flags {
+          display: none;
+        }
+
+        .hamburguer {
+          display: block;
+
+          .button {
+            cursor: pointer;
+
+            ion-icon {
+              font-size: 38px;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 490px) {
+        .actions {
+          display: none;
+        }
+      }
+    }
+  }
+
+  ion-content {
+    --background: none;
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1.5em;
+      color: #fff;
+
+      .info {
+        width: 100%;
+        max-width: 30em;
+        padding: 0.5em;
+
+        .text {
+          h2 {
+            font-size: 48px;
+            line-height: 48px;
+          }
+
+          p {
+            font-size: 24;
+          }
+        }
+
+        .contract {
+          margin-top: 1em;
+
+          h2 {
+            font-size: 14px;
+            margin: 0.25em;
+          }
+
+          .copy {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ffffff;
+            font-size: 14px;
+            padding: 0.25em 0.5em;
+            border-radius: 5px;
+
+            .value {
+              font-size: 12px;
+              text-overflow: ellipsis;
+              overflow-wrap: normal;
+              overflow: hidden;
+            }
+
+            .icon {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              position: relative;
+              overflow: hidden;
+              padding: 0.25em;
+
+              ion-icon {
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+
+      .image {
+        padding: 0.5em;
+        user-select: none;
+      }
+
+      @media (max-width: 1080px) {
+        flex-direction: column;
+
+        .info {
+          max-width: 40em;
+        }
+      }
+    }
+  }
+
+  .container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1080px;
+  }
+}

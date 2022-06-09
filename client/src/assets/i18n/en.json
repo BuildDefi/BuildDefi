@@ -1,0 +1,15 @@
+{
+  "home": {
+    "navbar": {
+      "home": "Home",
+      "features": "Features",
+      "about": "About",
+      "whitepaper": "Whitepaper"
+    },
+    "header": {
+      "title": "Invest in real estate within a smart digital asset.",
+      "subtitle": "Paying dividends during the hold, backed and valued based on one of the safest and most profitable funds on the market",
+      "contract": "Contract"
+    }
+  }
+}

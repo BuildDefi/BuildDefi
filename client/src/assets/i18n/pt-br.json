@@ -1,0 +1,15 @@
+{
+  "home": {
+    "navbar": {
+      "home": "Início",
+      "features": "Funcionalidades",
+      "about": "Sobre",
+      "whitepaper": "Whitepaper"
+    },
+    "header": {
+      "title": "Invista em imóveis dentro de um ativo digital inteligente.",
+      "subtitle": "Pagando dividendos durante o hold, com lastro e valorização baseadas em um dos fundos mais seguros e rentáveis do mercado",
+      "contract": "Contrato"
+    }
+  }
+}

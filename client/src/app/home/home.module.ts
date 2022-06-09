@@ -4,6 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { RouterModule, Routes } from '@angular/router';
+import { HamburguerModal } from './hamburguer/hamburger.modal';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -18,8 +20,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule.forChild()
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, HamburguerModal]
 })
 export class HomePageModule {}

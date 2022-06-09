@@ -1,0 +1,24 @@
+<ion-header>
+  <div class="flags">
+    <div class="flag ion-activatable" [class.selected]="selectedLanguage === 'pt-br'" (click)="setLanguage('pt-br')">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-img src="/assets/svgs/flag_br.svg"></ion-img>
+    </div>
+    <div class="flag ion-activatable" [class.selected]="selectedLanguage === 'en'" (click)="setLanguage('en')">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-img src="/assets/svgs/flag_us.svg"></ion-img>
+    </div>
+  </div>
+  <div class="dismiss ion-activatable" (click)="dismiss()">
+    <ion-ripple-effect></ion-ripple-effect>
+    <ion-icon name="close-outline"></ion-icon>
+  </div>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <!-- <ion-item lines="full" button detail="true">{{ 'home.navbar.home' | translate }}</ion-item>
+    <ion-item lines="full" button detail="true">{{ 'home.navbar.features' | translate }}</ion-item>
+    <ion-item lines="full" button detail="true">{{ 'home.navbar.about' | translate }}</ion-item> -->
+    <ion-item lines="full" button detail="true" (click)="openWhitepaper()">{{ 'home.navbar.whitepaper' | translate }}</ion-item>
+  </ion-list>
+</ion-content>
