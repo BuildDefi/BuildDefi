@@ -41,4 +41,9 @@ export class HamburguerModal {
   setLanguage(language: string) {
     this.appTranslateService.setLanguage(language);
   }
+
+  openWhitepaper() {
+    window.open('https://docs.builddefi.io/welcome-to-gitbook/IkiBzVcXsOCld75Zdf6L/', '_blank');
+    this.modalCtrl.dismiss();
+  }
 }

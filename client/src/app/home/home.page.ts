@@ -50,6 +50,10 @@ export class HomePage implements OnInit, OnDestroy {
     window.open('https://t.me/builddefi', '_blank');
   }
 
+  openWhitepaper() {
+    window.open('https://docs.builddefi.io/welcome-to-gitbook/IkiBzVcXsOCld75Zdf6L/', '_blank');
+  }
+
   copyAddress() {
     appCopyToClipboard(this.toastCtrl, this.constractAddress, 'Endereço copiado com sucesso!');
   }

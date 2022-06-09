@@ -7,7 +7,7 @@
       <div class="item">{{ 'home.navbar.home' | translate }}</div>
       <div class="item">{{ 'home.navbar.features' | translate }}</div>
       <div class="item">{{ 'home.navbar.about' | translate }}</div>
-      <div class="item">{{ 'home.navbar.whitepaper' | translate }}</div>
+      <div class="item" (click)="openWhitepaper()">{{ 'home.navbar.whitepaper' | translate }}</div>
     </div>
     <div class="actions">
       <div class="action ion-activatable" (click)="openTelegram()">
