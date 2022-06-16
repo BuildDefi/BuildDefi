@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -14,6 +14,7 @@ declare var particlesJS: any;
 })
 export class HomePage implements OnInit, OnDestroy {
 
+  @ViewChild('content', { static: true }) ionContent: any;
   constractAddress = environment.contract.address;
   selectedLanguage: string;
   subs: Subscription[] = [];
@@ -32,10 +33,10 @@ export class HomePage implements OnInit, OnDestroy {
     );
 
     setTimeout(() => {
-      particlesJS.load('particles-js', 'assets/particles.json', function() {
-        console.log('callback - particles.js config loaded');
-      });
+      particlesJS.load('particles-js', 'assets/particles.json');
     }, 500);
+
+    console.log(this.ionContent);
   }
 
   ngOnDestroy() {
@@ -51,6 +52,12 @@ export class HomePage implements OnInit, OnDestroy {
       component: HamburguerModal
     });
     modal.present();
+
+    const res = await modal.onDidDismiss();
+    console.log(res);
+    if (res.role === 'scroll') {
+      this.scrollTo(res.data);
+    }
   }
 
   openTelegram() {
@@ -67,5 +74,12 @@ export class HomePage implements OnInit, OnDestroy {
 
   setLanguage(language: string) {
     this.appTranslateService.setLanguage(language);
+  }
+
+  scrollTo(type: string) {
+    switch (type) {
+      case 'features':
+        this.ionContent.scrollToPoint(0, 600);
+    }
   }
 }
