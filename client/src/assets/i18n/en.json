@@ -11,5 +11,22 @@
       "subtitle": "Paying dividends during the hold, backed and valued based on one of the safest and most profitable funds on the market",
       "contract": "Contract"
     }
+  },
+  "features": {
+    "title": "Advantages of BuildDefi",
+    "solutions": {
+      "1": {
+        "title": "BDF Token",
+        "description": "An utility Token, which connects Blockchain and real estate businesses in one place."
+      },
+      "2": {
+        "title": "BDFpay",
+        "description": "Complete solution for your business to process payment in cryptocurrencies today!"
+      },
+      "3": {
+        "title": "Marketplace (Soon)",
+        "description": "Buy and sell products and services from anywhere in the world with our marketplace platform."
+      }
+    }
   }
 }

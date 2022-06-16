@@ -11,5 +11,22 @@
       "subtitle": "Pagando dividendos durante o hold, com lastro e valorização baseadas em um dos fundos mais seguros e rentáveis do mercado",
       "contract": "Contrato"
     }
+  },
+  "features": {
+    "title": "Vantagens da BuildDefi",
+    "solutions": {
+      "1": {
+        "title": "BDF Token",
+        "description": "Um Utility Token, que conecta em um só lugar Blockchain e negócios imobiliários."
+      },
+      "2": {
+        "title": "BDFpay",
+        "description": "Solução completa para seu negócio processar pagamento em crypto-moedas hoje mesmo!"
+      },
+      "3": {
+        "title": "Marketplace (Em Breve)",
+        "description": "Compre e venda de qualquer lugar do mundo, produtos e serviços com nossa plataforma de marketplace."
+      }
+    }
   }
 }

@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HamburguerModal } from './hamburguer/hamburger.modal';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
+import { FeaturesComponent } from './features/features.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
     TranslateModule.forChild(),
     SharedModule
   ],
-  declarations: [HomePage, HamburguerModal]
+  declarations: [
+    HomePage,
+    HamburguerModal,
+    FeaturesComponent
+  ]
 })
 export class HomePageModule {}
