@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 import { RouterModule, Routes } from '@angular/router';
 import { HamburguerModal } from './hamburguer/hamburger.modal';
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    SharedModule
   ],
   declarations: [HomePage, HamburguerModal]
 })

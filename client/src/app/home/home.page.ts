@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { appCopyToClipboard } from '../app.functions';
 import { AppTranslateService } from '../services/app-translate.service';
 import { HamburguerModal } from './hamburguer/hamburger.modal';
+declare var particlesJS: any;
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,12 @@ export class HomePage implements OnInit, OnDestroy {
         this.selectedLanguage = selectedLanguage;
       })
     );
+
+    setTimeout(() => {
+      particlesJS.load('particles-js', 'assets/particles.json', function() {
+        console.log('callback - particles.js config loaded');
+      });
+    }, 500);
   }
 
   ngOnDestroy() {

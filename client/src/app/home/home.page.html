@@ -34,8 +34,9 @@
   </div>
 </div>
 <ion-content>
-  <div class="container">
-    <div class="header">
+  <section class="first">
+    <div class="particles" id="particles-js"></div>
+    <div class="content">
       <div class="info">
         <div class="text">
           <h2>{{ 'home.header.title' | translate }}</h2>
@@ -44,7 +45,10 @@
         <div class="contract">
           <h2>{{ 'home.header.contract' | translate }} (Binance Smart Chain BSC)</h2>
           <div class="copy">
-            <div class="value">{{ constractAddress }}</div>
+            <div class="value">
+              <span class="full">{{ constractAddress }}</span>
+              <span class="short">{{ constractAddress | address: 12 }}</span>
+            </div>
             <div class="icon ion-activatable" (click)="copyAddress()">
               <ion-ripple-effect></ion-ripple-effect>
               <ion-icon name="copy-outline"></ion-icon>
@@ -56,5 +60,10 @@
         <ion-img src="/assets/images/home_header.png"></ion-img>
       </div>
     </div>
-  </div>
+  </section>
+  <section class="second">
+    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+    <p>Repellendus quod, deserunt in quo corrupti ipsam. Rerum fugiat inventore impedit eos dolor in tenetur iusto necessitatibus accusantium, veniam possimus recusandae saepe.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis temporibus eum ratione dolore, maxime molestias aspernatur quas nesciunt odit at iste tempore quibusdam sequi placeat, enim rerum modi dolorem officiis!</p>
+  </section>
 </ion-content>
