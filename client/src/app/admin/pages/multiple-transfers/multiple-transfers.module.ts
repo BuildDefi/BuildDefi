@@ -4,17 +4,17 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { SharedModule } from "src/app/shared/shared.module";
-import { ImportTokensPage } from "./import-tokens.page";
+import { MultipleTransfersPage } from './multiple-transfers.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ImportTokensPage
+    component: MultipleTransfersPage
   }
 ];
 
 @NgModule({
-  declarations: [ImportTokensPage],
+  declarations: [MultipleTransfersPage],
   imports: [
     CommonModule,
     IonicModule,
@@ -23,4 +23,4 @@ const routes: Routes = [
     SharedModule
   ]
 })
-export class ImportTokensPageModule { }
+export class MultipleTransfersPageModule { }

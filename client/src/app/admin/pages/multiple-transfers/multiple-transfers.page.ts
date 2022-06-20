@@ -5,11 +5,11 @@ import { appCatchError, appShowLoading } from "src/app/app.functions";
 import { ContractService } from "../../services/contract.service";
 
 @Component({
-  selector: 'app-import-tokens',
-  templateUrl: './import-tokens.page.html',
-  styleUrls: ['./import-tokens.page.scss']
+  selector: 'app-multiple-transfers',
+  templateUrl: './multiple-transfers.page.html',
+  styleUrls: ['./multiple-transfers.page.scss']
 })
-export class ImportTokensPage implements OnInit {
+export class MultipleTransfersPage implements OnInit {
   form: FormGroup;
 
   constructor(
@@ -34,9 +34,9 @@ export class ImportTokensPage implements OnInit {
 
     const { text } = this.form.value;
     const transfers: { address: string, amount: string }[] = text.split('\n').map((item: string) => {
-      const cols = item.split('\t');
-      return { address: cols[1].trim(), amount: cols[2].replace(/,/g, '') }
-    }).filter((t: { address: string, amount: string}) => t.address.startsWith('0x'));
+      const cols = item.replace(/\t/g, ' ').split(' ');
+      return { address: cols[0].trim(), amount: cols[1].replace(/,/g, '') }
+    }).filter((t: { address: string, amount: string}) => t.address.startsWith('0x') && t.address.length === 42);
 
     const addresses = transfers.map(t => t.address);
     const amounts = transfers.map(t => t.amount);
@@ -44,8 +44,8 @@ export class ImportTokensPage implements OnInit {
     this.contractService.oneToManyTransfer(addresses, amounts).subscribe(async () => {
       loading.dismiss();
       const alert = await this.alertCtrl.create({
-        header: 'Importar Tokens',
-        message: `Tokens importados com sucesso`,
+        header: 'Multiplas Transferências',
+        message: `Tokens transferido com sucesso`,
         buttons: ['Ok']
       });
       alert.present();
