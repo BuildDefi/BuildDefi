@@ -1,10 +1,11 @@
 :host {
-  background-color:hsla(79,0%,0%,1);
-  background-image:
-    radial-gradient(at 39% 3%, hsla(155,0%,13%,1) 0px, transparent 50%),
-    radial-gradient(at 37% 89%, hsla(156,0%,7%,1) 0px, transparent 50%),
-    radial-gradient(at 10% 42%, hsla(156,0%,11%,1) 0px, transparent 50%),
-    radial-gradient(at 81% 14%, hsla(0,0%,21%,1) 0px, transparent 50%);
+  // background-color:hsla(79,0%,0%,1);
+  background: #000000;
+  // background-image:
+  //   radial-gradient(at 39% 3%, hsla(155,0%,13%,1) 0px, transparent 50%),
+  //   radial-gradient(at 37% 89%, hsla(156,0%,7%,1) 0px, transparent 50%),
+  //   radial-gradient(at 10% 42%, hsla(156,0%,11%,1) 0px, transparent 50%),
+  //   radial-gradient(at 81% 14%, hsla(0,0%,21%,1) 0px, transparent 50%);
   color: #ffffff;
   justify-content: unset;
 
@@ -126,88 +127,126 @@
   ion-content {
     --background: none;
 
-    .header {
+    .first {
+      position: relative;
+      height: calc(100vh - 70px);
       display: flex;
-      justify-content: center;
       align-items: center;
-      padding: 0 1.5em;
-      color: #fff;
+      justify-content: center;
 
-      .info {
+      .particles {
+        position: absolute;
         width: 100%;
-        max-width: 30em;
-        padding: 0.5em;
+        z-index: 900;
+        height: calc(100vh - 70px);
+      }
 
-        .text {
-          h2 {
-            font-size: 48px;
-            line-height: 48px;
-          }
-
-          p {
-            font-size: 24;
-          }
-        }
-
-        .contract {
-          margin-top: 1em;
-
-          h2 {
-            font-size: 14px;
-            margin: 0.25em;
-          }
-
-          .copy {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid #ffffff;
-            font-size: 14px;
-            padding: 0.25em 0.5em;
-            border-radius: 5px;
-
-            .value {
-              font-size: 12px;
-              text-overflow: ellipsis;
-              overflow-wrap: normal;
-              overflow: hidden;
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1.5em;
+        color: #fff;
+     
+        .info {
+          width: 100%;
+          max-width: 30em;
+          padding: 0.5em;
+          z-index: 1000;
+  
+          .text {
+            h2 {
+              font-size: 48px;
+              line-height: 48px;
             }
-
-            .icon {
+  
+            p {
+              font-size: 18px;
+              font-weight: bold;
+              color: #fdda52;
+            }
+          }
+  
+          .contract {
+            margin-top: 1em;
+  
+            h2 {
+              font-size: 14px;
+              margin: 0.25em;
+            }
+  
+            .copy {
               display: flex;
-              justify-content: center;
               align-items: center;
-              cursor: pointer;
-              position: relative;
-              overflow: hidden;
-              padding: 0.25em;
+              justify-content: space-between;
+              border: 1px solid #ffffff;
+              font-size: 14px;
+              padding: 0.25em 0.5em;
+              border-radius: 5px;
+              width: fit-content;
+  
+              .value {
+                font-size: 12px;
+                text-overflow: ellipsis;
+                overflow-wrap: normal;
+                overflow: hidden;
+                padding-right: 1em;
 
-              ion-icon {
-                font-size: 20px;
+                .full {
+                  display: block;
+                }
+                
+                .short {
+                  display: none;
+                }
+
+                @media (max-width: 415px) {
+                  .full {
+                    display: none;
+                  }
+
+                  .short {
+                    display: block;
+                  }
+                }
+              }
+  
+              .icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                padding: 0.25em;
+  
+                ion-icon {
+                  font-size: 20px;
+                }
               }
             }
           }
         }
-      }
+  
+        .image {
+          z-index: 1000;
+          padding: 2em;
+          user-select: none;
+          max-width: 512px;
+        }
+  
+        @media (max-width: 1080px) {
+          flex-direction: column;
+  
+          .info {
+            max-width: 40em;
+          }
 
-      .image {
-        padding: 0.5em;
-        user-select: none;
-      }
-
-      @media (max-width: 1080px) {
-        flex-direction: column;
-
-        .info {
-          max-width: 40em;
+          .image {
+            display: none;
+          }
         }
       }
     }
-  }
-
-  .container {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1080px;
   }
 }
