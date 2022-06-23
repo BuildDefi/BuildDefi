@@ -8,6 +8,10 @@ import { HamburguerModal } from './hamburguer/hamburger.modal';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
 import { FeaturesComponent } from './features/features.component';
+import { AboutComponent } from './about/about.component';
+import { TokenComponent } from './token/token.component';
+import { FooterComponent } from './footer/footer.component';
+import { PartnersComponent } from './partners/partners.component';
 
 const routes: Routes = [
   {
@@ -29,7 +33,11 @@ const routes: Routes = [
   declarations: [
     HomePage,
     HamburguerModal,
-    FeaturesComponent
+    FeaturesComponent,
+    AboutComponent,
+    TokenComponent,
+    FooterComponent,
+    PartnersComponent
   ]
 })
 export class HomePageModule {}
