@@ -1,10 +1,4 @@
-section {
-  background: #ffffff;
-  color: #000000;
-  padding: 1em;
-  display: flex;
-  align-items: center;
-
+:host {
   .container {
     display: flex;
     flex-direction: column;
@@ -16,7 +10,7 @@ section {
       color: rgba(0, 0, 0, 0.9);
       font-weight: bold;
     }
-  
+
     .solutions {
       display: flex;
       justify-content: center;
@@ -24,7 +18,7 @@ section {
       flex-wrap: wrap;
 
       .solution {
-        width: 30%;        
+        width: 30%;
         padding: 1em;
 
         h2 {

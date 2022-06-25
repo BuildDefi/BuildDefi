@@ -1,0 +1,16 @@
+:host {
+  background-color: #444444;
+  color: #ffffff;
+  flex-direction: column;
+  align-items: center;
+
+  .partners {
+    display: flex;
+    align-items: center;
+
+    .partner {
+      width: 200px;
+      padding: 0.5em 1em;
+    }
+  }
+}

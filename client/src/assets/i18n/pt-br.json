@@ -7,8 +7,8 @@
       "whitepaper": "Whitepaper"
     },
     "header": {
-      "title": "Invista em imóveis dentro de um ativo digital inteligente.",
-      "subtitle": "Pagando dividendos durante o hold, com lastro e valorização baseadas em um dos fundos mais seguros e rentáveis do mercado",
+      "title": "Seja holder de um ativo digital inteligente no mercado imobiliário.",
+      "subtitle": "Pagaremos dividendos durante o hold com base no lastro e a valorização em um dos fundos mais seguros e rentáveis do mercado.",
       "contract": "Contrato"
     }
   },
@@ -28,5 +28,22 @@
         "description": "Compre e venda de qualquer lugar do mundo, produtos e serviços com nossa plataforma de marketplace."
       }
     }
+  },
+  "about": {
+    "us": {
+      "title": "Quem Somos",
+      "description": "A BuildDeFi é uma empresa constituída por uma equipe multidisciplinar que oferece uma plataforma de integração via blockchain, pensada inicialmente para o setor imobiliário, viabilizando acesso às soluções e todo seu ecossistema de produtos e serviços. Atuando como elo entre a área de tecnologia e incorporação levando de forma democrática, oportunidades para pessoas simples participarem do mundo dos negócios."
+    },
+    "motivation": {
+      "title": "Motivação",
+      "description": "Apaixonados pela construção civil e entendo as dificuldades do mercado financeiro com sua complexidade, enxergou-se na tecnologia Blockchain uma oportunidade de interligar o mundo real dos negócios com as finanças descentralizadas, de forma a descomplicar a participação por pessoas simples no setor dos negócios imobiliários."
+    },
+    "mission": {
+      "title": "Missão",
+      "description": "Como uma nova forma descentralizada de distribuir riquezas, a Build DeFi tem a missão de democratizar e trazer a oportunidade de acesso ao máximo de pessoas a participar no setor imobiliário, atuando como interface de conectividade para o maior mercado em toda a economia mundial."
+    }
+  },
+  "partners": {
+    "title": "Parceiros"
   }
 }

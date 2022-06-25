@@ -1,0 +1,24 @@
+:host {
+  background-color: #f1c332;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .medias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2em;
+    padding-bottom: 1em;
+
+    .media {
+      cursor: pointer;
+      padding: 0.5em;
+
+      img {
+        width: 48px;
+      }
+    }
+  }
+}

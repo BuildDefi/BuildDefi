@@ -26,7 +26,7 @@ export class AdminPage {
     {
       icon: 'color-wand',
       name: 'Multiplas Transferências',
-      url: 'import-tokens'
+      url: 'multiple-transfers'
     },
     {
       icon: 'settings',
