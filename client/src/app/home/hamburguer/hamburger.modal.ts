@@ -46,4 +46,8 @@ export class HamburguerModal {
     window.open('https://docs.builddefi.io/welcome-to-gitbook/IkiBzVcXsOCld75Zdf6L/', '_blank');
     this.modalCtrl.dismiss();
   }
+
+  scrollTo(type: string) {
+    this.modalCtrl.dismiss(type, 'scroll');
+  }
 }

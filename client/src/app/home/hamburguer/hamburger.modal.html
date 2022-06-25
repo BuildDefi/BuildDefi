@@ -16,9 +16,9 @@
 </ion-header>
 <ion-content>
   <ion-list>
-    <!-- <ion-item lines="full" button detail="true">{{ 'home.navbar.home' | translate }}</ion-item>
-    <ion-item lines="full" button detail="true">{{ 'home.navbar.features' | translate }}</ion-item>
-    <ion-item lines="full" button detail="true">{{ 'home.navbar.about' | translate }}</ion-item> -->
+    <ion-item lines="full" button detail="true" (click)="scrollTo('home')">{{ 'home.navbar.home' | translate }}</ion-item>
+    <ion-item lines="full" button detail="true" (click)="scrollTo('features')">{{ 'home.navbar.features' | translate }}</ion-item>
+    <ion-item lines="full" button detail="true" (click)="scrollTo('about')">{{ 'home.navbar.about' | translate }}</ion-item>
     <ion-item lines="full" button detail="true" (click)="openWhitepaper()">{{ 'home.navbar.whitepaper' | translate }}</ion-item>
   </ion-list>
 </ion-content>
