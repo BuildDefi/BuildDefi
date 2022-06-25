@@ -17,26 +17,26 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "Um Utility Token, que conecta em um só lugar Blockchain e negócios imobiliários."
+        "description": "Um Token de utilidade, que conecta em um só lugar Blockchain e negócios imobiliários."
       },
       "2": {
         "title": "BDFpay",
-        "description": "Solução completa para seu negócio processar pagamento em crypto-moedas hoje mesmo!"
+        "description": "Soluções completas para o seu negócio processar pagamentos por meio de crypto-moedas em tempo real."
       },
       "3": {
         "title": "Marketplace (Em Breve)",
-        "description": "Compre e venda de qualquer lugar do mundo, produtos e serviços com nossa plataforma de marketplace."
+        "description": "Compre e venda produtos e serviços de qualquer lugar do mundo utilizando nosso marketplace."
       }
     }
   },
   "about": {
     "us": {
       "title": "Quem Somos",
-      "description": "A BuildDeFi é uma empresa constituída por uma equipe multidisciplinar que oferece uma plataforma de integração via blockchain, pensada inicialmente para o setor imobiliário, viabilizando acesso às soluções e todo seu ecossistema de produtos e serviços. Atuando como elo entre a área de tecnologia e incorporação levando de forma democrática, oportunidades para pessoas simples participarem do mundo dos negócios."
+      "description": "A BuildDeFi é uma empresa constituída por uma equipe multidisciplinar que oferece uma plataforma de integração via blockchain, pensada inicialmente para o setor imobiliário, viabilizando acesso às soluções e todo seu ecossistema de produtos e serviços. Atuando de forma simples e eficaz, levando conhecimento na área de tecnologia e mercado cripto, oferecendo oportunidades de negócios para todas as pessoas em qualquer lugar do mundo."
     },
     "motivation": {
       "title": "Motivação",
-      "description": "Apaixonados pela construção civil e entendo as dificuldades do mercado financeiro com sua complexidade, enxergou-se na tecnologia Blockchain uma oportunidade de interligar o mundo real dos negócios com as finanças descentralizadas, de forma a descomplicar a participação por pessoas simples no setor dos negócios imobiliários."
+      "description": "Apaixonados pela construção civil e entendendo as dificuldades do mercado financeiro com as suas complexidades, enxergamos na tecnologia Blockchain uma oportunidade de interligar o mundo real dos negócios com as finanças descentralizadas dos contratos inteligentes."
     },
     "mission": {
       "title": "Missão",
