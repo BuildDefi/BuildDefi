@@ -42,44 +42,4 @@
       }
     }
   }
-
-  .items {
-    display: flex;
-    justify-content: center;
-    overflow-x: hidden;
-    z-index: 1000;
-
-    .item {
-      width: 200px;
-      padding: 1em;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-
-      h2 {
-        font-size: 24px;
-      }
-
-      ul {
-        border: 1px solid #f1c332;
-        border-radius: 16px;
-        padding: 1.5em;
-        padding-left: 2em;
-        height: 30em;
-        color: #f1c332;
-
-        li {
-          margin: 0.5em 0;
-        }
-      }
-
-      @media(min-width: 580px) {
-        width: 50%;
-      }
-
-      @media(min-width: 968px) {
-        width: 33.33%;
-      }
-    }
-  }
 }
