@@ -1,16 +1,56 @@
 :host {
+  .particles {
+    position: absolute;
+    width: 100%;
+    z-index: 900;
+    height: calc(100vh - 70px);
+  }
+
   h2 {
     text-align: center;
     font-size: 32px;
   }
 
+  ion-slides {
+    height: calc(100vh - 70px);
+    z-index: 1000;
+    padding: 1em;
+    --bullet-background: white;
+
+    ion-slide {
+      display: flex;
+      flex-direction: column;
+      padding: 1em;
+
+      h2 {
+        font-size: 24px;
+        margin: 0;
+      }
+
+      ul {
+        border: 1px solid #f1c332;
+        border-radius: 16px;
+        padding: 1.5em;
+        padding-left: 2em;
+        height: 30em;
+        color: #f1c332;
+        text-align: left;
+
+        li {
+          margin: 0.5em 0;
+        }
+      }
+    }
+  }
+
   .items {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    overflow-x: hidden;
+    z-index: 1000;
 
     .item {
-      width: 100%;
+      width: 200px;
       padding: 1em;
       display: flex;
       align-items: center;
@@ -18,8 +58,6 @@
 
       h2 {
         font-size: 24px;
-        border-bottom: 10px solid #f1c332;
-        border-radius: 10px;
       }
 
       ul {
@@ -42,14 +80,6 @@
       @media(min-width: 968px) {
         width: 33.33%;
       }
-    }
-  }
-
-  @media (min-width: 1080px) {
-    height: calc(100vh - 70px);
-
-    .items {
-      flex-wrap: nowrap;
     }
   }
 }

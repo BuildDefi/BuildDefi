@@ -12,7 +12,7 @@ export class TokenComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      particlesJS.load('particles2', 'assets/particles2.json', function() {});
+      particlesJS.load('particles3', 'assets/particles3.json', function() {});
     }, 500);
   }
 }
