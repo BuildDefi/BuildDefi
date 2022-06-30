@@ -6,6 +6,7 @@
     <div class="items">
       <div class="item" (click)="scrollTo('home')">{{ 'home.navbar.home' | translate }}</div>
       <div class="item" (click)="scrollTo('features')">{{ 'home.navbar.features' | translate }}</div>
+      <div class="item" (click)="scrollTo('roadmap')">{{ 'home.navbar.roadmap' | translate }}</div>
       <div class="item" (click)="scrollTo('about')">{{ 'home.navbar.about' | translate }}</div>
       <div class="item" (click)="openWhitepaper()">{{ 'home.navbar.whitepaper' | translate }}</div>
     </div>
@@ -62,6 +63,7 @@
     </div>
   </section>
   <app-features></app-features>
+  <app-roadmap></app-roadmap>
   <app-about></app-about>
   <app-token></app-token>
   <app-partners></app-partners>

@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { TokenComponent } from './token/token.component';
 import { FooterComponent } from './footer/footer.component';
 import { PartnersComponent } from './partners/partners.component';
+import { RoadmapComponent } from './roadmap/roadmap.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,8 @@ const routes: Routes = [
     AboutComponent,
     TokenComponent,
     FooterComponent,
-    PartnersComponent
+    PartnersComponent,
+    RoadmapComponent
   ]
 })
 export class HomePageModule {}

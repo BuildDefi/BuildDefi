@@ -3,6 +3,7 @@
     "navbar": {
       "home": "Início",
       "features": "Funcionalidades",
+      "roadmap": "Roadmap",
       "about": "Sobre",
       "whitepaper": "Whitepaper"
     },
@@ -45,5 +46,40 @@
   },
   "partners": {
     "title": "Parceiros"
+  },
+  "roadmap": {
+    "list1": {
+      "item1": "Road Map",
+      "item2": "Listagem no CMC",
+      "item3": "Listagem no Coingecko",
+      "item4": "Listagem na Coinpaprika",
+      "item5": "Listagem na Pankake",
+      "item6": "Início do estudo de viabilidade",
+      "item7": "Possíveis parcerias comerciais: Zcore, CoinBR e Indacoin",
+      "item8": "Agência de Marketing Digital Própria",
+      "item9": "Iniciativas globais de marketing",
+      "item10": "Iníco do Certik Audit"
+    },
+    "list2": {
+      "item1": "Apresentação de novos negócios para a comunidade BDF - (Setor imobiliário e de energia sustentável)",
+      "item2": "Ferramentas de Compras Globais",
+      "item3": "Construir Portfólio de Projetos DeFi",
+      "item4": "Construir DeFi Token listado no TOP 10 Exchange",
+      "item5": "Expandir o mercado para o público de língua mandarim",
+      "item6": "Extensão do período de bloqueio de liquidez para 6"
+    },
+    "list3": {
+      "item1": "Construir DeFi APP para Android e IOS",
+      "item2": "Lançamento do Build DeFi Project Exchange",
+      "item3": "Construir Portfólio de Projetos DeFi",
+      "item4": "Auditoria de empresa independente",
+      "item5": "Pesquisa de novos projetos de energia sustentável",
+      "item6": "Apoio para projetos da agenda 2030"
+    },
+    "list4": {
+      "item1": "1º Evento de Lançamento da Plataforma Construtoken",
+      "item2": "Validação de novos projetos",
+      "item3": "Construa sua própria estrutura de blockchain DeFi"
+    }
   }
 }

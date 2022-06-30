@@ -3,6 +3,7 @@
     "navbar": {
       "home": "Home",
       "features": "Features",
+      "roadmap": "Roadmap",
       "about": "About",
       "whitepaper": "Whitepaper"
     },
@@ -45,5 +46,40 @@
   },
   "partners": {
     "title": "Partners"
+  },
+  "roadmap": {
+    "list1": {
+      "item1": "Road Map",
+      "item2": "Listing in CMC",
+      "item3": "Listing on Coingecko",
+      "item4": "Listing on Coinpaprika",
+      "item5": "Listing on Pankake",
+      "item6": "Beginning of the feasibility study",
+      "item7": "Possible commercial partnerships: Zcore, CoinBR and Indacoin",
+      "item8": "Own Digital Marketing Agency",
+      "item9": "Global Marketing Initiatives",
+      "item10": "Certik Audit Start"
+    },
+    "list2": {
+      "item1": "New business presentation for the BDF community - (Real estate and sustainable energy sector)",
+      "item2": "Global Purchasing Tools",
+      "item3": "Build DeFi Project Portfolio",
+      "item4": "Build DeFi Token listed in TOP 10 Exchange",
+      "item5": "Expand market to Mandarin-speaking audience",
+      "item6": "Extension of the liquidity lock period to 6"
+    },
+    "list3": {
+      "item1": "Build DeFi APP for Android and IOS",
+      "item2": "Build DeFi Project Exchange Launch",
+      "item3": "Build DeFi Project Portfolio",
+      "item4": "Independent company audit",
+      "item5": "Research for new sustainable energy projects",
+      "item6": "Support for 2030 agenda projects"
+    },
+    "list4": {
+      "item1": "1st Construtoken Platform Launch Event",
+      "item2": "Validation of new projects",
+      "item3": "Build your own DeFi blockchain framework"
+    }
   }
 }

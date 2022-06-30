@@ -6,6 +6,7 @@ import { appCopyToClipboard } from '../app.functions';
 import { AppTranslateService } from '../services/app-translate.service';
 import { HamburguerModal } from './hamburguer/hamburger.modal';
 declare var particlesJS: any;
+declare var window: { open: any, innerHeight: number };
 
 @Component({
   selector: 'app-home',
@@ -36,7 +37,7 @@ export class HomePage implements OnInit, OnDestroy {
       particlesJS.load('particles-js', 'assets/particles.json');
     }, 500);
 
-    console.log(this.ionContent);
+    console.log(window.innerHeight);
   }
 
   ngOnDestroy() {
@@ -77,15 +78,19 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   scrollTo(type: string) {
+    const height = window.innerHeight - 70;
     switch (type) {
       case 'home':
-        this.ionContent.scrollToPoint(0, 0);
+        this.ionContent.scrollToPoint(0, height * 0);
         break;
       case 'features':
-        this.ionContent.scrollToPoint(0, 600);
+        this.ionContent.scrollToPoint(0, height * 1);
+        break;
+      case 'roadmap':
+        this.ionContent.scrollToPoint(0, height * 2);
         break;
       case 'about':
-        this.ionContent.scrollToPoint(0, 1190);
+        this.ionContent.scrollToPoint(0, height * 3);
         break;
     }
   }
