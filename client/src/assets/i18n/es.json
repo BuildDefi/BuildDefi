@@ -1,0 +1,85 @@
+{
+  "home": {
+    "navbar": {
+      "home": "Comienzo",
+      "features": "Funcionalidades",
+      "roadmap": "Roadmap",
+      "about": "Sobre",
+      "whitepaper": "Whitepaper"
+    },
+    "header": {
+      "title": "Sea titular de un activo digital inteligente en el mercado inmobiliario.",
+      "subtitle": "Pagaremos dividendos durante la retención en función del respaldo y la apreciación en uno de los fondos más seguros y rentables del mercado.",
+      "contract": "Contrato"
+    }
+  },
+  "features": {
+    "title": "Ventajas de BuildDefi",
+    "solutions": {
+      "1": {
+        "title": "BDF Token",
+        "description": "Un Utility Token, que conecta Blockchain y negocios inmobiliarios en un solo lugar."
+      },
+      "2": {
+        "title": "BDFpay",
+        "description": "Soluciones completas para que tu negocio procese pagos a través de criptomonedas en tiempo real."
+      },
+      "3": {
+        "title": "Marketplace (Próximamente)",
+        "description": "Compre y venda productos y servicios desde cualquier parte del mundo utilizando nuestro marketplace."
+      }
+    }
+  },
+  "about": {
+    "us": {
+      "title": "Quienes somos",
+      "description": "BuildDeFi es una empresa formada por un equipo multidisciplinar que ofrece una plataforma de integración vía blockchain, inicialmente pensada para el sector inmobiliario, dando acceso a soluciones y a todo su ecosistema de productos y servicios. Actuando de manera sencilla y eficaz, tomando conocimiento en el área de tecnología y criptomercado, ofreciendo oportunidades de negocio para todas las personas en cualquier parte del mundo."
+    },
+    "motivation": {
+      "title": "Motivación",
+      "description": "Apasionados por la construcción civil y entendiendo las dificultades del mercado financiero con sus complejidades, vemos en la tecnología Blockchain una oportunidad para interconectar el mundo real de los negocios con las finanzas descentralizadas de los contratos inteligentes."
+    },
+    "mission": {
+      "title": "Misión",
+      "description": "Con un enfoque en la realidad y la tecnología Blockchain de los contratos inteligentes, la misión de BuildDefi es construir negocios sólidos integrando ambos mundos, permitiendo que los pequeños, medianos y grandes empresarios sean parte de esta revolución llamada BuildDefi."
+    }
+  },
+  "partners": {
+    "title": "Socios"
+  },
+  "roadmap": {
+    "list1": {
+      "item1": "Road Map",
+      "item2": "Listado en CMC",
+      "item3": "Listado en Coingecko",
+      "item4": "Listado en Coinpaprika",
+      "item5": "Listado en Pancake",
+      "item6": "Inicio del estudio de viabilidad",
+      "item7": "Posibles alianzas comerciales: Zcore, CoinBR e Indacoin",
+      "item8": "Agencia Propia de Marketing Digital",
+      "item9": "Iniciativas de marketing globales",
+      "item10": "Inicio de Auditoría Certik"
+    },
+    "list2": {
+      "item1": "Presentación de nuevos negocios a la comunidad BDF - (Sector inmobiliario y energía sostenible)",
+      "item2": "Herramientas de compras globales",
+      "item3": "Cree una cartera de proyectos DeFi",
+      "item4": "Build DeFi Token incluido en TOP 10 Exchange",
+      "item5": "Ampliar el mercado a la audiencia de habla mandarín",
+      "item6": "Extensión del período de bloqueo de liquidez a 6"
+    },
+    "list3": {
+      "item1": "Cree la APLICACIÓN DeFi para Android e IOS",
+      "item2": "Lanzamiento del intercambio de proyectos Build DeFi",
+      "item3": "Cree una cartera de proyectos DeFi",
+      "item4": "Auditoría independiente de empresas",
+      "item5": "Investigación de nuevos proyectos de energía sostenible",
+      "item6": "Apoyo a proyectos de la agenda 2030"
+    },
+    "list4": {
+      "item1": "1er Evento de Lanzamiento de la Plataforma Construtok",
+      "item2": "Validación de nuevos proyectos.",
+      "item3": "Cree su propio marco de blockchain DeFi"
+    }
+  }
+}

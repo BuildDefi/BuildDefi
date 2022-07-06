@@ -8,6 +8,10 @@
       <ion-ripple-effect></ion-ripple-effect>
       <ion-img src="/assets/svgs/flag_us.svg"></ion-img>
     </div>
+    <div class="flag ion-activatable" [class.selected]="selectedLanguage === 'es'" (click)="setLanguage('es')">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-img src="/assets/svgs/flag_es.png"></ion-img>
+    </div>
   </div>
   <div class="dismiss ion-activatable" (click)="dismiss()">
     <ion-ripple-effect></ion-ripple-effect>
