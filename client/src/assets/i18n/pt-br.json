@@ -49,6 +49,33 @@
   },
   "roadmap": {
     "list1": {
+      "item1": "Lançamento do token.",
+      "item2": "Listagem do token.",
+      "item3": "Injeção de liquidez.",
+      "item4": "Liquidez bloqueada durante 6 meses.",
+      "item5": "Oferta Pública.",
+      "item6": "Distribuição de material e campanha de marketing",
+      "item7": "Nascimento da Comunidade BDF",
+      "item8": "Apresentação da campanha de vantagens holder BDF."
+    },
+    "list2": {
+      "item1": "Aumentar equipe de devs",
+      "item2": "Aumentar colocaborades de departamento: TI, marketing e atendimento.",
+      "item3": "Expansão de midias sociais em empresa internacional",
+      "item4": "Possiveis parcerias comerciais:  Zcore, CoinBR e Indacoin.",
+      "item5": "Inicio de agência de marketing digital própria",
+      "item6": "Inicio de campanhas globais de marketing.",
+      "item7": "Estudo de viabilidade e verificação da certificação."
+    },
+    "list3": {
+      "item1": "Novo contrato com mais ultidade e beneficios para os holders.",
+      "item2": "Criação do Dashboard para controle adm.",
+      "item3": "Lançamento do novo contrato.",
+      "item4": "Transição de liquidez do token antigo para o novo contrato BDF.",
+      "item5": "Swap automatica token atingo x novo.",
+      "item6": "Primeira Queima de 170 milhões de BDFs via plataforma propria."
+    },
+    "list4": {
       "item1": "Road Map",
       "item2": "Listagem no CMC",
       "item3": "Listagem no Coingecko",
@@ -60,7 +87,7 @@
       "item9": "Iniciativas globais de marketing",
       "item10": "Iníco do Certik Audit"
     },
-    "list2": {
+    "list5": {
       "item1": "Apresentação de novos negócios para a comunidade BDF - (Setor imobiliário e de energia sustentável)",
       "item2": "Ferramentas de Compras Globais",
       "item3": "Construir Portfólio de Projetos DeFi",
@@ -68,7 +95,7 @@
       "item5": "Expandir o mercado para o público de língua mandarim",
       "item6": "Extensão do período de bloqueio de liquidez para 6"
     },
-    "list3": {
+    "list6": {
       "item1": "Construir DeFi APP para Android e IOS",
       "item2": "Lançamento do Build DeFi Project Exchange",
       "item3": "Construir Portfólio de Projetos DeFi",
@@ -76,7 +103,7 @@
       "item5": "Pesquisa de novos projetos de energia sustentável",
       "item6": "Apoio para projetos da agenda 2030"
     },
-    "list4": {
+    "list7": {
       "item1": "1º Evento de Lançamento da Plataforma Construtoken",
       "item2": "Validação de novos projetos",
       "item3": "Construa sua própria estrutura de blockchain DeFi"

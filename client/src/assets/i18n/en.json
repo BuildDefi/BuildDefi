@@ -49,6 +49,33 @@
   },
   "roadmap": {
     "list1": {
+      "item1": "Token launch.",
+      "item2": "Token listing.",
+      "item3": "Liquidity injection.",
+      "item4": "Liquidity blocked for 6 months.",
+      "item5": "Public Offer.",
+      "item6": "Distribution of material and marketing campaign",
+      "item7": "Birth of the BDF Community",
+      "item8": "Presentation of the BDF holder perks campaign."
+    },
+    "list2": {
+      "item1": "Increase dev team",
+      "item2": "Increase department colocaborades: IT, marketing and service.",
+      "item3": "Expansion of social media in an international company",
+      "item4": "Possible commercial partnerships: Zcore, CoinBR and Indacoin.",
+      "item5": "Start of own digital marketing agency",
+      "item6": "Start of global marketing campaigns.",
+      "item7": "Feasibility study and certification verification."
+    },
+    "list3": {
+      "item1": "New contract with more validity and benefits for holders.",
+      "item2": "Dashboard creation for admin control.",
+      "item3": "New contract launch.",
+      "item4": "Transition of liquidity from old token to new BDF contract.",
+      "item5": "Automatic token swap reaches x new.",
+      "item6": "First Burn of 170 million BDFs via proprietary platform."
+    },
+    "list4": {
       "item1": "Road Map",
       "item2": "Listing in CMC",
       "item3": "Listing on Coingecko",
@@ -60,7 +87,7 @@
       "item9": "Global Marketing Initiatives",
       "item10": "Certik Audit Start"
     },
-    "list2": {
+    "list5": {
       "item1": "New business presentation for the BDF community - (Real estate and sustainable energy sector)",
       "item2": "Global Purchasing Tools",
       "item3": "Build DeFi Project Portfolio",
@@ -68,7 +95,7 @@
       "item5": "Expand market to Mandarin-speaking audience",
       "item6": "Extension of the liquidity lock period to 6"
     },
-    "list3": {
+    "list6": {
       "item1": "Build DeFi APP for Android and IOS",
       "item2": "Build DeFi Project Exchange Launch",
       "item3": "Build DeFi Project Portfolio",
@@ -76,7 +103,7 @@
       "item5": "Research for new sustainable energy projects",
       "item6": "Support for 2030 agenda projects"
     },
-    "list4": {
+    "list7": {
       "item1": "1st Construtoken Platform Launch Event",
       "item2": "Validation of new projects",
       "item3": "Build your own DeFi blockchain framework"

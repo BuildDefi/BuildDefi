@@ -49,6 +49,33 @@
   },
   "roadmap": {
     "list1": {
+      "item1": "Lanzamiento del token.",
+      "item2": "Lista de fichas.",
+      "item3": "Inyección de liquidez.",
+      "item4": "Liquidez bloqueada durante 6 meses.",
+      "item5": "Oferta pública.",
+      "item6": "Distribución de material y campaña de marketing",
+      "item7": "Nacimiento de la Comunidad BDF",
+      "item8": "Presentación de la campaña de beneficios para titulares de BDF"
+    },
+    "list2": {
+      "item1": "Aumentar el equipo de desarrollo",
+      "item2": "Aumentar colocaborades de departamento: TI, marketing y servicio.",
+      "item3": "Expansión de las redes sociales en una empresa internacional",
+      "item4": "Posibles asociaciones comerciales: Zcore, CoinBR e Indacoin.",
+      "item5": "Inicio de agencia de marketing digital propia",
+      "item6": "Inicio de campañas de marketing globales.",
+      "item7": "Estudio de factibilidad y verificación de certificación"
+    },
+    "list3": {
+      "item1": "Nuevo contrato con mayor vigencia y beneficios para los titulares.",
+      "item2": "Creación de tablero para control administrativo.",
+      "item3": "Lanzamiento de nuevo contrato.",
+      "item4": "Transición de liquidez del antiguo token al nuevo contrato BDF.",
+      "item5": "El intercambio automático de tokens alcanza x nuevos.",
+      "item6": "Primera grabación de 170 millones de BDF a través de una plataforma propietaria"
+    },
+    "list4": {
       "item1": "Road Map",
       "item2": "Listado en CMC",
       "item3": "Listado en Coingecko",
@@ -60,7 +87,7 @@
       "item9": "Iniciativas de marketing globales",
       "item10": "Inicio de Auditoría Certik"
     },
-    "list2": {
+    "list5": {
       "item1": "Presentación de nuevos negocios a la comunidad BDF - (Sector inmobiliario y energía sostenible)",
       "item2": "Herramientas de compras globales",
       "item3": "Cree una cartera de proyectos DeFi",
@@ -68,7 +95,7 @@
       "item5": "Ampliar el mercado a la audiencia de habla mandarín",
       "item6": "Extensión del período de bloqueo de liquidez a 6"
     },
-    "list3": {
+    "list6": {
       "item1": "Cree la APLICACIÓN DeFi para Android e IOS",
       "item2": "Lanzamiento del intercambio de proyectos Build DeFi",
       "item3": "Cree una cartera de proyectos DeFi",
@@ -76,7 +103,7 @@
       "item5": "Investigación de nuevos proyectos de energía sostenible",
       "item6": "Apoyo a proyectos de la agenda 2030"
     },
-    "list4": {
+    "list7": {
       "item1": "1er Evento de Lanzamiento de la Plataforma Construtok",
       "item2": "Validación de nuevos proyectos.",
       "item3": "Cree su propio marco de blockchain DeFi"
