@@ -7,6 +7,10 @@ const customers = require('./routes/customers');
 
 const app = express();
 
+app.listen(3000, '127.0.0.1', function(){
+  console.log(`Listening to http://127.0.0.1:3000`);
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
