@@ -8,8 +8,8 @@
       "whitepaper": "Whitepaper"
     },
     "header": {
-      "title": "Seja holder de um ativo digital inteligente no mercado imobiliário.",
-      "subtitle": "Pagaremos dividendos durante o hold com base no lastro e a valorização em um dos fundos mais seguros e rentáveis do mercado.",
+      "title": "Seja holder de um ativo digital inteligente dentro dos mercados mais lucrativo da atualidade.",
+      "subtitle": "Distribuimos cotas de benefícios durante o hold com base no lastro e a valorização em um dos fundos mais seguros e rentáveis do mercado.",
       "contract": "Contrato"
     }
   },
@@ -33,15 +33,15 @@
   "about": {
     "us": {
       "title": "Quem Somos",
-      "description": "A BuildDeFi é uma empresa constituída por uma equipe multidisciplinar que oferece uma plataforma de integração via blockchain, pensada inicialmente para o setor imobiliário, viabilizando acesso às soluções e todo seu ecossistema de produtos e serviços. Atuando de forma simples e eficaz, levando conhecimento na área de tecnologia e mercado cripto, oferecendo oportunidades de negócios para todas as pessoas em qualquer lugar do mundo."
+      "description": "A BuildDefi é uma empresa constituída por uma equipe multidisciplinar que oferece uma plataforma de integração via Blockchain, pensada inicialmente para o mercado imobiliário, viabilizando acesso as soluções e todo o seu ecossistema de produtos e serviços. Atuando de forma simples e eficaz, levando conhecimento na área de tecnologia e finanças descentralizadas, oferecendo oportunidade de negócios pa tá todas as pessoas em qualquer lugar do mundo."
     },
     "motivation": {
       "title": "Motivação",
-      "description": "Apaixonados pela construção civil e entendendo as dificuldades do mercado financeiro com as suas complexidades, enxergamos na tecnologia Blockchain uma oportunidade de interligar o mundo real dos negócios com as finanças descentralizadas dos contratos inteligentes."
+      "description": "Com o foco voltado para o real e a tecnologia Blockchain dos contratos inteligentes, a BuildDefi tem a missão de construir negócios solidos intregando os dois mundos, permitindo que pequenos médios e grandes empreendedores faça parte dessa revolução chamada BuildDefi."
     },
     "mission": {
-      "title": "Missão",
-      "description": "Com o foco voltado para o real e a tecnologia Blockchain dos contratos inteligentes, a BuildDefi tem a missão de construir negócios solidos intregando os dois mundos, permitindo que pequenos médios e grandes empreendedores faça parte dessa revolução chamada BuildDefi."
+      "title": "Missão e Valores",
+      "description": "Apaixonados pela construção civil e tecnologia, entendemos as dificuldades do mercado com suas complexidades, enxergamos na tecnologia Blockchain uma oportunidade de interligar o mundo real dos negócios com as finanças descentralizadas dos contratos inteligentes. Prezamos pela segurança dos nossos clientes e o sigilo das informações durante as operações, gerando uma carteira de clientes fidelizados e parceiros de negócio."
     }
   },
   "partners": {
@@ -108,5 +108,9 @@
       "item2": "Validação de novos projetos",
       "item3": "Construa sua própria estrutura de blockchain DeFi"
     }
+  },
+  "footer": {
+    "title": "#TeamBuildDefiToken",
+    "description": "Conte conosco e com a nossa coragem e capacidade de revolucionar o mercado das finanças descentralizadas. Sonhamos alto, não temos medo de tomar decisões difíceis que se alinhem com os nossos objetivos de longo prazo. Sabemos que tudo sempre parece ser impossível, até ser feito. Investimentos fortemente em uma equipe altamente capacitada que conduz o nosso projeto para o próximo nível"
   }
 }

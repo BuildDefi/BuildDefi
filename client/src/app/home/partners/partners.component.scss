@@ -1,21 +1,23 @@
 :host {
-  background-color: #444444;
+  background-color: #f1c332;
   color: #ffffff;
   flex-direction: column;
   align-items: center;
 
+  h2 {
+    font-weight: bold;
+    font-size: 28px;
+  }
+
   .partners {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
 
     .partner {
       width: 200px;
-      padding: 0.5em 1em;
-      border-right: 2px solid #f1c332;
-
-      &:last-child {
-        border-right: none;
-      }
+      padding: 0.5em 1.5em;
     }
   }
 }
