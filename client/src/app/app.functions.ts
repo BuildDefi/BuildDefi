@@ -18,7 +18,7 @@ export const appCatchError = (
 ) => {
   return async (error?: any) => {
     if (error) {
-      message = error.error && error.error.join ? error.error.join('. ') : error.error.message ? error.error.message : error.message;
+      message = error.error && error.error.join ? error.error.join('. ') : error.error && error.error.message ? error.error.message : error.message;
 
       header = 'Erro de autorização';
       if (message.startsWith('missing provider')) {
