@@ -18,7 +18,7 @@ export const appCatchError = (
 ) => {
   return async (error?: any) => {
     if (error) {
-      message = error.error && error.error.join ? error.error.join('. ') : error.message;
+      message = error.error && error.error.join ? error.error.join('. ') : error.error.message ? error.error.message : error.message;
 
       header = 'Erro de autorização';
       if (message.startsWith('missing provider')) {
@@ -37,6 +37,11 @@ export const appCatchError = (
         message = 'Conecte-se com uma carteira primeiro!'
       } else if (message === 'User rejected the transaction') {
         message = 'Operação cancelada pelo usuário!';
+      } else if (message.startsWith('ER_DUP_ENTRY')) {
+        // ER_DUP_ENTRY: Duplicate entry 'email@exa.com' for key 'email'
+        const part = message.replace(`ER_DUP_ENTRY: Duplicate entry '`, '');
+        const index = part.indexOf(`'`);
+        message = `Já existe um registro com esse valor (${part.substring(0, index)}) em nosso banco de dados.`;
       } else {
         console.error(error);
       }

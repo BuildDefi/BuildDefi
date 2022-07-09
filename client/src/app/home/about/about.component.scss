@@ -47,8 +47,12 @@
       @media (max-width: 960px) {
         flex-direction: column;
 
-        .img, .text {
+        .image, .text {
           width: 100%;
+
+          img {
+            height: unset;
+          }
         }
 
         &:nth-child(2) {

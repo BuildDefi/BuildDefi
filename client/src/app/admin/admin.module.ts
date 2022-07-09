@@ -19,6 +19,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/multiple-transfers/multiple-transfers.module').then(m => m.MultipleTransfersPageModule)
       },
       {
+        path: 'partners',
+        loadChildren: () => import('./pages/partners/partners.module').then(m => m.PartnersPageModule)
+      },
+      {
         path: 'settings',
         loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule)
       },

@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { ModalController } from "@ionic/angular";
+import { BecomeModal } from "./become/become.modal";
 
 @Component({
   selector: 'app-partners',
@@ -7,4 +9,14 @@ import { Component } from "@angular/core";
 })
 export class PartnersComponent {
 
+  constructor(
+    private modalCtrl: ModalController
+  ) { }
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: BecomeModal
+    });
+    modal.present();
+  }
 }

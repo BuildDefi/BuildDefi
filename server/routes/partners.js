@@ -12,7 +12,7 @@ const db = mysql.createConnection({
 });
 
 router.get('/', (req, res) => {
-  const query = 'select * from customers';
+  const query = 'select * from partners';
 
   db.query(query, (err, data) => {
     if (err) {
@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const { registeredName, tradingName, taxPayerRegistration, phoneNumber, email, comments, productService } = req.body;
-  const query = 'INSERT INTO customers(registeredName, tradingName, taxPayerRegistration, phoneNumber, email, comments, productService) VALUES (?, ?, ?, ?, ?, ?, ?)';
+  const query = 'INSERT INTO partners(registeredName, tradingName, taxPayerRegistration, phoneNumber, email, comments, productService) VALUES (?, ?, ?, ?, ?, ?, ?)';
   const values = [registeredName, tradingName, taxPayerRegistration, phoneNumber, email, comments, productService];
 
   db.query(query, values, (err) => {

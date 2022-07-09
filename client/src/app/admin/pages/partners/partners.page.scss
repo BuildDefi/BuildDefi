@@ -1,0 +1,52 @@
+.table-responsive {
+  overflow-x: scroll;
+
+  table {
+    border: 1px solid var(--ion-color-medium);
+    width: 100%;
+
+    thead {
+      tr {
+        border-bottom: 1px solid var(--ion-color-medium);
+
+        th {
+          text-align: left;
+          padding: 0.5em 1em;
+
+          &.c1 {
+            min-width: 10em;
+          }
+
+          &.c2 {
+            min-width: 15em;
+          }
+
+          &.c3 {
+            min-width: 20em;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          text-align: left;
+          padding: 0.5em 1em;
+
+          &.c1 {
+            min-width: 10em;
+          }
+
+          &.c2 {
+            min-width: 15em;
+          }
+
+          &.c3 {
+            min-width: 20em;
+          }
+        }
+      }
+    }
+  }
+}

@@ -29,6 +29,11 @@ export class AdminPage {
       url: 'multiple-transfers'
     },
     {
+      icon: 'storefront',
+      name: 'Parceiros',
+      url: 'partners'
+    },
+    {
       icon: 'settings',
       name: 'Configurações',
       url: 'settings'

@@ -49,7 +49,11 @@
   },
   "partners": {
     "title": "Parceiros",
-    "become": "Seja um parceiro"
+    "become": {
+      "title": "Seja um parceiro",
+      "description": "Seja um parceiro BuildDefi, em nosso MarkePlace de produtos e serviços.",
+      "message": "Uma nova fase para seu negócio"
+    }
   },
   "roadmap": {
     "list1": {

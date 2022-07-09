@@ -49,7 +49,11 @@
   },
   "partners": {
     "title": "Socios",
-    "become": "Convertirse en socio"
+    "become": {
+      "title": "Convertirse en socio",
+      "description": "Seja um parceiro BuildDefi, em nosso MarkePlace de produtos e serviços.",
+      "message": "Uma nova fase para seu negócio"
+    }
   },
   "roadmap": {
     "list1": {

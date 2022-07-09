@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { RouterModule, Routes } from '@angular/router';
 import { HamburguerModal } from './hamburguer/hamburger.modal';
@@ -13,6 +13,7 @@ import { TokenComponent } from './token/token.component';
 import { FooterComponent } from './footer/footer.component';
 import { PartnersComponent } from './partners/partners.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
+import { BecomeModal } from './partners/become/become.modal';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes),
     TranslateModule.forChild(),
@@ -34,6 +35,7 @@ const routes: Routes = [
   declarations: [
     HomePage,
     HamburguerModal,
+    BecomeModal,
     FeaturesComponent,
     AboutComponent,
     TokenComponent,
