@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { appCopyToClipboard } from '../app.functions';
 import { AppTranslateService } from '../services/app-translate.service';
 import { HamburguerModal } from './hamburguer/hamburger.modal';
+
 declare var particlesJS: any;
 declare var window: { open: any, innerHeight: number };
 

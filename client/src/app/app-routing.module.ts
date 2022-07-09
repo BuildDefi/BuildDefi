@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminPageModule)
   },
   {
+    path: 'holder',
+    loadChildren: () => import('./holder/holder.module').then(m => m.HolderPageModule)
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'
