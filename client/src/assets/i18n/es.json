@@ -7,6 +7,9 @@
       "about": "Sobre",
       "whitepaper": "Whitepaper"
     },
+    "actions": {
+      "action1": "Área del holder"
+    },
     "header": {
       "title": "Sea propietario de un activo digital inteligente en los mercados más rentables de la actualidad.",
       "subtitle": "Distribuimos acciones de beneficio durante la retención en función del respaldo y la valoración en uno de los fondos más seguros y rentables del mercado.",
@@ -18,7 +21,7 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "Un Utility Token, que conecta Blockchain y negocios inmobiliarios en un solo lugar."
+        "description": "Un Utility Token, que conecta Blockchain, negocios inmobiliarios, productos y servicios en un solo lugar."
       },
       "2": {
         "title": "BDFpay",
@@ -37,7 +40,7 @@
     },
     "motivation": {
       "title": "Motivación",
-      "description": "Con un enfoque en la realidad y la tecnología Blockchain de los contratos inteligentes, la misión de BuildDefi es construir negocios sólidos integrando ambos mundos, permitiendo que los pequeños, medianos y grandes empresarios sean parte de esta revolución llamada BuildDefi."
+      "description": "Con un enfoque en la realidad y la tecnología Blockchain de los contratos inteligentes, BuildDefi tiene como objetivo construir negocios sólidos integrando ambos mundos, permitiendo que los pequeños, medianos y grandes empresarios sean parte de esta revolución llamada BuildDefi."
     },
     "mission": {
       "title": "Misión y Valores",
@@ -45,7 +48,8 @@
     }
   },
   "partners": {
-    "title": "Socios"
+    "title": "Socios",
+    "become": "Convertirse en socio"
   },
   "roadmap": {
     "list1": {
@@ -62,10 +66,9 @@
       "item1": "Aumentar el equipo de desarrollo",
       "item2": "Aumentar colocaborades de departamento: TI, marketing y servicio.",
       "item3": "Expansión de las redes sociales en una empresa internacional",
-      "item4": "Posibles asociaciones comerciales: Zcore, CoinBR e Indacoin.",
-      "item5": "Inicio de agencia de marketing digital propia",
-      "item6": "Inicio de campañas de marketing globales.",
-      "item7": "Estudio de factibilidad y verificación de certificación"
+      "item4": "Inicio de agencia de marketing digital propia",
+      "item5": "Inicio de campañas de marketing globales.",
+      "item6": "Estudio de factibilidad y verificación de certificación"
     },
     "list3": {
       "item1": "Nuevo contrato con mayor vigencia y beneficios para los titulares.",

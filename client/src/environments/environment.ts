@@ -17,7 +17,8 @@ export const environment = {
   chain: {
     id: 97,
     name: 'Smart Chain Testnet'
-  }
+  },
+  apiUrl: 'http://localhost:3000/api'
 };
 
 /*

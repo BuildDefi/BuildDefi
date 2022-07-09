@@ -7,6 +7,9 @@
       "about": "About",
       "whitepaper": "Whitepaper"
     },
+    "actions": {
+      "action1": "Holder area"
+    },
     "header": {
       "title": "Own a smart digital asset within today's most profitable markets.",
       "subtitle": "We distribute benefit shares during the hold based on the backing and valuation in one of the safest and most profitable funds on the market.",
@@ -18,7 +21,7 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "A Utility Token, which connects Blockchain and real estate businesses in one place."
+        "description": "A Utility Token, which connects Blockchain, real estate businesses, products and services in one place."
       },
       "2": {
         "title": "BDFpay",
@@ -37,7 +40,7 @@
     },
     "motivation": {
       "title": "Motivation",
-      "description": "With a focus on reality and the Blockchain technology of smart contracts, BuildDefi's mission is to build solid businesses by integrating both worlds, allowing small and medium-sized and large entrepreneurs to be part of this revolution called BuildDefi."
+      "description": "With a focus on reality and the Blockchain technology of smart contracts, BuildDefi aims to build solid businesses by integrating both worlds, allowing small and medium-sized and large entrepreneurs to be part of this revolution called BuildDefi."
     },
     "mission": {
       "title": "Mission and Values",
@@ -45,7 +48,8 @@
     }
   },
   "partners": {
-    "title": "Partners"
+    "title": "Partners",
+    "become": "Become a partner"
   },
   "roadmap": {
     "list1": {
@@ -62,10 +66,9 @@
       "item1": "Increase dev team",
       "item2": "Increase department colocaborades: IT, marketing and service.",
       "item3": "Expansion of social media in an international company",
-      "item4": "Possible commercial partnerships: Zcore, CoinBR and Indacoin.",
-      "item5": "Start of own digital marketing agency",
-      "item6": "Start of global marketing campaigns.",
-      "item7": "Feasibility study and certification verification."
+      "item4": "Start of own digital marketing agency",
+      "item5": "Start of global marketing campaigns.",
+      "item6": "Feasibility study and certification verification."
     },
     "list3": {
       "item1": "New contract with more validity and benefits for holders.",

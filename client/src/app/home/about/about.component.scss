@@ -19,9 +19,11 @@
         width: 50%;
         border-radius: 5px;
         margin: 6em 0;
+        padding: 1em;
 
         img {
           border-radius: 10px;
+          height: 400px;
         }
       }
 
@@ -32,6 +34,7 @@
         h2 {
           margin: 0.25em 0;
           font-size: 28px;
+          text-align: center;
         }
 
         p {

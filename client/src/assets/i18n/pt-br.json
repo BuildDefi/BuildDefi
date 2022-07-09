@@ -7,8 +7,11 @@
       "about": "Sobre",
       "whitepaper": "Whitepaper"
     },
+    "actions": {
+      "action1": "Área de holder"
+    },
     "header": {
-      "title": "Seja holder de um ativo digital inteligente dentro dos mercados mais lucrativo da atualidade.",
+      "title": "Seja holder de um ativo digital inteligente dentro dos mercados mais lucrativos da atualidade.",
       "subtitle": "Distribuimos cotas de benefícios durante o hold com base no lastro e a valorização em um dos fundos mais seguros e rentáveis do mercado.",
       "contract": "Contrato"
     }
@@ -18,7 +21,7 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "Um Token de utilidade, que conecta em um só lugar Blockchain e negócios imobiliários."
+        "description": "Um Token de utilidade, que conecta em um só lugar Blockchain, negócios imobiliários, produtos e serviços."
       },
       "2": {
         "title": "BDFpay",
@@ -37,7 +40,7 @@
     },
     "motivation": {
       "title": "Motivação",
-      "description": "Com o foco voltado para o real e a tecnologia Blockchain dos contratos inteligentes, a BuildDefi tem a missão de construir negócios solidos intregando os dois mundos, permitindo que pequenos médios e grandes empreendedores faça parte dessa revolução chamada BuildDefi."
+      "description": "Com o foco voltado para o real e a tecnologia Blockchain dos contratos inteligentes, a BuildDefi tem o propósito de construir negócios solidos intregando os dois mundos, permitindo que pequenos médios e grandes empreendedores faça parte dessa revolução chamada BuildDefi."
     },
     "mission": {
       "title": "Missão e Valores",
@@ -45,7 +48,8 @@
     }
   },
   "partners": {
-    "title": "Parceiros"
+    "title": "Parceiros",
+    "become": "Seja um parceiro"
   },
   "roadmap": {
     "list1": {
@@ -62,10 +66,9 @@
       "item1": "Aumentar equipe de devs",
       "item2": "Aumentar colocaborades de departamento: TI, marketing e atendimento.",
       "item3": "Expansão de midias sociais em empresa internacional",
-      "item4": "Possiveis parcerias comerciais:  Zcore, CoinBR e Indacoin.",
-      "item5": "Inicio de agência de marketing digital própria",
-      "item6": "Inicio de campanhas globais de marketing.",
-      "item7": "Estudo de viabilidade e verificação da certificação."
+      "item4": "Inicio de agência de marketing digital própria",
+      "item5": "Inicio de campanhas globais de marketing.",
+      "item6": "Estudo de viabilidade e verificação da certificação."
     },
     "list3": {
       "item1": "Novo contrato com mais ultidade e beneficios para os holders.",

@@ -50,16 +50,19 @@
 
         .action {
           display: flex;
+          justify-content: center;
           align-items: center;
           border: 1px solid var(--ion-color-primary);
           border-radius: 5px;
-          padding: 0.75em 1.5em;
+          padding: 0.5em 1em;
           cursor: pointer;
           position: relative;
           overflow: hidden;
+          min-width: 190px;
+          text-align: center;
 
-          ion-img {
-            width: 24px;
+          ion-icon {
+            font-size: 24px;
             margin-right: 0.5em;
           }
         }
@@ -94,7 +97,7 @@
         display: none;
       }
 
-      @media (max-width: 1120px) {
+      @media (max-width: 1256px) {
         .items {
           display: none;
         }
@@ -116,7 +119,7 @@
         }
       }
 
-      @media (max-width: 490px) {
+      @media (max-width: 524px) {
         .actions {
           display: none;
         }
