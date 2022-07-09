@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component } from "@angular/core";
 import { AlertController, LoadingController, MenuController, NavController } from "@ionic/angular";
 import { Subscription } from "rxjs";
-import { ContractService } from "src/app/admin/services/contract.service";
+import { ContractService } from "../services/contract.service";
 import { appCatchError, appShowLoading } from "src/app/app.functions";
 
 interface Page {

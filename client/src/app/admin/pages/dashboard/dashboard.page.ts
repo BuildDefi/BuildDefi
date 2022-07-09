@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AlertController, LoadingController } from "@ionic/angular";
 import { Subscription } from "rxjs";
 import { appCatchError, appShowLoading } from "src/app/app.functions";
-import { ContractService } from "../../services/contract.service";
+import { ContractService } from "../../../services/contract.service";
 
 interface Result {
   address: string;

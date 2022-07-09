@@ -3,7 +3,7 @@ import { AlertController, LoadingController, MenuController, NavController } fro
 
 import { Subscription } from "rxjs";
 import { appCatchError, appShowLoading } from "../app.functions";
-import { ContractService } from "./services/contract.service";
+import { ContractService } from "../services/contract.service";
 
 interface Page {
   icon: string;

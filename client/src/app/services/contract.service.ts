@@ -62,12 +62,9 @@ export class ContractService {
 
         return from(signer.getAddress());
       }),
-      switchMap(signerAddress => {
+      map(signerAddress => {
         this.mSignerAddress.next(signerAddress);
 
-        return this.fetchInfo();
-      }),
-      map(() => {
         return window.ethereum;
       })
     );
@@ -107,6 +104,26 @@ export class ContractService {
           owner: res[11],
           holdLimit: res[12]
         });
+      })
+    );
+  }
+
+  balanceOf(address: string): Observable<number> {
+    let cDecimals: any;
+    let cContract: any;
+
+    return this.contract.pipe(
+      switchMap(contract => {
+        cContract = contract;
+
+        return from(cContract.decimals());
+      }),
+      switchMap(decimals => {
+        cDecimals = decimals;
+        return from(cContract.balanceOf(address));
+      }),
+      map(res => {
+        return Number(res) / (10 * 10 ** cDecimals);
       })
     );
   }

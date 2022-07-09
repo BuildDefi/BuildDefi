@@ -1,6 +1,21 @@
 <app-header>Dashboard</app-header>
 <ion-content>
   <app-responsive>
-    Hello
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Balanço</ion-card-subtitle>
+        <ion-card-title>
+          {{ balance | amount }} BDF
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Cotas BDF</ion-card-subtitle>
+        <ion-card-title>
+          {{ quotes }} Cotas
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
   </app-responsive>
 </ion-content>

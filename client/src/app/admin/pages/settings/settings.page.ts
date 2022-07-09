@@ -3,8 +3,8 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AlertController, LoadingController } from "@ionic/angular";
 import { Subscription } from "rxjs";
 import { appCatchError, appShowLoading } from "src/app/app.functions";
-import { TokenInfo } from "../../models/token-info.model";
-import { ContractService } from "../../services/contract.service";
+import { TokenInfo } from "../../../models/token-info.model";
+import { ContractService } from "../../../services/contract.service";
 
 @Component({
   selector: 'app-settings',
@@ -23,13 +23,12 @@ export class SettingsPage implements OnInit, OnDestroy {
     private contractService: ContractService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.subs.push(
       this.contractService.tokenInfo.subscribe(info => {
         this.info = info;
 
         if (info) {
-          console.log(info);
           this.form = new FormGroup({
             feeDenominator: new FormControl(info.feeDenominator, {
               updateOn: 'change',
@@ -91,6 +90,14 @@ export class SettingsPage implements OnInit, OnDestroy {
         }
       })
     );
+
+    const loading = await appShowLoading(this.loadingCtrl);
+    this.contractService.fetchInfo().subscribe(() => {
+      loading.dismiss();
+    }, error => {
+      loading.dismiss();
+      appCatchError(this.alertCtrl)(error);
+    });
   }
 
   ngOnDestroy() {
