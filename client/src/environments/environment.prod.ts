@@ -6,5 +6,6 @@ export const environment = {
   chain: {
     id: 56,
     name: 'Smart Chain'
-  }
+  },
+  apiUrl: 'https://app-40664.nuvem-us-02.absamcloud.com/api'
 };
