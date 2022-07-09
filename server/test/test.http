@@ -1,0 +1,19 @@
+@baseUrl = http://localhost:3000/api
+@json = Content-Type: application/json
+
+GET {{baseUrl}}/customers
+
+###
+
+POST {{baseUrl}}/customers
+{{json}}
+
+{
+  "registeredName": "Empresa 02",
+  "tradingName": "Fantasia 01",
+  "taxPayerRegistration": "2234",
+  "phoneNumber": "99484",
+  "email": "aslkd2@email.com",
+  "comments": "teste",
+  "productService": "Sistemas"
+}
