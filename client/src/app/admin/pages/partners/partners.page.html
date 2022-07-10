@@ -6,25 +6,25 @@
         <thead>
           <tr>
             <th>#</th>
-            <th class="c2">Razão Social</th>
-            <th class="c2">Nome Fantasia</th>
-            <th class="c1">CNPJ</th>
-            <th>Telefone</th>
-            <th>Email</th>
+            <th class="c3">Razão Social</th>
+            <th class="c3">Nome Fantasia</th>
+            <th class="c2">CNPJ</th>
+            <th class="c2">Telefone</th>
+            <th class="c2">Email</th>
             <th class="c2">Produto/Servico</th>
-            <th class="c3">Observações</th>
+            <th class="c4">Observações</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let partner of partners">
             <td>{{ partner.id }}</td>
-            <td class="c2">{{ partner.registeredName }}</td>
-            <td class="c2">{{ partner.tradingName }}</td>
-            <td class="c1">{{ partner.taxPayerRegistration }}</td>
-            <td>{{ partner.phoneNumber }}</td>
-            <td>{{ partner.email }}</td>
+            <td class="c3">{{ partner.registeredName }}</td>
+            <td class="c3">{{ partner.tradingName }}</td>
+            <td class="c2">{{ partner.taxPayerRegistration }}</td>
+            <td class="c2">{{ partner.phoneNumber }}</td>
+            <td class="c2">{{ partner.email }}</td>
             <td class="c2">{{ partner.productService }}</td>
-            <td class="c3">{{ partner.comments }}</td>
+            <td class="c4">{{ partner.comments }}</td>
           </tr>
         </tbody>
       </table>

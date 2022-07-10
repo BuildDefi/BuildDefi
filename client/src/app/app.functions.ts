@@ -1,4 +1,5 @@
 import { AlertController, LoadingController, ToastController } from "@ionic/angular";
+import { environment } from "src/environments/environment";
 
 export const appShowLoading = async (
   loadingCtrl: LoadingController
@@ -28,7 +29,7 @@ export const appCatchError = (
       } else if (message === 'A request is already in progress') {
         message = 'Informe suas credenciais para se autenticar';
       } else if (message === 'WrongChainId') {
-        message = 'Você deve estar conectado na rede correta!';
+        message = `Você deve estar conectado na rede ${environment.chain.name} (id: ${environment.chain.id})!`;
       } else if (message.endsWith('caller is not the owner')) {
         message = 'Você não possui permissão para fazer isso!'
       } else if (message.includes('invalid address')) {
