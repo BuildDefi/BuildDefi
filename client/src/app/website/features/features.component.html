@@ -15,6 +15,12 @@
       <ion-img src="/assets/images/solution3.png"></ion-img>
       <h2>{{ 'features.solutions.3.title' | translate }}</h2>
       <p>{{ 'features.solutions.3.description' | translate }}</p>
+
+      <div class="action ion-activatable" (click)="openModal()">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="storefront-outline"></ion-icon>
+        {{ 'features.solutions.3.partner' | translate }}
+      </div>
     </div>
   </div>
 </div>

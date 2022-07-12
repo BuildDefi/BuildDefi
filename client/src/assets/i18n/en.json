@@ -29,7 +29,8 @@
       },
       "3": {
         "title": "Marketplace (Soon)",
-        "description": "Buy and sell products and services from anywhere in the world using our marketplace."
+        "description": "Buy and sell products and services from anywhere in the world using our marketplace.",
+        "partner": "Become a partner"
       }
     }
   },
@@ -54,6 +55,9 @@
       "description": "Seja um parceiro BuildDefi, em nosso MarkePlace de produtos e serviços.",
       "message": "Uma nova fase para seu negócio"
     }
+  },
+  "charts": {
+    "title": "Charts"
   },
   "roadmap": {
     "list1": {

@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PartnersComponent } from './partners/partners.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
 import { BecomeModal } from './partners/become/become.modal';
+import { ChartsComponent } from './charts/charts.component';
 
 const routes: Routes = [
   {
@@ -36,12 +37,13 @@ const routes: Routes = [
     WebsitePage,
     HamburguerModal,
     BecomeModal,
-    FeaturesComponent,
     AboutComponent,
-    TokenComponent,
+    ChartsComponent,
+    FeaturesComponent,
     FooterComponent,
     PartnersComponent,
-    RoadmapComponent
+    RoadmapComponent,
+    TokenComponent
   ]
 })
 export class WebsitePageModule {}
