@@ -21,7 +21,7 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "Um Token de utilidade, que conecta em um só lugar Blockchain, negócios imobiliários, produtos e serviços."
+        "description": "Um Token de utilidade, que conecta em um só lugar: Blockchain, negócios imobiliários, produtos e serviços."
       },
       "2": {
         "title": "BDFpay",
@@ -36,11 +36,11 @@
   "about": {
     "us": {
       "title": "Quem Somos",
-      "description": "A BuildDefi é uma empresa constituída por uma equipe multidisciplinar que oferece uma plataforma de integração via Blockchain, pensada inicialmente para o mercado imobiliário, viabilizando acesso as soluções e todo o seu ecossistema de produtos e serviços. Atuando de forma simples e eficaz, levando conhecimento na área de tecnologia e finanças descentralizadas, oferecendo oportunidade de negócios pa tá todas as pessoas em qualquer lugar do mundo."
+      "description": "A BuildDefi é uma empresa constituída por uma equipe multidisciplinar que oferece uma plataforma de integração via Blockchain, pensada inicialmente para o mercado imobiliário, viabilizando acesso as soluções e todo o seu ecossistema de produtos e serviços. Atuando de forma simples e eficaz, levando conhecimento na área de tecnologia e finanças descentralizadas, oferecendo oportunidade de negócios para todas as pessoas em qualquer lugar do mundo."
     },
     "motivation": {
       "title": "Motivação",
-      "description": "Com o foco voltado para o real e a tecnologia Blockchain dos contratos inteligentes, a BuildDefi tem o propósito de construir negócios solidos intregando os dois mundos, permitindo que pequenos médios e grandes empreendedores faça parte dessa revolução chamada BuildDefi."
+      "description": "Com o foco voltado para o real e a tecnologia Blockchain dos contratos inteligentes, a BuildDefi tem o propósito de construir negócios solidos intregando os dois mundos, permitindo que pequenos, médios e grandes empreendedores faça parte dessa revolução chamada BuildDefi."
     },
     "mission": {
       "title": "Missão e Valores",
@@ -118,6 +118,7 @@
   },
   "footer": {
     "title": "#TeamBuildDefiToken",
-    "description": "Conte conosco e com a nossa coragem e capacidade de revolucionar o mercado das finanças descentralizadas. Sonhamos alto, não temos medo de tomar decisões difíceis que se alinhem com os nossos objetivos de longo prazo. Sabemos que tudo sempre parece ser impossível, até ser feito. Investimentos fortemente em uma equipe altamente capacitada que conduz o nosso projeto para o próximo nível"
+    "description": "Conte conosco, com nossa coragem e capacidade para revolucionar o mercado financeiro descentralizado. Sonhamos grande e não temos medo de tomar decisões difíceis que se alinham com a nossa comunidade e nossos objetivos de longo prazo. Sabemos que tudo sempre parece impossível até que seja feito. Investimos forte em uma equipe altamente qualificada que leva nossos projetos para o próximo nível.",
+    "description2": "FAÇA PARTE DA REVOLUÇÃO BUILDDEFI (BDF)"
   }
 }

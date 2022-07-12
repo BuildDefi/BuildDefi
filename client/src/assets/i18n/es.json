@@ -21,7 +21,7 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "Un Utility Token, que conecta Blockchain, negocios inmobiliarios, productos y servicios en un solo lugar."
+        "description": "Un Utility Token, que conecta en un solo lugar: Blockchain, negocios inmobiliarios, productos y servicios."
       },
       "2": {
         "title": "BDFpay",
@@ -118,6 +118,7 @@
   },
   "footer": {
     "title": "#TeamBuildDefiToken",
-    "description": "Cuente con nosotros y con nuestro coraje y capacidad para revolucionar el mercado financiero descentralizado. Soñamos en grande, no tenemos miedo de tomar decisiones difíciles que se alineen con nuestros objetivos a largo plazo. Sabemos que todo siempre parece imposible, hasta que se hace. Invertimos mucho en un equipo altamente calificado que lleva nuestro proyecto al siguiente nivel"
+    "description": "Cuente con nosotros, con nuestro coraje y capacidad para revolucionar el mercado financiero descentralizado. Soñamos en grande y no tenemos miedo de tomar decisiones difíciles que se alineen con nuestra comunidad y nuestras metas a largo plazo. Sabemos que todo siempre parece imposible hasta que se hace. Invertimos fuertemente en un equipo altamente calificado que lleva nuestros proyectos al siguiente nivel.",
+    "description2": "SÉ PARTE DE LA REVOLUCIÓN BUILDDEFI (BDF)"
   }
 }

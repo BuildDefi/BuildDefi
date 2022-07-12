@@ -21,7 +21,7 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "A Utility Token, which connects Blockchain, real estate businesses, products and services in one place."
+        "description": "A Utility Token, which connects in one place: Blockchain, real estate businesses, products and services."
       },
       "2": {
         "title": "BDFpay",
@@ -40,7 +40,7 @@
     },
     "motivation": {
       "title": "Motivation",
-      "description": "With a focus on reality and the Blockchain technology of smart contracts, BuildDefi aims to build solid businesses by integrating both worlds, allowing small and medium-sized and large entrepreneurs to be part of this revolution called BuildDefi."
+      "description": "With a focus on reality and the Blockchain technology of smart contracts, BuildDefi aims to build solid businesses by integrating both worlds, allowing small, medium and large-sized entrepreneurs to be part of this revolution called BuildDefi."
     },
     "mission": {
       "title": "Mission and Values",
@@ -118,6 +118,7 @@
   },
   "footer": {
     "title": "#TeamBuildDefiToken",
-    "description": "Count on us and our courage and ability to revolutionize the decentralized finance market. We dream big, we are not afraid to make tough decisions that align with our long-term goals. We know that everything always seems to be impossible, until it is done. We invest heavily in a highly skilled team that takes our project to the next level"
+    "description": "Count on us, with our courage and ability to revolutionize the decentralized financial market. We dream big and aren't afraid to make tough decisions that align with our community and our long-term goals. We know that everything always seems impossible until it is done. We invest heavily in a highly qualified team that takes our projects to the next level.",
+    "description2": "BE PART OF THE BUILDDEFI REVOLUTION (BDF)"
   }
 }

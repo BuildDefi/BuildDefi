@@ -10,11 +10,11 @@ declare var particlesJS: any;
 declare var window: { open: any, innerHeight: number };
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-website',
+  templateUrl: 'website.page.html',
+  styleUrls: ['website.page.scss'],
 })
-export class HomePage implements OnInit, OnDestroy {
+export class WebsitePage implements OnInit, OnDestroy {
 
   @ViewChild('content', { static: true }) ionContent: any;
   constractAddress = environment.contract.address;
