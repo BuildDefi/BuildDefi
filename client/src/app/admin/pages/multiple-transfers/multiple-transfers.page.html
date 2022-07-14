@@ -21,5 +21,29 @@
         </ion-card-content>
       </ion-card>
     </form>
+    <form [formGroup]="convertForm">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Converter Cotas Para Quantidades</ion-card-title>
+          <ion-card-subtitle>
+            Use o formato (endereco)(espaco ou tab)(cotas)
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">Quantidade BDF</ion-label>
+            <ion-input type="text" placeholder="1000" formControlName="quantity"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Valor</ion-label>
+            <ion-textarea type="text" rows="16" placeholder="0xa79b8dd0a3bb41acf4b52bdd96eb6ba198c3847b 8
+0xc010a44d2e42ab57bce850eec4fac5e4c0deeecd 10" formControlName="text"></ion-textarea>
+          </ion-item>
+          <div class="ion-padding-top">
+            <ion-button expand="block" color="secondary" [disabled]="convertForm.invalid" (click)="convertSubmit()">Converter</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </form>
   </app-responsive>
 </ion-content>

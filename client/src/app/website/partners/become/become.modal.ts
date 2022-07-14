@@ -33,7 +33,7 @@ export class BecomeModal implements OnInit {
       }),
       taxPayerRegistration: new FormControl(null, {
         updateOn: 'change',
-        validators: [Validators.required]
+        validators: [Validators.required, Validators.pattern(`^\\d{14}|\\d{11}|\\d{3}\.\\d{3}\.\\d{3}-\\d{2}|\\d{2}\.\\d{3}\.\\d{3}\/\\d{4}-\\d{2}$`)]
       }),
       phoneNumber: new FormControl(null, {
         updateOn: 'change',
