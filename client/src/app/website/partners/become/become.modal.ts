@@ -54,6 +54,38 @@ export class BecomeModal implements OnInit {
     });
   }
 
+  changeTaxPayerRegistration(event: any) {
+    let value: string = event.target.value.replace(/\D/g, '');
+
+    if (value.length > 14) {
+      value = value.substring(value.length - 14);
+    }
+
+    const text = [];
+    value.split('').forEach((char, index) => {
+      switch (index) {
+        case 2:
+        case 5:
+          text.push('.');
+          break;
+        case 8:
+          text.push('/')
+          break;
+        case 12:
+          text.push('-')
+          break;
+      }
+      text.push(char);
+    });
+
+    this.form.controls.taxPayerRegistration.patchValue(text.join(''));
+  }
+
+  changePhoneNumber(event: any) {
+    let value: string = event.target.value.replace(/\D/g, '');
+    this.form.controls.phoneNumber.patchValue(value);
+  }
+
   dismiss() {
     this.modalCtrl.dismiss();
   }

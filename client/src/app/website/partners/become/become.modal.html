@@ -18,30 +18,40 @@
         <ion-item>
           <ion-label position="stacked">Razão Social*</ion-label>
           <ion-input type="text" formControlName="registeredName"></ion-input>
+          <small *ngIf="form.controls.registeredName.errors?.required">Esse campo é obrigatório</small>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Nome Fantasia*</ion-label>
           <ion-input type="text" formControlName="tradingName"></ion-input>
+          <small *ngIf="form.controls.tradingName.errors?.required">Esse campo é obrigatório</small>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">CNPJ*</ion-label>
-          <ion-input type="text" formControlName="taxPayerRegistration"></ion-input>
+          <ion-input type="text" inputmode="numeric" (ionInput)="changeTaxPayerRegistration($event)" formControlName="taxPayerRegistration"></ion-input>
+          <small *ngIf="form.controls.taxPayerRegistration.errors?.required">Esse campo é obrigatório</small>
+          <small *ngIf="form.controls.taxPayerRegistration.errors?.pattern">Esse campo está inválido</small>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Telefone (Whatsapp)*</ion-label>
-          <ion-input type="text" formControlName="phoneNumber"></ion-input>
+          <ion-input type="text" inputmode="numeric" (ionInput)="changePhoneNumber($event)" formControlName="phoneNumber"></ion-input>
+          <small *ngIf="form.controls.phoneNumber.errors?.required">Esse campo é obrigatório</small>
+          <small *ngIf="form.controls.phoneNumber.errors?.email">Esse campo está inválido</small>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Email*</ion-label>
           <ion-input type="email" formControlName="email"></ion-input>
+          <small *ngIf="form.controls.email.errors?.required">Esse campo é obrigatório</small>
+          <small *ngIf="form.controls.email.errors?.email">Esse campo está inválido</small>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Produto/Servico*</ion-label>
           <ion-input type="text" formControlName="productService"></ion-input>
+          <small *ngIf="form.controls.productService.errors?.required">Esse campo é obrigatório</small>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Observações*</ion-label>
           <ion-textarea type="text" rows="3" formControlName="comments"></ion-textarea>
+          <small *ngIf="form.controls.comments.errors?.required">Esse campo é obrigatório</small>
         </ion-item>
       </ion-list>
       <div class="ion-padding-top">

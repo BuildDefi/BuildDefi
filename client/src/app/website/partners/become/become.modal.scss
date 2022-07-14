@@ -1,0 +1,11 @@
+ion-item {
+  small {
+    display: none;
+    padding: 1em 0;
+  }
+
+  ion-input.ion-touched.ion-invalid + small {
+    display: block;
+    color: var(--ion-color-danger);
+  }
+}
