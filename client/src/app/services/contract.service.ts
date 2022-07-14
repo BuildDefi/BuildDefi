@@ -254,7 +254,17 @@ export class ContractService {
       switchMap(contract => {
         cContract = contract;
 
-        return this.tokenInfo;
+        return this.takeTokenInfo;
+      }),
+      switchMap(tokenInfo => {
+        if (tokenInfo) {
+          return of({});
+        }
+
+        return this.fetchInfo();
+      }),
+      switchMap(() => {
+        return this.takeTokenInfo;
       }),
       switchMap(tokenInfo => {
         const decimals = +tokenInfo.decimals.toString();
