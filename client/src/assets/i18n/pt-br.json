@@ -1,7 +1,6 @@
 {
   "home": {
     "navbar": {
-      "home": "Início",
       "features": "Funcionalidades",
       "roadmap": "Roadmap",
       "about": "Sobre",
@@ -12,7 +11,7 @@
     },
     "header": {
       "title": "Seja holder de um ativo digital inteligente dentro dos mercados mais lucrativos da atualidade.",
-      "subtitle": "Distribuimos cotas de benefícios durante o hold com base no lastro e a valorização em um dos fundos mais seguros e rentáveis do mercado.",
+      "subtitle": "Distribuimos cotas de benefícios para os Holders BDF, com base no lastro e a valorização em um dos fundos mais seguros e rentáveis do mercado.",
       "contract": "Contrato"
     }
   },
@@ -21,16 +20,18 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "Um Token de utilidade, que conecta em um só lugar: Blockchain, negócios imobiliários, produtos e serviços."
+        "description": "Um Token de utilidade, que conecta em um só lugar: Blockchain, negócios imobiliários, produtos e serviços.",
+        "action": "Compre Agora"
       },
       "2": {
-        "title": "BDFpay",
-        "description": "Soluções completas para o seu negócio processar pagamentos por meio de crypto-moedas em tempo real."
-      },
-      "3": {
         "title": "Marketplace (Em Breve)",
         "description": "Compre e venda produtos e serviços de qualquer lugar do mundo utilizando nosso marketplace.",
-        "partner": "Seja um parceiro"
+        "action": "Seja um parceiro"
+      },
+      "3": {
+        "title": "BDFpay",
+        "description": "Soluções completas para o seu negócio processar pagamentos por meio de crypto-moedas em tempo real.",
+        "action": "Em breve"
       }
     }
   },
@@ -52,7 +53,7 @@
     "title": "Parceiros",
     "become": {
       "title": "Seja um parceiro",
-      "description": "Seja um parceiro BuildDefi, em nosso MarkePlace de produtos e serviços.",
+      "description": "Seja um parceiro Build Defi, e venha fazer parte do nosso Marketplace de produtos e serviços.",
       "message": "Uma nova fase para seu negócio"
     }
   },

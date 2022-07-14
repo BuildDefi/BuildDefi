@@ -1,7 +1,6 @@
 {
   "home": {
     "navbar": {
-      "home": "Home",
       "features": "Features",
       "roadmap": "Roadmap",
       "about": "About",
@@ -12,7 +11,7 @@
     },
     "header": {
       "title": "Own a smart digital asset within today's most profitable markets.",
-      "subtitle": "We distribute benefit shares during the hold based on the backing and valuation in one of the safest and most profitable funds on the market.",
+      "subtitle": "We distribute benefit shares to BDF Holders, based on backing and valuation in one of the safest and most profitable funds on the market.",
       "contract": "Contract"
     }
   },
@@ -21,16 +20,18 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "A Utility Token, which connects in one place: Blockchain, real estate businesses, products and services."
+        "description": "A Utility Token, which connects in one place: Blockchain, real estate businesses, products and services.",
+        "action": "Buy Now"
       },
       "2": {
-        "title": "BDFpay",
-        "description": "Complete solutions for your business to process payments through cryptocurrencies in real time.!"
-      },
-      "3": {
         "title": "Marketplace (Soon)",
         "description": "Buy and sell products and services from anywhere in the world using our marketplace.",
-        "partner": "Become a partner"
+        "action": "Become a partner"
+      },
+      "3": {
+        "title": "BDFpay",
+        "description": "Complete solutions for your business to process payments through cryptocurrencies in real time.",
+        "action": "Soon"
       }
     }
   },
@@ -52,7 +53,7 @@
     "title": "Partners",
     "become": {
       "become": "Become a partner",
-      "description": "Seja um parceiro BuildDefi, em nosso MarkePlace de produtos e serviços.",
+      "description": "Become a Build Defi partner, and become part of our Marketplace of products and services.",
       "message": "Uma nova fase para seu negócio"
     }
   },

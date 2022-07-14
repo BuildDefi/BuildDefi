@@ -1,11 +1,5 @@
 :host {
-  // background-color:hsla(79,0%,0%,1);
   background: #000000;
-  // background-image:
-  //   radial-gradient(at 39% 3%, hsla(155,0%,13%,1) 0px, transparent 50%),
-  //   radial-gradient(at 37% 89%, hsla(156,0%,7%,1) 0px, transparent 50%),
-  //   radial-gradient(at 10% 42%, hsla(156,0%,11%,1) 0px, transparent 50%),
-  //   radial-gradient(at 81% 14%, hsla(0,0%,21%,1) 0px, transparent 50%);
   color: #ffffff;
   justify-content: unset;
 
@@ -17,6 +11,8 @@
     user-select: none;
 
     .logo {
+      cursor: pointer;
+
       ion-img {
         width: 200px;
       }

@@ -2,24 +2,40 @@
   <h2>{{ 'features.title' | translate }}</h2>
   <div class="solutions">
     <div class="solution">
-      <ion-img src="/assets/images/solution1.png"></ion-img>
-      <h2>{{ 'features.solutions.1.title' | translate }}</h2>
-      <p>{{ 'features.solutions.1.description' | translate }}</p>
-    </div>
-    <div class="solution">
-      <ion-img src="/assets/images/solution2.png"></ion-img>
-      <h2>{{ 'features.solutions.2.title' | translate }}</h2>
-      <p>{{ 'features.solutions.2.description' | translate }}</p>
-    </div>
-    <div class="solution">
-      <ion-img src="/assets/images/solution3.png"></ion-img>
-      <h2>{{ 'features.solutions.3.title' | translate }}</h2>
-      <p>{{ 'features.solutions.3.description' | translate }}</p>
+      <div class="body">
+        <ion-img src="/assets/images/solution1.png"></ion-img>
+        <h2>{{ 'features.solutions.1.title' | translate }}</h2>
+        <p>{{ 'features.solutions.1.description' | translate }}</p>
+      </div>
 
+      <div class="action ion-activatable" (click)="openPancakeSwap()">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="cart-outline"></ion-icon>
+        {{ 'features.solutions.1.action' | translate }}
+      </div>
+    </div>
+    <div class="solution">
+      <div class="body">
+        <ion-img src="/assets/images/solution2.png"></ion-img>
+        <h2>{{ 'features.solutions.2.title' | translate }}</h2>
+        <p>{{ 'features.solutions.2.description' | translate }}</p>
+      </div>
       <div class="action ion-activatable" (click)="openModal()">
         <ion-ripple-effect></ion-ripple-effect>
         <ion-icon name="storefront-outline"></ion-icon>
-        {{ 'features.solutions.3.partner' | translate }}
+        {{ 'features.solutions.2.action' | translate }}
+      </div>
+    </div>
+    <div class="solution">
+      <div class="body">
+        <ion-img src="/assets/images/solution3.png"></ion-img>
+        <h2>{{ 'features.solutions.3.title' | translate }}</h2>
+        <p>{{ 'features.solutions.3.description' | translate }}</p>
+      </div>
+
+      <div class="action ion-activatable">
+        <ion-icon name="wallet-outline"></ion-icon>
+        {{ 'features.solutions.3.action' | translate }}
       </div>
     </div>
   </div>

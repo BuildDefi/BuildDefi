@@ -1,14 +1,13 @@
 <div class="container navbar">
-  <div class="logo">
+  <div class="logo" (click)="scrollTo('home')">
     <ion-img src="/assets/icons/logo.png"></ion-img>
   </div>
   <div class="toolbar">
     <div class="items">
-      <div class="item" (click)="scrollTo('home')">{{ 'home.navbar.home' | translate }}</div>
       <div class="item" (click)="scrollTo('features')">{{ 'home.navbar.features' | translate }}</div>
       <div class="item" (click)="scrollTo('roadmap')">{{ 'home.navbar.roadmap' | translate }}</div>
       <div class="item" (click)="scrollTo('about')">{{ 'home.navbar.about' | translate }}</div>
-      <div class="item" (click)="openWhitepaper()">{{ 'home.navbar.whitepaper' | translate }}</div>
+      <!-- <div class="item" (click)="openWhitepaper()">{{ 'home.navbar.whitepaper' | translate }}</div> -->
     </div>
     <div class="actions">
       <div class="action ion-activatable" routerLink="/holder">

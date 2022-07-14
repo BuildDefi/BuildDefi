@@ -1,7 +1,6 @@
 {
   "home": {
     "navbar": {
-      "home": "Comienzo",
       "features": "Funcionalidades",
       "roadmap": "Roadmap",
       "about": "Sobre",
@@ -12,7 +11,7 @@
     },
     "header": {
       "title": "Sea propietario de un activo digital inteligente en los mercados más rentables de la actualidad.",
-      "subtitle": "Distribuimos acciones de beneficio durante la retención en función del respaldo y la valoración en uno de los fondos más seguros y rentables del mercado.",
+      "subtitle": "Distribuimos acciones de beneficio a los titulares de BDF, con base en el respaldo y la valoración en uno de los fondos más seguros y rentables del mercado.",
       "contract": "Contrato"
     }
   },
@@ -21,16 +20,18 @@
     "solutions": {
       "1": {
         "title": "BDF Token",
-        "description": "Un Utility Token, que conecta en un solo lugar: Blockchain, negocios inmobiliarios, productos y servicios."
+        "description": "Un Utility Token, que conecta en un solo lugar: Blockchain, negocios inmobiliarios, productos y servicios.",
+        "action": "Compre ahora"
       },
       "2": {
-        "title": "BDFpay",
-        "description": "Soluciones completas para que tu negocio procese pagos a través de criptomonedas en tiempo real."
-      },
-      "3": {
         "title": "Marketplace (Próximamente)",
         "description": "Compre y venda productos y servicios desde cualquier parte del mundo utilizando nuestro marketplace.",
-        "partner": "Convertirse en socio"
+        "action": "Convertirse en socio"
+      },
+      "3": {
+        "title": "BDFpay",
+        "description": "Soluciones completas para que tu negocio procese pagos a través de criptomonedas en tiempo real.",
+        "action": "Próximamente"
       }
     }
   },
@@ -52,7 +53,7 @@
     "title": "Socios",
     "become": {
       "title": "Convertirse en socio",
-      "description": "Seja um parceiro BuildDefi, em nosso MarkePlace de produtos e serviços.",
+      "description": "Conviértase en socio de Build Defi y forme parte de nuestro Marketplace de productos y servicios.",
       "message": "Uma nova fase para seu negócio"
     }
   },

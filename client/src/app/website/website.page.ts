@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -16,7 +16,6 @@ declare var window: { open: any, innerHeight: number };
 })
 export class WebsitePage implements OnInit, OnDestroy {
 
-  @ViewChild('content', { static: true }) ionContent: any;
   constractAddress = environment.contract.address;
   selectedLanguage: string;
   subs: Subscription[] = [];
@@ -82,16 +81,16 @@ export class WebsitePage implements OnInit, OnDestroy {
     const height = window.innerHeight - 70;
     switch (type) {
       case 'home':
-        this.ionContent.scrollToPoint(0, height * 0);
+        document.querySelector('section.first').scrollIntoView();
         break;
       case 'features':
-        this.ionContent.scrollToPoint(0, height * 1);
+        document.querySelector('app-features').scrollIntoView();
         break;
       case 'roadmap':
-        this.ionContent.scrollToPoint(0, height * 2);
+        document.querySelector('app-roadmap').scrollIntoView();
         break;
       case 'about':
-        this.ionContent.scrollToPoint(0, height * 3);
+        document.querySelector('app-about').scrollIntoView();
         break;
     }
   }
