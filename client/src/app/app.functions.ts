@@ -43,6 +43,8 @@ export const appCatchError = (
         const part = message.replace(`ER_DUP_ENTRY: Duplicate entry '`, '');
         const index = part.indexOf(`'`);
         message = `Já existe um registro com esse valor (${part.substring(0, index)}) em nosso banco de dados.`;
+      } else if (message === 'InvalidTaxPayerRegistration') {
+        message = 'CNPJ Inválido!';
       } else {
         console.error(error);
       }
