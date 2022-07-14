@@ -91,14 +91,21 @@ export class MultipleTransfersPage implements OnInit {
         return `${av.address} ${+av.value * valuePerQuote}`;
       }).join('\n')
     );
-    const toast = await this.toastCtrl.create({ message: 'Conversão executada com sucesso, olhe o card Transferir Tokens!' });
+    const toast = await this.toastCtrl.create({
+      message: 'Conversão executada com sucesso, olhe o card Transferir Tokens!',
+      duration: 1000
+    });
     toast.present();
   }
 
   private parseText(text: string): AddressValue[] {
     return text.split('\n').map((item: string) => {
+      if (!item) {
+        return null;
+      }
+
       const cols = item.replace(/\t/g, ' ').split(' ');
       return { address: cols[0].trim(), value: cols[1].replace(/,/g, '') } as AddressValue;
-    }).filter(av => av.address.startsWith('0x') && av.address.length === 42);
+    }).filter(av => av && av.address.startsWith('0x') && av.address.length === 42);
   }
 }
